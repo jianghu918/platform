@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<import resource="applicationContext-profile.xml"/>
+
+	<!-- <context:property-placeholder location="classpath:application.properties"/> -->
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+		<property name="idleConnectionTestPeriodInMinutes" value="60" />
+		<property name="idleMaxAgeInMinutes" value="240" />
+		<property name="maxConnectionsPerPartition" value="30" />
+		<property name="minConnectionsPerPartition" value="10" />
+		<property name="partitionCount" value="3" />
+		<property name="acquireIncrement" value="5" />
+		<property name="statementsCacheSize" value="100" />
+		<property name="releaseHelperThreads" value="3" />
+	</bean>
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.le07.api.tester">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames"
+			value="classpath:message/errors,classpath:message/messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean class="com.le07.framework.message.NLS">
+		<property name="messageProvider">
+			<bean class="com.le07.framework.message.SpringMessageProvider">
+				<property name="messageSource" ref="messageSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy">
+			<bean class="com.le07.framework.support.hibernate.PrefixNamingStrategy">
+				<property name="prefix" value="api_" />
+			</bean>
+		</property>
+		<property name="packagesToScan" value="com.le07.api.tester.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.default_schema">${db.username}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">25</prop>
+				<prop key="use_streams_for_binary">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+				</prop>
+				<prop key="hibernate.show_sql">${hibernate.debug}</prop>
+				<prop key="hibernate.format_sql">${hibernate.debug}</prop>
+				<prop key="hibernate.generate_statistics">${hibernate.debug}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="com.le07.framework.support.spring.tx.Hibernate4ReadonlyTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<bean id="freemarkerConfigurer"
+		class="com.le07.framework.support.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPaths" value="/WEB-INF/views/,/" />
+		<property name="objectWrapper">
+			<bean
+				class="com.le07.framework.support.freemarker.ConfigurableObjectWrapper">
+				<property name="classMapping">
+					<map>
+						<entry key="com.le07.framework.api.metadata.Node" value="com.le07.api.tester.model.NodeTemplateModel" />
+					</map>
+				</property>
+			</bean>
+		</property>
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">0</prop>
+				<prop key="datetime_format">yyyy-MM-dd</prop>
+				<prop key="time_format">HH:mm:ss</prop>
+				<prop key="number_format">0.######</prop>
+				<prop key="boolean_format">true,false</prop>
+				<prop key="auto_include">common/common.ftl</prop>
+				<prop key="defaultEncoding">UTF-8</prop>
+			</props>
+		</property>
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="_debug" value="true" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="threadResourceManager"
+		class="com.le07.framework.support.spring.tx.DefaultThreadResourceManager">
+		<property name="providers">
+			<list>
+				<bean
+					class="com.le07.framework.support.spring.tx.HibernateResourceProvider">
+					<property name="sessionFactory" ref="sessionFactory" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="taskExecutor"
+		class="com.le07.framework.support.spring.tx.ThreadResourceSupportTaskExecutor">
+		<property name="corePoolSize" value="1" />
+		<property name="maxPoolSize" value="2" />
+		<property name="threadResourceManager" ref="threadResourceManager" />
+	</bean>
+
+	<bean id="apiService" class="com.le07.api.tester.service.impl.ApiServiceImpl">
+		<property name="taskExecutor" ref="taskExecutor" />
+		<property name="defaultServiceUrl" value="${base.url}/cs" />
+		<property name="serviceUrls">
+			<map>
+				<entry key="Test.TestService" value="${base.url}/test/TestService" />
+			</map>
+		</property>
+	</bean>
+
+
+</beans>

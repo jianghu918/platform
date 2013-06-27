@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Thrift module: Type</title></head><body>
+<div class="container-fluid">
+<h1>Thrift module: Type</h1>
+<table class="table-bordered table-striped table-condensed"><thead><th>Module</th><th>Services</th><th>Data types</th><th>Constants</th></thead>
+<tr>
+<td>Type</td><td></td>
+<td><a href="Type.html#Struct_AnyException">AnyException</a><br/>
+<a href="Type.html#Typedef_Boolean">Boolean</a><br/>
+<a href="Type.html#Struct_StackTrace">StackTrace</a><br/>
+<a href="Type.html#Enum_Status">Status</a><br/>
+<a href="Type.html#Typedef_Timestamp">Timestamp</a><br/>
+</td>
+<td><code><a href="Type.html#Const_FALSE_BOOLEAN">FALSE_BOOLEAN</a></code><br/>
+<code><a href="Type.html#Const_JSON">JSON</a></code><br/>
+<code><a href="Type.html#Const_NULL_BOOLEAN">NULL_BOOLEAN</a></code><br/>
+<code><a href="Type.html#Const_NULL_DATE">NULL_DATE</a></code><br/>
+<code><a href="Type.html#Const_NULL_DOUBLE">NULL_DOUBLE</a></code><br/>
+<code><a href="Type.html#Const_NULL_INT">NULL_INT</a></code><br/>
+<code><a href="Type.html#Const_NULL_LONG">NULL_LONG</a></code><br/>
+<code><a href="Type.html#Const_NULL_SHORT">NULL_SHORT</a></code><br/>
+<code><a href="Type.html#Const_SECONDS_PER_DAY">SECONDS_PER_DAY</a></code><br/>
+<code><a href="Type.html#Const_SECONDS_PER_HOUR">SECONDS_PER_HOUR</a></code><br/>
+<code><a href="Type.html#Const_SECONDS_PER_MINUTE">SECONDS_PER_MINUTE</a></code><br/>
+<code><a href="Type.html#Const_SECONDS_PER_MONTH">SECONDS_PER_MONTH</a></code><br/>
+<code><a href="Type.html#Const_SECONDS_PER_WEEK">SECONDS_PER_WEEK</a></code><br/>
+<code><a href="Type.html#Const_TRUE_BOOLEAN">TRUE_BOOLEAN</a></code><br/>
+</code></td>
+</tr></table>
+<hr/><h2 id="Constants">Constants</h2>
+<table class="table-bordered table-striped table-condensed"><thead><th>Constant</th><th>Type</th><th>Value</th></thead>
+<tr id="Const_JSON"><td><code>JSON</code></td><td><code>string</code></td><td><code>"_json"</code></td></tr><tr><td colspan="3"><blockquote>对于这种自定义数据的方式,7: optional map<string, string> data
+如果放入一个已JSON常量作为key的值,则表示已这个值反序列后作为data
+<br/></blockquote></td></tr><tr id="Const_TRUE_BOOLEAN"><td><code>TRUE_BOOLEAN</code></td><td><code><a href="Type.html#Typedef_Boolean">Boolean</a></code></td><td><code>1</code></td></tr><tr id="Const_FALSE_BOOLEAN"><td><code>FALSE_BOOLEAN</code></td><td><code><a href="Type.html#Typedef_Boolean">Boolean</a></code></td><td><code>-1</code></td></tr><tr id="Const_NULL_BOOLEAN"><td><code>NULL_BOOLEAN</code></td><td><code><a href="Type.html#Typedef_Boolean">Boolean</a></code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>表示空的bool
+因为Thrift的基本类型不支持null,在做插入操作的时候用来表示主键为空
+<br/></blockquote></td></tr><tr id="Const_NULL_SHORT"><td><code>NULL_SHORT</code></td><td><code>i16</code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>同上
+<br/></blockquote></td></tr><tr id="Const_NULL_INT"><td><code>NULL_INT</code></td><td><code>i32</code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>同上
+<br/></blockquote></td></tr><tr id="Const_NULL_LONG"><td><code>NULL_LONG</code></td><td><code>i64</code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>同上
+<br/></blockquote></td></tr><tr id="Const_NULL_DOUBLE"><td><code>NULL_DOUBLE</code></td><td><code>double</code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>同上
+<br/></blockquote></td></tr><tr id="Const_NULL_DATE"><td><code>NULL_DATE</code></td><td><code><a href="Type.html#Typedef_Timestamp">Timestamp</a></code></td><td><code>0</code></td></tr><tr><td colspan="3"><blockquote>同上
+<br/></blockquote></td></tr><tr id="Const_SECONDS_PER_MINUTE"><td><code>SECONDS_PER_MINUTE</code></td><td><code>i32</code></td><td><code>60</code></td></tr><tr><td colspan="3"><blockquote>一分钟的秒数
+<br/></blockquote></td></tr><tr id="Const_SECONDS_PER_HOUR"><td><code>SECONDS_PER_HOUR</code></td><td><code>i32</code></td><td><code>3600</code></td></tr><tr><td colspan="3"><blockquote>一小时的秒数
+<br/></blockquote></td></tr><tr id="Const_SECONDS_PER_DAY"><td><code>SECONDS_PER_DAY</code></td><td><code>i32</code></td><td><code>86400</code></td></tr><tr><td colspan="3"><blockquote>一天的秒数
+<br/></blockquote></td></tr><tr id="Const_SECONDS_PER_WEEK"><td><code>SECONDS_PER_WEEK</code></td><td><code>i32</code></td><td><code>604800</code></td></tr><tr><td colspan="3"><blockquote>一周的秒数
+<br/></blockquote></td></tr><tr id="Const_SECONDS_PER_MONTH"><td><code>SECONDS_PER_MONTH</code></td><td><code>i32</code></td><td><code>18144000</code></td></tr><tr><td colspan="3"><blockquote>一个月的秒数
+<br/></blockquote></td></tr></table><hr/><h2 id="Enumerations">Enumerations</h2>
+<div class="definition"><h3 id="Enum_Status">Enumeration: Status</h3>
+表示实体对象的状态
+<p/>
+@field ENABLED 表示对象处于正常启用状态
+<p/>
+@field DISABLED 表示对象被禁用
+<p/>
+@field DELETED 表示对象已被删除
+<br/><br/><table class="table-bordered table-striped table-condensed">
+<tr><td><code>ENABLED</code></td><td><code>0</code></td></tr>
+<tr><td><code>DISABLED</code></td><td><code>1</code></td></tr>
+<tr><td><code>DELETED</code></td><td><code>2</code></td></tr>
+</table></div>
+<hr/><h2 id="Typedefs">Type declarations</h2>
+<div class="definition"><h3 id="Typedef_Timestamp">Typedef: Timestamp</h3>
+<p><strong>Base type:</strong>&nbsp;<code>i64</code></p>
+表示时间戳类型
+因为Thrift原生没有时间类型,所以用到时间的话推荐使用这个类型
+<br/></div>
+<div class="definition"><h3 id="Typedef_Boolean">Typedef: Boolean</h3>
+<p><strong>Base type:</strong>&nbsp;<code>i16</code></p>
+</div>
+<hr/><h2 id="Structs">Data structures</h2>
+<div class="definition"><h3 id="Struct_StackTrace">Struct: StackTrace</h3>
+<table class="table-bordered table-striped table-condensed"><thead><th>Key</th><th>Field</th><th>Type</th><th>Description</th><th>Requiredness</th><th>Default value</th></thead>
+<tr><td>1</td><td>className</td><td><code>string</code></td><td></td><td>default</td><td></td></tr>
+<tr><td>2</td><td>methodName</td><td><code>string</code></td><td></td><td>default</td><td></td></tr>
+<tr><td>3</td><td>fileName</td><td><code>string</code></td><td></td><td>default</td><td></td></tr>
+<tr><td>4</td><td>lineNumber</td><td><code>i32</code></td><td></td><td>default</td><td></td></tr>
+</table><br/>异常堆栈对象
+<p/>
+@field className 发生异常的类
+<p/>
+@field methodName 发生异常的方法
+<p/>
+@field fileName 发生异常的文件
+<p/>
+@field lineNumber 发生异常的行号
+<br/></div><div class="definition"><h3 id="Struct_AnyException">Exception: AnyException</h3>
+<table class="table-bordered table-striped table-condensed"><thead><th>Key</th><th>Field</th><th>Type</th><th>Description</th><th>Requiredness</th><th>Default value</th></thead>
+<tr><td>1</td><td>code</td><td><code>i32</code></td><td></td><td>optional</td><td>1</td></tr>
+<tr><td>2</td><td>msg</td><td><code>string</code></td><td></td><td>optional</td><td></td></tr>
+<tr><td>3</td><td>stackTraces</td><td><code>list&lt;<code><a href="Type.html#Struct_StackTrace">StackTrace</a></code>&gt;</code></td><td></td><td>optional</td><td></td></tr>
+</table><br/>通用错误对象
+<p/>
+@field code 错误代码
+<p/>
+@field msg 错误消息
+<p/>
+@field stackTraces 错误堆栈，供调试用
+<br/></div></div></body></html>
