@@ -673,6 +673,7 @@
         <module>api</module>
         <module>framework</module>
         <module>api-test</module>
+        <module>common-service</module>
     </modules>
 
 
