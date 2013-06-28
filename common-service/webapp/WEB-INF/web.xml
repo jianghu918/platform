@@ -6,5 +6,76 @@
     <display-name>common-service</display-name>
     <description>Common Service Web Application</description>
 
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>sc.root</param-value>
+    </context-param>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:/applicationContext.xml
+        </param-value>
+    </context-param>
+
+
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>openThreadResourceInViewFilter</filter-name>
+        <filter-class>com.le07.framework.support.spring.tx.OpenThreadResourceInViewFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>openThreadResourceInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.le07.framework.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/applicationContext-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--<resource-ref>
+        <description>Any DataSource</description>
+        <res-ref-name>jdbc/any</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    <resource-ref>
+        <description>Any Redis</description>
+        <res-ref-name>redis/any</res-ref-name>
+        <res-type>redis.clients.util.Pool</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>-->
 </web-app>

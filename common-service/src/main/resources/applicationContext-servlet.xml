@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.le07.commonservice.web"/>
+
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="useSuffixPatternMatch" value="false"/>
+        <property name="interceptors">
+            <list>
+                <bean class="com.le07.framework.security.web.SecContextInterceptor">
+                    <property name="excludes">
+                    	<list>
+                    		<value>/drm</value>
+                    		<value>/short</value>
+                    	</list>
+                    </property>
+                    <property name="redirectUrl" value="http://i.le07.com/login/index?callback="/>
+                    <property name="needLogins">
+                        <array>
+                            <value>/**</value>
+                        </array>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>-->
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+        <property name="messageConverters" ref="jsonMessageConverter"/>
+    </bean>
+
+    <bean id="jsonMessageConverter" class="com.le07.framework.support.spring.MappingFastjsonHttpMessageConverter"/>
+
+    <mvc:resources mapping="/static/**" location="/static/" cache-period="3600"/>
+
+    <mvc:default-servlet-handler/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!-- 发布服务 -->
+    <bean name="/appService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftAppService"/>
+        <property name="serviceInterface" value="com.le07.api.app.AppService$Iface"/>
+        <!--<property name="proxyTargetClass" value="false"/>-->
+    </bean>
+
+
+    <!-- 引用服务 -->
+   <!--<bean id="productService" class="com.le07.framework.support.thrift.ThriftHttpProxyFactoryBean">
+        <property name="serviceUrl" value="${product.url}" />
+        <property name="serviceInterface"
+                  value="sanyuan.any123.api.product.ProductService$Iface" />
+    </bean>-->
+
+</beans>

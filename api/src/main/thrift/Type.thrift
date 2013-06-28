@@ -90,6 +90,132 @@ enum Status {
 	ENABLED = 0, DISABLED = 1, DELETED = 2
 }
 
+
+
+/**
+ * 用户类型
+ *
+ * @field ADMIN 系统管理员
+ *
+ * @field BUSINESS 商家管理员
+ *
+ * @field INTERNAL 商家内部用户
+ *
+ * @field CONSUMER 普通用户
+ */
+enum UserType {
+	ADMIN = 0, BUSINESS = 1, INTERNAL = 2, CONSUMER = 3
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 异常堆栈对象
  *

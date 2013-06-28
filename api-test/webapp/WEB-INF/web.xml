@@ -58,7 +58,6 @@
     </filter-mapping>
 
     <listener>
-        <!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
         <listener-class>com.le07.framework.context.ContextLoaderListener</listener-class>
     </listener>
 

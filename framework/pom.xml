@@ -20,7 +20,11 @@
 
     <dependencies>
         <!-- 内部引用 -->
-
+         <dependency>
+             <groupId>com.le07</groupId>
+             <artifactId>api</artifactId>
+             <optional>true</optional>
+         </dependency>
 
 
         <dependency>

@@ -139,6 +139,7 @@
 		<property name="serviceUrls">
 			<map>
 				<entry key="Test.TestService" value="${base.url}/test/TestService" />
+				<entry key="App.AppService" value="${base.url}/test/AppService" />
 			</map>
 		</property>
 	</bean>
