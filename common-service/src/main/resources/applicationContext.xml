@@ -75,6 +75,7 @@
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.default_schema">${db.username}</prop>
+                <prop key="hibernate.ejb.naming_strategy">com.le07.framework.support.hibernate.CS_PrefixNamingStrategy</prop>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.jdbc.fetch_size">50</prop>
                 <prop key="hibernate.jdbc.batch_size">25</prop>
