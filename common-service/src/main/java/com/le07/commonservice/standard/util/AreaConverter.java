@@ -5,7 +5,7 @@ import com.le07.commonservice.standard.model.Area;
 /**
  * 简述
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午5:00

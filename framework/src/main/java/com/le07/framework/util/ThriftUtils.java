@@ -5,6 +5,8 @@ import com.le07.api.type.AnyException;
 import com.le07.api.type.StackTrace;
 import com.le07.framework.TypeConstants;
 import com.le07.framework.ex.ErrorCode;
+import com.le07.framework.global.type.Status;
+import com.le07.framework.global.type.UserType;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.CollectionUtils;
@@ -172,4 +174,80 @@ public class ThriftUtils {
 
 		return lids;
 	}
+
+
+
+
+
+
+
+
+
+
+    //--公共Type.thrift里枚举转换--------------------------------------------------------------------------------------------------//
+    public static Status toStatus(com.le07.api.type.Status status)
+    {
+        return null == status ? null : Status.values()[status.ordinal()];
+    }
+
+    public static List<Status> toStatus(List<com.le07.api.type.Status> status)
+    {
+        if(CollectionUtils.isEmpty(status))
+            return null;
+        List<Status> list = new ArrayList<Status>(status.size());
+        for (com.le07.api.type.Status s : status) {
+            list.add(toStatus(s));
+        }
+        return list;
+    }
+
+    public static Set<Status> toStatus(Set<com.le07.api.type.Status> status)
+    {
+        if(CollectionUtils.isEmpty(status))
+            return null;
+        Set<Status> set = new HashSet<Status>(status.size());
+        for (com.le07.api.type.Status s : status) {
+            set.add(toStatus(s));
+        }
+        return set;
+    }
+
+    public static com.le07.api.type.Status toApiStatus(Status status)
+    {
+        return null == status ? null : com.le07.api.type.Status.values()[status.ordinal()];
+    }
+
+    public static List<com.le07.api.type.Status> toApiStatus(List<Status> status)
+    {
+        if(CollectionUtils.isEmpty(status))
+            return null;
+        List<com.le07.api.type.Status> list = new ArrayList<com.le07.api.type.Status>(status.size());
+        for (Status s : status) {
+            list.add(toApiStatus(s));
+        }
+        return list;
+    }
+
+    public static Set<com.le07.api.type.Status> toApiStatus(Set<Status> status)
+    {
+        if(CollectionUtils.isEmpty(status))
+            return null;
+        Set<com.le07.api.type.Status> set = new HashSet<com.le07.api.type.Status>(status.size());
+        for (Status s : status) {
+            set.add(toApiStatus(s));
+        }
+        return set;
+    }
+
+
+    public static com.le07.api.type.UserType toApiUserType(UserType userType)
+    {
+        return null == userType ? null : com.le07.api.type.UserType.findByValue(userType.getValue());
+    }
+
+    public static UserType toUserType(com.le07.api.type.UserType userType)
+    {
+        return null == userType ? null : UserType.findByValue(userType.getValue());
+    }
+
 }

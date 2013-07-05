@@ -3,7 +3,7 @@ package com.le07.commonservice.identity.util;
 /**
  * 简述
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午3:01

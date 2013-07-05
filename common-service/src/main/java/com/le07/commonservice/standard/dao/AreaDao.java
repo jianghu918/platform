@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 简述
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午4:56

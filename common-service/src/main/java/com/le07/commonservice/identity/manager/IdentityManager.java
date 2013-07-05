@@ -2,7 +2,8 @@ package com.le07.commonservice.identity.manager;
 
 import com.le07.commonservice.identity.model.User;
 import com.le07.commonservice.identity.util.Query;
-import com.le07.framework.util.PageEntity;
+import com.le07.framework.global.type.Status;
+import com.le07.framework.util.Page;
 
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
 /**
  * 用户身份信息服务管理
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午2:53
@@ -60,7 +61,7 @@ public interface IdentityManager {
      *
      * @param status 状态
      */
-    public void updateUserStatus(long userId, com.le07.api.type.Status status) ;
+    public void updateUserStatus(long userId, Status status) ;
 
     /**
      * 批量修改用户状态
@@ -69,7 +70,7 @@ public interface IdentityManager {
      *
      * @param status 状态
      */
-    public void batchUpdateUserStatus(Set<Long> userIds, com.le07.api.type.Status status) ;
+    public void batchUpdateUserStatus(Set<Long> userIds, Status status) ;
 
     /**
      * 删除一个用户,这里是物理删除
@@ -119,7 +120,7 @@ public interface IdentityManager {
      *
      * @param size size
      */
-    public PageEntity<User> listUsers(Query query, long offset, long size) ;
+    public Page<User> listUsers(Query query, long offset, long size) ;
 
 
 }

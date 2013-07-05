@@ -58,27 +58,30 @@
     </bean>
 
 
-    <!-- 发布服务 -->
+    <!--                          发布服务 发布服务 发布服务 发布服务                                   -->
 
     <!-- app service -->
     <bean name="/appService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
         <property name="service" ref="thriftAppService"/>
         <property name="serviceInterface" value="com.le07.api.app.AppService$Iface"/>
-        <!--<property name="proxyTargetClass" value="false"/>-->
+    </bean>
+
+    <!-- biz service -->
+    <bean name="/bizService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftBizService"/>
+        <property name="serviceInterface" value="com.le07.api.app.BizConfigService$Iface"/>
     </bean>
 
     <!-- identity service -->
     <bean name="/identityService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
         <property name="service" ref="thriftIdentityService"/>
         <property name="serviceInterface" value="com.le07.api.identity.IdentityService$Iface"/>
-        <!--<property name="proxyTargetClass" value="false"/>-->
     </bean>
 
     <!-- 标准服务 service -->
     <bean name="/areaService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
         <property name="service" ref="thriftAreaService"/>
         <property name="serviceInterface" value="com.le07.api.standard.AreaService$Iface"/>
-        <!--<property name="proxyTargetClass" value="false"/>-->
     </bean>
 
 

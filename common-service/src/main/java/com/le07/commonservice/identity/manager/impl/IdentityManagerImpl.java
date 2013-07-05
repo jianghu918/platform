@@ -1,31 +1,41 @@
 package com.le07.commonservice.identity.manager.impl;
 
-import com.le07.api.type.Status;
+import com.google.common.collect.Maps;
+import com.le07.commonservice.identity.dao.SpecificDao;
 import com.le07.commonservice.identity.dao.UserDao;
 import com.le07.commonservice.identity.manager.IdentityManager;
 import com.le07.commonservice.identity.model.User;
 import com.le07.commonservice.identity.util.Query;
-import com.le07.framework.util.PageEntity;
+import com.le07.framework.global.type.Status;
+import com.le07.framework.global.type.UserType;
+import com.le07.framework.util.Page;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
- * 简述
+ * 用户身份
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午3:08
  */
 @Service
-public class IdentityManagerImpl implements IdentityManager{
+@Transactional
+public class IdentityManagerImpl implements IdentityManager {
 
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private SpecificDao specificDao;
 
 
     @Override
@@ -36,56 +46,113 @@ public class IdentityManagerImpl implements IdentityManager{
 
     @Override
     public long createUserByNameAndPwd(String name, String password) {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        user.setCreateAt(new Date());
+        user.setStatus(Status.ENABLED);
+        user.setType(UserType.CONSUMER);
+        return (userDao.save(user)).getId();
     }
+
+
+
+
+    public static String[] userAttrFileds = {"type", "phone", "age", "sex", "city", "qq", "msn", "weixin", "blog", "remark", "y1", "y2", "y3", "y4", "y5"};
 
     @Override
     public void updateUserAttr(User user) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        User original = userDao.findOne(user.getId());
+        /*if(null == original)
+        {
+            throw new IdentityException(ECode.IdentityCode.ENTITY_NOT_FOUND);
+        }*/
+        Assert.notNull(original, "user not found: id:" + user.getId());
+        BeanUtils.copyProperties(user, original, userAttrFileds);
+        userDao.save(original);
     }
 
     @Override
     public void updateUserPassword(String name, String oldPassword, String newPassword) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        User original = userDao.findByNameAndPassword(name, DigestUtils.md5Hex(oldPassword));
+        Assert.notNull(original, "user not found: name:" + name);
+        original.setPassword(newPassword);
+        userDao.save(original);
     }
+
 
     @Override
     public void updateUserStatus(long userId, Status status) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        User user = userDao.findOne(userId);
+        Assert.notNull(user, "user not found: id:" + userId);
+        user.setStatus(status);
+        userDao.save(user);
     }
 
     @Override
     public void batchUpdateUserStatus(Set<Long> userIds, Status status) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if(CollectionUtils.isEmpty(userIds))
+            return;
+        for (Long userId : userIds) {
+            updateUserStatus(userId, status);
+        }
     }
 
     @Override
     public void removeUser(long userId) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        updateUserStatus(userId, Status.DELETED);
     }
 
     @Override
     public void batchRemoveUser(Set<Long> userIds) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if(CollectionUtils.isEmpty(userIds))
+            return;
+        for (Long userId : userIds) {
+            removeUser(userId);
+        }
     }
 
     @Override
     public User getUserByNameAndPwd(String name, String password) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return userDao.findByNameAndPassword(name, DigestUtils.md5Hex(password));
     }
 
     @Override
     public User getUserById(long userId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return userDao.findOne(userId);
     }
 
     @Override
     public Map<Long, User> batchGetUserByIds(Set<Long> userIds) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        if(CollectionUtils.isEmpty(userIds))
+            return Collections.EMPTY_MAP;
+        List<User> users = userDao.getUserByIds(userIds);
+        if(CollectionUtils.isEmpty(users))
+            return Collections.EMPTY_MAP;
+        Map<Long, User> map = Maps.newHashMap();
+        for (User user : users) {
+            map.put(user.getId(), user);
+        }
+        return map;
     }
 
     @Override
-    public PageEntity<User> listUsers(Query query, long offset, long size) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public Page<User> listUsers(Query query, long offset, long size) {
+        Page<User> page = new Page<User>();
+
+        /*Pageable pageable;
+        if(offset >= 0 && size > 0 )
+        {
+            pageable = new PageRequest((int)offset, (int)size);
+        }else
+        {
+            pageable = new PageRequest(0, 20);
+        }
+        page.setTotal(userDao.count());
+        page.setItems(userDao.findAll(pageable).getContent());*/
+
+        page.setTotal((int) userDao.count());
+        page.setItems(specificDao.listUsers(query, offset, size));
+        return page;
     }
 }

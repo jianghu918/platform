@@ -1,19 +1,19 @@
 package com.le07.commonservice.identity.model;
 
-import com.le07.api.type.Status;
-import com.le07.api.type.UserType;
+import com.le07.framework.global.type.UserType;
+import com.le07.framework.global.type.Status;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
  * USER
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 上午11:36
@@ -24,24 +24,24 @@ import java.util.Date;
 @SuppressWarnings({"unused"})
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 9187171381797342145L;
+    private static final Long serialVersionUID = 9187171381797342145L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
-    private long id;
+    private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
     private String password;
 
     @Column
-    private UserType type;
+    private UserType type = UserType.CONSUMER;
     private String phone;
-    private Integer age;
-    private Integer sex;
+    private Long age = 0L;
+    private Long sex = 0L;
     private String city;
     private String qq;
     private String msn;
@@ -54,9 +54,9 @@ public class User implements Serializable {
 
     @Column(name = "update_at")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date updateAt;
+    private Date updateAt = new Date();
 
-    private Status status;
+    private Status status = Status.ENABLED;
 
     private String remark;
     private String y1;
@@ -66,11 +66,11 @@ public class User implements Serializable {
     private String y5;
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,7 +87,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = DigestUtils.md5Hex(password);
     }
 
     public UserType getType() {
@@ -106,19 +106,19 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 
-    public Integer getSex() {
+    public Long getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(Long sex) {
         this.sex = sex;
     }
 

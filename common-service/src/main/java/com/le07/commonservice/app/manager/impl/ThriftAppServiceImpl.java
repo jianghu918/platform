@@ -6,6 +6,7 @@ import com.le07.api.app.AppService;
 import com.le07.api.app.Biz;
 import com.le07.api.type.AnyException;
 import com.le07.commonservice.app.manager.AppManager;
+import com.le07.commonservice.app.util.Converter;
 import org.apache.thrift.TException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,36 +22,36 @@ public class ThriftAppServiceImpl implements AppService.Iface {
 
     @Override
     public App saveApp(App app) throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiApp(manager.saveApp(Converter.toApp(app)));
     }
 
     @Override
-    public void removeApps(List<Integer> ids) throws AnyException, TException {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void removeApps(List<Long> ids) throws AnyException, TException {
+        manager.removeApps(ids.toArray(new Long[ids.size()]));
     }
 
     @Override
-    public App getApp(int id) throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public App getApp(long id) throws AnyException, TException {
+        return Converter.toApiApp(manager.getApp(id));
     }
 
     @Override
     public List<App> getApps() throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiApp(manager.getApps());
     }
 
     @Override
     public Biz saveBiz(Biz biz) throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiBiz(manager.saveBiz(Converter.toBiz(biz)));
     }
 
     @Override
-    public void removeBizs(List<Integer> ids) throws AnyException, TException {
+    public void removeBizs(List<Long> ids) throws AnyException, TException {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public Biz getBiz(int id) throws AnyException, TException {
+    public Biz getBiz(long id) throws AnyException, TException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -60,7 +61,9 @@ public class ThriftAppServiceImpl implements AppService.Iface {
     }
 
     @Override
-    public List<Biz> getAppBizs(int appId) throws AnyException, TException {
+    public List<Biz> getAppBizs(long appId) throws AnyException, TException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+
 }

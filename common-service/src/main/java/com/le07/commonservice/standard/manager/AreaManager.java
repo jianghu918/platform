@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 区域服务管理
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-7-1
  * Time: 下午4:58

@@ -46,7 +46,7 @@ struct User{
 	/**
      * sex
      */
-    7: optional string sex,
+    7: optional i64 sex,
 
 	/**
      * city

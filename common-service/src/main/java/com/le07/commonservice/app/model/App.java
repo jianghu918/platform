@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 简述
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-6-28
  * Time: 上午10:26
@@ -28,7 +28,7 @@ public class App implements Statusable, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     @Column(name = "app_key", length = 32, nullable = false, unique = true)
     private String key;
     @Column(length = 64)
@@ -45,11 +45,11 @@ public class App implements Statusable, Serializable {
     @Column(nullable = false)
     private Status status = Status.ENABLED;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

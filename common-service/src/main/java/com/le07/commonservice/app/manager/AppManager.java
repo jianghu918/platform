@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * APP 服务
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-6-28
  * Time: 上午11:09

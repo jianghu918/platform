@@ -16,7 +16,7 @@ struct App {
 	 *
 	 * @readonly
 	 */
-	1: optional i32 id,
+	1: optional i64 id,
 
 	/**
 	 * 应用的key,必须唯一
@@ -43,12 +43,12 @@ struct Biz {
 	 *
 	 * @readonly
 	 */
-	1: optional i32 id,
+	1: optional i64 id,
 
 	/**
 	 * 业务所属应用的编号
 	 */
-	2: optional i32 appId,
+	2: optional i64 appId,
 
 	/**
 	 * 业务的key,必须唯一
@@ -75,7 +75,7 @@ struct BizConfig {
 	 *
 	 * @readonly
 	 */
-	1: optional i32 bizId,
+	1: optional i64 bizId,
 
 	/**
 	 * 业务的key
@@ -130,7 +130,7 @@ service AppService {
 	 *
 	 * @tables cs_app
 	 */
-	void removeApps(1: list<i32> ids) throws (1: Type.AnyException ex),
+	void removeApps(1: list<i64> ids) throws (1: Type.AnyException ex),
 
 	/**
 	 * 获取一个应用信息
@@ -141,7 +141,7 @@ service AppService {
 	 *
 	 * @tables cs_app
 	 */
-	App getApp(1: i32 id) throws (1: Type.AnyException ex),
+	App getApp(1: i64 id) throws (1: Type.AnyException ex),
 
 	/**
 	 * 获取应用列表
@@ -172,7 +172,7 @@ service AppService {
 	 *
 	 * @tables cs_biz
 	 */
-	void removeBizs(1: list<i32> ids) throws (1: Type.AnyException ex),
+	void removeBizs(1: list<i64> ids) throws (1: Type.AnyException ex),
 
 	/**
 	 * 获取一个业务
@@ -184,7 +184,7 @@ service AppService {
 	 *
 	 * @tables cs_biz
 	 */
-	Biz getBiz(1: i32 id) throws (1: Type.AnyException ex),
+	Biz getBiz(1: i64 id) throws (1: Type.AnyException ex),
 
 	/**
 	 * 获取业务列表
@@ -205,7 +205,7 @@ service AppService {
 	 *
 	 * @tables cs_biz
 	 */
-	list<Biz> getAppBizs(1: i32 appId) throws (1: Type.AnyException ex)
+	list<Biz> getAppBizs(1: i64 appId) throws (1: Type.AnyException ex)
 }
 
 /**
@@ -237,7 +237,7 @@ service BizConfigService {
 	 *
 	 * @tables cs_biz, cs_biz_attr
 	 */
-	BizConfig getBizConfigById(1: i32 bizId, 2: string configKey) throws (1: Type.AnyException ex),
+	BizConfig getBizConfigById(1: i64 bizId, 2: string configKey) throws (1: Type.AnyException ex),
 
 	/**
 	 * 保存一个业务配置

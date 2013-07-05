@@ -1,9 +1,11 @@
 package com.le07.commonservice.app.manager.impl;
 
 import com.le07.commonservice.app.dao.AppDao;
+import com.le07.commonservice.app.dao.BizDao;
 import com.le07.commonservice.app.model.App;
 import com.le07.commonservice.app.model.Biz;
 import com.le07.commonservice.app.manager.AppManager;
+import com.le07.framework.global.type.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import java.util.List;
 /**
  * APP Manager 实现
  * <p/>
- * Created with IntelliJ IDEA.
+ * Created with IDEA
  * User: jh
  * Date: 13-6-28
  * Time: 上午11:21
@@ -23,6 +25,8 @@ public class AppManagerImpl implements AppManager {
     @Autowired
     private AppDao appDao;
 
+    @Autowired
+    private BizDao bizDao;
 
     @Override
     public App saveApp(App app) {
@@ -31,7 +35,7 @@ public class AppManagerImpl implements AppManager {
 
     @Override
     public void removeApps(Long... ids) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        appDao.updateAppStatus(Status.DELETED, ids);
     }
 
     @Override
@@ -41,26 +45,26 @@ public class AppManagerImpl implements AppManager {
 
     @Override
     public List<App> getApps() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return appDao.findAll();
     }
 
     @Override
     public Biz saveBiz(Biz biz) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return bizDao.save(biz);
     }
 
     @Override
     public void removeBizs(Long... ids) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        bizDao.updateBizStatus(Status.DELETED, ids);
     }
 
     @Override
     public Biz getBiz(Long id) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return bizDao.findOne(id);
     }
 
     @Override
     public List<Biz> getBizs() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return bizDao.findAll();
     }
 }

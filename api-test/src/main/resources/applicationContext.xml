@@ -58,7 +58,7 @@
 		<property name="packagesToScan" value="com.le07.api.tester.model" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.default_schema">${db.username}</prop>
+				<prop key="hibernate.default_schema">${db.default_schema}</prop>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.jdbc.fetch_size">50</prop>
 				<prop key="hibernate.jdbc.batch_size">25</prop>
@@ -138,8 +138,10 @@
 		<property name="defaultServiceUrl" value="${base.url}/cs" />
 		<property name="serviceUrls">
 			<map>
-				<entry key="Test.TestService" value="${base.url}/test/TestService" />
-				<entry key="App.AppService" value="${base.url}/test/AppService" />
+                <entry key="Standard.AreaService" value="${base.url}/cs/areaService" />
+
+				<entry key="App.AppService" value="${base.url}/cs/appService" />
+                <entry key="Identity.identityService" value="${base.url}/cs/identityService" />
 			</map>
 		</property>
 	</bean>
