@@ -8,6 +8,7 @@ import com.le07.commonservice.app.manager.AppManager;
 import com.le07.framework.global.type.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ import java.util.List;
  * Time: 上午11:21
  */
 @Service
+@Transactional
 public class AppManagerImpl implements AppManager {
 
     @Autowired
@@ -39,11 +41,13 @@ public class AppManagerImpl implements AppManager {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public App getApp(Long id) {
         return appDao.findOne(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<App> getApps() {
         return appDao.findAll();
     }
@@ -59,11 +63,13 @@ public class AppManagerImpl implements AppManager {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Biz getBiz(Long id) {
         return bizDao.findOne(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Biz> getBizs() {
         return bizDao.findAll();
     }

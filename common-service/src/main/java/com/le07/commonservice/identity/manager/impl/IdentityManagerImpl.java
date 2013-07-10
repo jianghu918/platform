@@ -113,16 +113,19 @@ public class IdentityManagerImpl implements IdentityManager {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getUserByNameAndPwd(String name, String password) {
         return userDao.findByNameAndPassword(name, DigestUtils.md5Hex(password));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getUserById(long userId) {
         return userDao.findOne(userId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Map<Long, User> batchGetUserByIds(Set<Long> userIds) {
         if(CollectionUtils.isEmpty(userIds))
             return Collections.EMPTY_MAP;
@@ -137,6 +140,7 @@ public class IdentityManagerImpl implements IdentityManager {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<User> listUsers(Query query, long offset, long size) {
         Page<User> page = new Page<User>();
 

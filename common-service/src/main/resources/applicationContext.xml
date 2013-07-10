@@ -167,12 +167,55 @@
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
         <property name="validator" ref="validator"/>
     </bean>
+
+
+
+    <!-- 事务自动代理设置ReadOnly -->
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="transactionManager" />
+    </bean>
+    <bean id="autoProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>
+        <property name="beanNames">
+            <!-- 可以是Service或DAO层（最好是针对业务层*Service） -->
+            <list>
+                <value>*ServiceImpl</value>
+                <value>*ManagerImpl</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--自动代理还有一种用法就是结合正规表达式和advice使用。
+
+    <bean id="transactionInterceptor"
+          class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <property name="transactionManager">
+        <ref bean="transactionManager" />
+    </property>
+    <bean id="autoProxyCreator"
+          class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+    <bean id="regexpMethodPointcutAdvisor"
+          class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice">
+            <ref bean="transactionInterceptor" />
+        </property>
+        <property name="pattern">
+            <value>.*</value>
+        </property>
+    </bean>-->
+
+
     <!-- exception advice -->
     <bean id="anyExceptionAdvice" class="com.le07.framework.ex.ValidateExceptionAdvice"/>
     <!-- aop config -->
+
     <aop:config proxy-target-class="true">
         <aop:pointcut expression="execution(* com.le07.commonservice..impl.*.*(..))" id="servicePointCut"/>
-        <!-- warp validationException to AuthorizationException -->
+
         <aop:aspect ref="anyExceptionAdvice">
             <aop:after-throwing pointcut-ref="servicePointCut" method="afterThrowingValidationException" throwing="e"/>
         </aop:aspect>

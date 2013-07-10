@@ -84,10 +84,24 @@
         <property name="serviceInterface" value="com.le07.api.standard.AreaService$Iface"/>
     </bean>
 
+    <!-- Comment service -->
+    <bean name="/commentService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftCommentService"/>
+        <property name="serviceInterface" value="com.le07.api.comment.CommentService$Iface"/>
+    </bean>
 
+    <!-- Count service
+    <bean name="/counterService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftCounterService"/>
+        <property name="serviceInterface" value="com.le07.api.counter.CounterService$Iface"/>
+    </bean>
+     -->
 
-
-
+    <!-- Rating service -->
+    <bean name="/ratingService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftRatingService"/>
+        <property name="serviceInterface" value="com.le07.api.rating.RatingService$Iface"/>
+    </bean>
 
 
 

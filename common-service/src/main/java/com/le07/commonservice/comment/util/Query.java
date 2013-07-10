@@ -2,6 +2,7 @@ package com.le07.commonservice.comment.util;
 
 import com.le07.framework.global.type.Status;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,8 +19,8 @@ public class Query {
     private Set<Long> userId; // required
     private String title; // required
     private String body; // required
-    private long beginTime; // required
-    private long endTime; // required
+    private Date beginTime; // required
+    private Date endTime; // required
     private Set<Status> status; // required
     private long parentId; // required
     private Map<String, String> data;
@@ -56,19 +57,19 @@ public class Query {
         this.body = body;
     }
 
-    public long getBeginTime() {
+    public Date getBeginTime() {
         return beginTime;
     }
 
-    public void setBeginTime(long beginTime) {
+    public void setBeginTime(Date beginTime) {
         this.beginTime = beginTime;
     }
 
-    public long getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(long endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 

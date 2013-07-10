@@ -3,7 +3,7 @@ package com.le07.commonservice.comment.dao.impl;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 import com.le07.commonservice.app.manager.BizConfigManager;
-import com.le07.commonservice.comment.dao.CommentDAO;
+import com.le07.commonservice.comment.dao.CommentDao;
 import com.le07.commonservice.comment.model.Comment;
 import com.le07.commonservice.comment.util.SortType;
 import com.le07.framework.entity.EntityNotFoundException;
@@ -21,6 +21,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -33,7 +34,8 @@ import java.util.*;
  * Date: 13-7-5
  * Time: 上午11:10
  */
-public class CommentDaoImpl extends HibernateStatusEntityDAO<Comment, Long> implements CommentDAO {
+@Repository
+public class CommentDaoImpl extends HibernateStatusEntityDAO<Comment, Long> implements CommentDao {
 
 
     @Autowired

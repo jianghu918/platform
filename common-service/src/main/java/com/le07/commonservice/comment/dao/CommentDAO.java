@@ -17,7 +17,7 @@ import java.util.Map;
  * Date: 13-7-5
  * Time: 上午10:48
  */
-public interface CommentDAO {
+public interface CommentDao {
 
     Comment saveComment(Comment comment);
 
