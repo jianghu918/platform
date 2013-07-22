@@ -142,7 +142,7 @@ service IdentityService{
     /**
      * 创建一个用户
      */
-    i64 createUser(
+    User createUser(
          /**
           * 用户
           */
@@ -155,7 +155,7 @@ service IdentityService{
     /**
      * 根据用户名密码来创建一个用户
      */
-    i64 createUserByNameAndPwd(
+    User createUserByNameAndPwd(
          /**
           * 用户名
           */

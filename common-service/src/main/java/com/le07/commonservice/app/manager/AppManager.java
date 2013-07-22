@@ -21,7 +21,7 @@ public interface AppManager {
      * @param app 待保存的应用
      * @return 应用
      */
-    App saveApp(App app);
+    App saveApp(App app) ;
 
     /**
      * 删除多个应用
@@ -51,7 +51,7 @@ public interface AppManager {
      * @param biz 待保存的业务
      * @return 业务
      */
-    Biz saveBiz(Biz biz);
+    Biz saveBiz(Biz biz) ;
 
     /**
      * 删除多个业务
@@ -75,4 +75,11 @@ public interface AppManager {
      */
     List<Biz> getBizs();
 
+
+    /**
+     * 获取某个App下的所有业务
+     * @param appId
+     * @return
+     */
+    List<Biz> getAppBizs(long appId);
 }

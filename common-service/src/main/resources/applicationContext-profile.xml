@@ -38,7 +38,7 @@
             <property name="jndiName" value="${db.jndi}"/>
         </bean>
 
-        <!--<bean id="redisConnectionFactory" class="sanyuan.any123.framework.support.redis.LazyRedisConnectionFactory">
+        <!--<bean id="redisConnectionFactory" class="com.le07.framework.support.redis.LazyRedisConnectionFactory">
             <constructor-arg>
                 <bean class="sanyuan.any123.framework.support.redis.JndiJedisConnectionFactory">
                     <property name="jndiName" value="${redis.jndi}"/>

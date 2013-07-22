@@ -25,7 +25,7 @@ public interface IdentityManager {
      *
      * @param user 用户
      */
-    public long createUser(User user) ;
+    public User createUser(User user) ;
 
     /**
      * 根据用户名密码来创建一个用户
@@ -34,7 +34,7 @@ public interface IdentityManager {
      *
      * @param password 密码
      */
-    public long createUserByNameAndPwd(String name, String password) ;
+    public User createUserByNameAndPwd(String name, String password) ;
 
     /**
      * 修改用户附加信息（除用户名密码外）

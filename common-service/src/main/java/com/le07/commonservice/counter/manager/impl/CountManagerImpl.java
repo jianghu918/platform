@@ -1,6 +1,6 @@
 package com.le07.commonservice.counter.manager.impl;
 
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import com.le07.commonservice.counter.dao.CountDao;
 import com.le07.commonservice.counter.manager.CountManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class CountManagerImpl implements CountManager{
     private CountDao countDao;
 
     @Autowired
-    private BizConfigManager bizManager;
+    private BizManager bizManager;
     
     
     @Override

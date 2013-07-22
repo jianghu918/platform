@@ -2,7 +2,7 @@ package com.le07.commonservice.comment.dao.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import com.le07.commonservice.comment.dao.CommentDao;
 import com.le07.commonservice.comment.model.Comment;
 import com.le07.commonservice.comment.util.SortType;
@@ -36,16 +36,8 @@ import java.util.*;
  */
 @Repository
 public class CommentDaoImpl extends HibernateStatusEntityDAO<Comment, Long> implements CommentDao {
-
-
     @Autowired
-    private BizConfigManager bizConfigService;
-
-
-    @Autowired
-    public void setBizConfigService(BizConfigManager bizConfigService) {
-        this.bizConfigService = bizConfigService;
-    }
+    private BizManager bizManager;
 
     @Override
     public Comment saveComment(Comment comment) {
@@ -137,14 +129,20 @@ public class CommentDaoImpl extends HibernateStatusEntityDAO<Comment, Long> impl
             entity.setData(JSON.parseObject(json, Map.class));
         }
         try {
-            entity.setBizKey(bizConfigService.getBizKey(entity.getBizId()));
+            entity.setBizKey(getBizKey(entity.getBizId()));
         } catch (EntityNotFoundException ignored) {
         }
     }
 
     private int getBizId(String bizKey) {
-        return (int) bizConfigService.getBizId(bizKey);
+        return (int) bizManager.getBizId(bizKey);
     }
+
+    private String getBizKey(int bizId)
+    {
+        return bizManager.getBizKey(bizId);
+    }
+
 
     @Override
     public Page<Comment> listComment(com.le07.commonservice.comment.util.Query query,
@@ -179,10 +177,10 @@ public class CommentDaoImpl extends HibernateStatusEntityDAO<Comment, Long> impl
                 criterions.add(Restrictions.like("title", "%" + com.le07.framework.util.StringUtils.toTransferredString(query.getTitle()) + "%"));
             if(StringUtils.isNotBlank(query.getBody()))
                 criterions.add(Restrictions.like("body", "%" + com.le07.framework.util.StringUtils.toTransferredString(query.getBody()) + "%"));
-            if(query.getBeginTime() > 0)
-                criterions.add(Restrictions.ge("createAt", new Date(query.getBeginTime())));
-            if(query.getEndTime() > 0)
-                criterions.add(Restrictions.le("createAt", new Date(query.getEndTime())));
+            if(null != query.getBeginTime())
+                criterions.add(Restrictions.ge("createAt", query.getBeginTime()));
+            if(null != query.getEndTime())
+                criterions.add(Restrictions.le("createAt", query.getEndTime()));
             if(!CollectionUtils.isEmpty(query.getStatus()))
                 criterions.add(Restrictions.in("status", query.getStatus()));
             if(query.getParentId() != 0)

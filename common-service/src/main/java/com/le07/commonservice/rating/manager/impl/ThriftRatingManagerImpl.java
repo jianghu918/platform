@@ -4,6 +4,7 @@ import com.le07.api.rating.Rating;
 import com.le07.api.rating.RatingPage;
 import com.le07.api.rating.RatingService;
 import com.le07.api.type.AnyException;
+import com.le07.api.type.RatingType;
 import com.le07.commonservice.rating.manager.RatingManager;
 import com.le07.commonservice.rating.util.Converter;
 import com.le07.framework.util.Page;
@@ -45,36 +46,36 @@ public class ThriftRatingManagerImpl implements RatingService.Iface{
     }
 
     @Override
-    public Map<String, Integer> getUserScoreMap(String bizKey, int type, long userId, List<String> owners) throws AnyException, TException {
-        return ratingManager.getScoreMap(bizKey, type, userId, owners);
+    public Map<String, Integer> getUserScoreMap(String bizKey, RatingType type, long userId, List<String> owners) throws AnyException, TException {
+        return ratingManager.getScoreMap(bizKey, type.getValue(), userId, owners);
     }
 
     @Override
-    public Map<String, Map<Integer, Integer>> getScoreDetailMap(String bizKey, int type, List<String> owners) throws AnyException, TException {
-        return ratingManager.getScoreDetailMap(bizKey, type, owners);
+    public Map<String, Map<Integer, Integer>> getScoreDetailMap(String bizKey, RatingType type, List<String> owners) throws AnyException, TException {
+        return ratingManager.getScoreDetailMap(bizKey, type.getValue(), owners);
     }
     @Override
-    public Map<String, Integer> getScoreCountMap(String bizKey, int type, List<String> owners) throws AnyException, TException {
-        return ratingManager.getScoreCountMap(bizKey, type, owners);
-    }
-
-    @Override
-    public Map<String, Double> getScoreAverageMap(String bizKey, int type, List<String> owners) throws AnyException, TException {
-        return ratingManager.getScoreAverageMap(bizKey, type, owners);
+    public Map<String, Integer> getScoreCountMap(String bizKey, RatingType type, List<String> owners) throws AnyException, TException {
+        return ratingManager.getScoreCountMap(bizKey, type.getValue(), owners);
     }
 
     @Override
-    public Map<String, Double> getScoreMapByUidAndOwner(String bizKey, int type, Set<String> owners, Set<Long> userIds) throws AnyException, TException {
-        return ratingManager.getScoreMapByUidAndOwner(bizKey, type, owners, userIds);
+    public Map<String, Double> getScoreAverageMap(String bizKey, RatingType type, List<String> owners) throws AnyException, TException {
+        return ratingManager.getScoreAverageMap(bizKey, type.getValue(), owners);
     }
 
     @Override
-    public Map<String, Double> getHotOwnerMap(String bizKey, int type, int size) throws AnyException, TException {
-        return ratingManager.getHotOwnerMap(bizKey, type, size);
+    public Map<String, Double> getScoreMapByUidAndOwner(String bizKey, RatingType type, Set<String> owners, Set<Long> userIds) throws AnyException, TException {
+        return ratingManager.getScoreMapByUidAndOwner(bizKey, type.getValue(), owners, userIds);
     }
 
     @Override
-    public Map<String, Double> getGreaterPercentMap(String bizKey, int type, int score, List<String> owners) throws AnyException, TException {
-        return ratingManager.getGreaterPercentMap(bizKey, type, score, owners);
+    public Map<String, Double> getHotOwnerMap(String bizKey, RatingType type, int size) throws AnyException, TException {
+        return ratingManager.getHotOwnerMap(bizKey, type.getValue(), size);
+    }
+
+    @Override
+    public Map<String, Double> getGreaterPercentMap(String bizKey, RatingType type, int score, List<String> owners) throws AnyException, TException {
+        return ratingManager.getGreaterPercentMap(bizKey, type.getValue(), score, owners);
     }
 }

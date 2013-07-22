@@ -1,10 +1,11 @@
 package com.le07.commonservice.favorite.manager.impl;
 
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import com.le07.commonservice.favorite.dao.FavoriteDao;
 import com.le07.commonservice.favorite.manager.FavoriteManager;
 import com.le07.commonservice.favorite.model.Favorite;
 import com.le07.commonservice.favorite.util.Query;
+import com.le07.commonservice.util.BaseManagerImpl;
 import com.le07.framework.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,29 +25,16 @@ import java.util.Map;
  */
 @Service
 @Transactional
-public class FavoriteManagerImpl implements FavoriteManager{
+public class FavoriteManagerImpl extends BaseManagerImpl implements FavoriteManager{
 
     @Autowired
     private FavoriteDao favoriteDao;
 
-    @Autowired
-    private BizConfigManager bizManager;
-
-
     @Override
     public Favorite saveFavorite(Favorite favorite) {
         favorite.setCreateAt(new Date());
-        favorite.setBizId(getBizId(favorite.getBizKey()));
-        return null;
-    }
-
-    private int getBizId(String bizKey) {
-        return (int) bizManager.getBizId(bizKey);
-    }
-
-    private String getBizKey(long bizId)
-    {
-        return bizManager.getBizKey(bizId);
+        favorite.setBizId((int) getBizId(favorite.getBizKey()));
+        return favoriteDao.saveFavorite(favorite);
     }
 
 

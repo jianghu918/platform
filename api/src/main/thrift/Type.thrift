@@ -124,6 +124,33 @@ enum Sort {
 }
 
 
+/**
+ * 评分类型
+ */
+enum RatingType{
+    /**
+     * 味道
+     */
+    DEFAULT = 0,
+
+    /**
+     * 味道
+     */
+    TASTE = 1,
+
+    /**
+     * 环境
+     */
+     ENVIRONMENT = 2,
+    /**
+     * 服务
+     */
+     SERVICE = 3
+
+}
+
+
+
 
 
 

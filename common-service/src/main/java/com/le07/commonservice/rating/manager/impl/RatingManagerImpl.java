@@ -1,6 +1,6 @@
 package com.le07.commonservice.rating.manager.impl;
 
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import com.le07.commonservice.rating.dao.RatingDao;
 import com.le07.commonservice.rating.manager.RatingManager;
 import com.le07.commonservice.rating.model.Rating;
@@ -30,7 +30,7 @@ public class RatingManagerImpl implements RatingManager{
     private RatingDao ratingDao;
 
     @Autowired
-    private BizConfigManager bizManager;
+    private BizManager bizManager;
 
 
     @Override

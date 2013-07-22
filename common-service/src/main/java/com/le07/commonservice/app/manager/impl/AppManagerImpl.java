@@ -2,9 +2,9 @@ package com.le07.commonservice.app.manager.impl;
 
 import com.le07.commonservice.app.dao.AppDao;
 import com.le07.commonservice.app.dao.BizDao;
+import com.le07.commonservice.app.manager.AppManager;
 import com.le07.commonservice.app.model.App;
 import com.le07.commonservice.app.model.Biz;
-import com.le07.commonservice.app.manager.AppManager;
 import com.le07.framework.global.type.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +30,9 @@ public class AppManagerImpl implements AppManager {
     @Autowired
     private BizDao bizDao;
 
+
     @Override
-    public App saveApp(App app) {
+    public App saveApp(App app)  {
         return appDao.save(app);
     }
 
@@ -42,18 +43,18 @@ public class AppManagerImpl implements AppManager {
 
     @Override
     @Transactional(readOnly = true)
-    public App getApp(Long id) {
-        return appDao.findOne(id);
+    public App getApp(Long id)  {
+        return appDao.get(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<App> getApps() {
-        return appDao.findAll();
+        return appDao.getAll();
     }
 
     @Override
-    public Biz saveBiz(Biz biz) {
+    public Biz saveBiz(Biz biz)  {
         return bizDao.save(biz);
     }
 
@@ -65,12 +66,22 @@ public class AppManagerImpl implements AppManager {
     @Override
     @Transactional(readOnly = true)
     public Biz getBiz(Long id) {
-        return bizDao.findOne(id);
+        return bizDao.get(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Biz> getBizs() {
-        return bizDao.findAll();
+        return bizDao.getAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Biz> getAppBizs(long appId) {
+        return bizDao.getAppBizs(appId);
+    }
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.le07.commonservice.rating.util;
 
 import com.google.common.collect.Lists;
+import com.le07.api.type.RatingType;
 import com.le07.commonservice.rating.model.Rating;
 import com.le07.framework.util.ThriftUtils;
 import org.springframework.util.CollectionUtils;
@@ -28,7 +29,7 @@ public class Converter {
         entity.setOwner(rating.getOwner());
         //entity.setUpdateAt();
         entity.setScore(rating.getScore());
-        entity.setType(rating.getType());
+        entity.setType(rating.getType().getValue());
         entity.setUserId(rating.getUserId());
         return entity;
     }
@@ -40,7 +41,7 @@ public class Converter {
         entity.setOwner(rating.getOwner());
         entity.setUpdateAt(ThriftUtils.toDateValue(rating.getUpdateAt()));
         entity.setScore(rating.getScore());
-        entity.setType(rating.getType());
+        entity.setType(RatingType.findByValue(rating.getType()));
         entity.setUserId(rating.getUserId());
         return entity;
     }

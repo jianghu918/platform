@@ -68,7 +68,7 @@
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
 				</prop>
 				<prop key="hibernate.show_sql">${hibernate.debug}</prop>
-				<prop key="hibernate.format_sql">${hibernate.debug}</prop>
+				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.generate_statistics">${hibernate.debug}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 			</props>
@@ -141,6 +141,10 @@
                 <entry key="Standard.AreaService" value="${base.url}/cs/areaService" />
 
 				<entry key="App.AppService" value="${base.url}/cs/appService" />
+                <entry key="Comment.CommentService" value="${base.url}/cs/commentService" />
+                <entry key="Counter.CounterService" value="${base.url}/cs/countService" />
+                <entry key="Favorite.FavoriteService" value="${base.url}/cs/favoriteService" />
+                <entry key="Rating.RatingService" value="${base.url}/cs/ratingService" />
                 <entry key="Identity.identityService" value="${base.url}/cs/identityService" />
 			</map>
 		</property>

@@ -30,27 +30,32 @@ import java.util.Set;
 public class ThriftCommentManagerImpl implements CommentService.Iface{
 
     @Autowired
-    private CommentManager commentManager;
+    private CommentManager manager;
 
 
     @Override
     public com.le07.api.comment.Comment saveComment(com.le07.api.comment.Comment comment) throws AnyException, TException {
-        return Converter.toApiComment(commentManager.saveComment(Converter.toComment(comment)));
+        Comment origin = null;
+        if(comment.isSetId())
+        {
+            origin = manager.getComment(comment.getId());
+        }
+        return Converter.toApiComment(manager.saveComment(Converter.toComment(origin, comment)));
     }
 
     @Override
     public void removeComments(List<Long> ids) throws AnyException, TException {
-        commentManager.removeComments(ids);
+        manager.removeComments(ids);
     }
 
     @Override
     public void removeCommentsByOwner(String bizKey, String owner) throws AnyException, TException {
-        commentManager.removeCommentsByOwner(bizKey, owner);
+        manager.removeCommentsByOwner(bizKey, owner);
     }
 
     @Override
     public com.le07.api.comment.Comment getComment(long id) throws AnyException, TException {
-        return Converter.toApiComment(commentManager.getComment(id));
+        return Converter.toApiComment(manager.getComment(id));
     }
 
     @Override
@@ -58,7 +63,7 @@ public class ThriftCommentManagerImpl implements CommentService.Iface{
         if(CollectionUtils.isEmpty(ids))
             return Collections.emptyMap();
         Map<Long, com.le07.api.comment.Comment> map = Maps.newHashMapWithExpectedSize(ids.size());
-        Map<Long,Comment> commentMap = commentManager.getCommentMap(ids);
+        Map<Long,Comment> commentMap = manager.getCommentMap(ids);
         for (Long id : ids) {
             map.put(id, Converter.toApiComment(commentMap.get(id)));
         }
@@ -67,7 +72,7 @@ public class ThriftCommentManagerImpl implements CommentService.Iface{
 
     @Override
     public Map<String, List<com.le07.api.comment.Comment>> batchGetComments(String bizKey, Set<String> owners, int size) throws AnyException, TException {
-        Map<String, List<Comment>> map = commentManager.batchGetComments(bizKey, owners, size);
+        Map<String, List<Comment>> map = manager.batchGetComments(bizKey, owners, size);
         if(CollectionUtils.isEmpty(map))
             return Collections.emptyMap();
         Map<String, List<com.le07.api.comment.Comment>> rsMap = Maps.newHashMapWithExpectedSize(map.size());
@@ -80,7 +85,7 @@ public class ThriftCommentManagerImpl implements CommentService.Iface{
     @Override
     public CommentPage getComments(String bizKey, String owner, int start, int size) throws AnyException, TException {
         CommentPage commentPage = new CommentPage();
-        Page<Comment> comments = commentManager.getComments(bizKey, owner, start, size);
+        Page<Comment> comments = manager.getComments(bizKey, owner, start, size);
         commentPage.setTotal(comments.getTotal());
         commentPage.setItems(Converter.toApiComments(comments.getItems()));
         return commentPage;
@@ -89,7 +94,7 @@ public class ThriftCommentManagerImpl implements CommentService.Iface{
     @Override
     public CommentPage getUserComments(String bizKey, long userId, int start, int size) throws AnyException, TException {
         CommentPage commentPage = new CommentPage();
-        Page<Comment> comments = commentManager.getUserComments(bizKey, userId, start, size);
+        Page<Comment> comments = manager.getUserComments(bizKey, userId, start, size);
         commentPage.setTotal(comments.getTotal());
         commentPage.setItems(Converter.toApiComments(comments.getItems()));
         return commentPage;
@@ -97,13 +102,13 @@ public class ThriftCommentManagerImpl implements CommentService.Iface{
 
     @Override
     public Map<String, Integer> getCommentCountMap(String bizKey, List<String> owners) throws AnyException, TException {
-        return commentManager.getCommentCountMap(bizKey, owners);
+        return manager.getCommentCountMap(bizKey, owners);
     }
 
     @Override
     public CommentPage listComment(com.le07.api.comment.Query query, long offset, long limit, List<com.le07.api.comment.SortType> sortTypes) throws AnyException, TException {
         CommentPage commentPage = new CommentPage();
-        Page<Comment> comments = commentManager.listComment(Converter.toQuery(query), offset, limit, Converter.toSortTypes(sortTypes));
+        Page<Comment> comments = manager.listComment(Converter.toQuery(query), offset, limit, Converter.toSortTypes(sortTypes));
         commentPage.setTotal(comments.getTotal());
         commentPage.setItems(Converter.toApiComments(comments.getItems()));
         return commentPage;

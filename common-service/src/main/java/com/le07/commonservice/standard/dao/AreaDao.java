@@ -1,8 +1,7 @@
 package com.le07.commonservice.standard.dao;
 
 import com.le07.commonservice.standard.model.Area;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.le07.framework.entity.GeneralEntityDAO;
 
 import java.util.List;
 
@@ -14,8 +13,7 @@ import java.util.List;
  * Date: 13-7-1
  * Time: 下午4:56
  */
-@Repository
-public interface AreaDao extends JpaRepository<Area, Long>{
+public interface AreaDao extends GeneralEntityDAO<Area, Long>{
 
 
     List<Area> findByPid(Long pid);

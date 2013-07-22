@@ -21,6 +21,8 @@ import java.util.*;
 @SuppressWarnings("unchecked")
 public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEntityDAO<E, PK> {
 
+    public static final String COUNT_QUERY_STRING = "select count(*) from %s";
+
     protected Logger logger = LoggerFactory.getLogger(getClass());
     protected Class<E> entityClass;
 
@@ -59,6 +61,17 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
     }
 
     @Override
+    public List<E> save(List<E> entities) {
+        List<E> result = new ArrayList<E>();
+        if(null == entities)
+            return result;
+        for (E entity : entities) {
+            result.add(save(entity));
+        }
+        return result;
+    }
+
+    @Override
     public void deleteByPk(PK id) {
         delete(load(id));
     }
@@ -69,7 +82,7 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
     }
 
     @Override
-    public void batchDeleteByPK(Collection<PK> ids) throws Exception {
+    public void batchDeleteByPK(Collection<PK> ids)  {
         if (ids == null) {
             return;
         }
@@ -82,7 +95,7 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
     }
 
     @Override
-    public void batchDelete(Collection<E> entities) throws Exception{
+    public void batchDelete(Collection<E> entities) {
         for (E entity : entities) {
             delete(entity);
         }
@@ -90,7 +103,10 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
 
     @Override
     public E get(PK id) throws EntityNotFoundException {
-        return prepare(getRaw(id));
+        E e = prepare(getRaw(id));
+        if(null == e)
+            throw new EntityNotFoundException(entityClass, id);
+        return e;
     }
 
     @Override
@@ -118,6 +134,8 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
     public List<E> getAll() {
         return query(newCriteria());
     }
+
+
 
     public E getRaw(PK id) throws EntityNotFoundException {
         return (E) getSession().get(entityClass, id);
@@ -204,7 +222,8 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
 
     public List<E> query(Criteria criteria, int start, int size) {
         criteria.setProjection(null);
-        criteria.setFirstResult(start);
+        if(start >= 0)
+            criteria.setFirstResult(start);
         if (size > 0) {
             criteria.setMaxResults(size);
         }
@@ -216,7 +235,9 @@ public class HibernateEntityDAO<E, PK extends Serializable> implements GeneralEn
     }
 
     public List<E> query(Query query, int start, int size) {
-        query.setFirstResult(start);
+        if(start >= 0){
+            query.setFirstResult(start);
+        }
         if (size > 0) {
             query.setMaxResults(size);
         }

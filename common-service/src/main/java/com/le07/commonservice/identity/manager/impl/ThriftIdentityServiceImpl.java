@@ -36,18 +36,28 @@ public class ThriftIdentityServiceImpl implements IdentityService.Iface{
 
 
     @Override
-    public long createUser(User user) throws AnyException, TException {
-        return manager.createUser(Converter.toUser(user));
+    public User createUser(User user) throws AnyException, TException {
+        com.le07.commonservice.identity.model.User origin = null;
+        if(user.isSetId())
+        {
+            origin = manager.getUserById(user.getId());
+        }
+        return Converter.toApiUser(manager.createUser(Converter.toUser(origin, user)));
     }
 
     @Override
-    public long createUserByNameAndPwd(String name, String password) throws AnyException, TException {
-        return manager.createUserByNameAndPwd(name, password);
+    public User createUserByNameAndPwd(String name, String password) throws AnyException, TException {
+        return Converter.toApiUser(manager.createUserByNameAndPwd(name, password));
     }
 
     @Override
     public void updateUserAttr(User user) throws AnyException, TException {
-        manager.updateUserAttr(Converter.toUser(user));
+        com.le07.commonservice.identity.model.User origin = null;
+        if(user.isSetId())
+        {
+            origin = manager.getUserById(user.getId());
+        }
+        manager.updateUserAttr(Converter.toUser(origin, user));
     }
 
     @Override

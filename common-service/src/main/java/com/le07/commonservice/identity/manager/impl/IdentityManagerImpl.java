@@ -1,7 +1,6 @@
 package com.le07.commonservice.identity.manager.impl;
 
 import com.google.common.collect.Maps;
-import com.le07.commonservice.identity.dao.SpecificDao;
 import com.le07.commonservice.identity.dao.UserDao;
 import com.le07.commonservice.identity.manager.IdentityManager;
 import com.le07.commonservice.identity.model.User;
@@ -34,25 +33,23 @@ public class IdentityManagerImpl implements IdentityManager {
     @Autowired
     private UserDao userDao;
 
-    @Autowired
-    private SpecificDao specificDao;
-
 
     @Override
-    public long createUser(User user) {
+    public User createUser(User user) {
         User u = userDao.save(user);
-        return u.getId();
+        u.setCreateAt(new Date());
+        return u;
     }
 
     @Override
-    public long createUserByNameAndPwd(String name, String password) {
+    public User createUserByNameAndPwd(String name, String password)  {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
         user.setCreateAt(new Date());
         user.setStatus(Status.ENABLED);
         user.setType(UserType.CONSUMER);
-        return (userDao.save(user)).getId();
+        return userDao.save(user);
     }
 
 
@@ -62,7 +59,7 @@ public class IdentityManagerImpl implements IdentityManager {
 
     @Override
     public void updateUserAttr(User user) {
-        User original = userDao.findOne(user.getId());
+        User original = userDao.get(user.getId());
         /*if(null == original)
         {
             throw new IdentityException(ECode.IdentityCode.ENTITY_NOT_FOUND);
@@ -82,8 +79,8 @@ public class IdentityManagerImpl implements IdentityManager {
 
 
     @Override
-    public void updateUserStatus(long userId, Status status) {
-        User user = userDao.findOne(userId);
+    public void updateUserStatus(long userId, Status status)  {
+        User user = userDao.get(userId);
         Assert.notNull(user, "user not found: id:" + userId);
         user.setStatus(status);
         userDao.save(user);
@@ -99,7 +96,7 @@ public class IdentityManagerImpl implements IdentityManager {
     }
 
     @Override
-    public void removeUser(long userId) {
+    public void removeUser(long userId)  {
         updateUserStatus(userId, Status.DELETED);
     }
 
@@ -121,7 +118,7 @@ public class IdentityManagerImpl implements IdentityManager {
     @Override
     @Transactional(readOnly = true)
     public User getUserById(long userId) {
-        return userDao.findOne(userId);
+        return userDao.get(userId);
     }
 
     @Override
@@ -143,20 +140,8 @@ public class IdentityManagerImpl implements IdentityManager {
     @Transactional(readOnly = true)
     public Page<User> listUsers(Query query, long offset, long size) {
         Page<User> page = new Page<User>();
-
-        /*Pageable pageable;
-        if(offset >= 0 && size > 0 )
-        {
-            pageable = new PageRequest((int)offset, (int)size);
-        }else
-        {
-            pageable = new PageRequest(0, 20);
-        }
-        page.setTotal(userDao.count());
-        page.setItems(userDao.findAll(pageable).getContent());*/
-
         page.setTotal((int) userDao.count());
-        page.setItems(specificDao.listUsers(query, offset, size));
+        page.setItems(userDao.listUsers(query, offset, size));
         return page;
     }
 }

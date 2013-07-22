@@ -66,11 +66,11 @@
         <property name="serviceInterface" value="com.le07.api.app.AppService$Iface"/>
     </bean>
 
-    <!-- biz service -->
+    <!-- biz service
     <bean name="/bizService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
         <property name="service" ref="thriftBizService"/>
         <property name="serviceInterface" value="com.le07.api.app.BizConfigService$Iface"/>
-    </bean>
+    </bean>-->
 
     <!-- identity service -->
     <bean name="/identityService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
@@ -84,18 +84,22 @@
         <property name="serviceInterface" value="com.le07.api.standard.AreaService$Iface"/>
     </bean>
 
+    <bean name="/classificationService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftClassificationService"/>
+        <property name="serviceInterface" value="com.le07.api.standard.ClassificationService$Iface"/>
+    </bean>
+
     <!-- Comment service -->
     <bean name="/commentService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
         <property name="service" ref="thriftCommentService"/>
         <property name="serviceInterface" value="com.le07.api.comment.CommentService$Iface"/>
     </bean>
 
-    <!-- Count service
-    <bean name="/counterService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
-        <property name="service" ref="thriftCounterService"/>
+    <!-- Count service -->
+    <bean name="/countService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftCountService"/>
         <property name="serviceInterface" value="com.le07.api.counter.CounterService$Iface"/>
     </bean>
-     -->
 
     <!-- Rating service -->
     <bean name="/ratingService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
@@ -103,6 +107,11 @@
         <property name="serviceInterface" value="com.le07.api.rating.RatingService$Iface"/>
     </bean>
 
+    <!-- Favorite service -->
+    <bean name="/favoriteService" class="com.le07.framework.support.thrift.ThriftHttpServiceExporter">
+        <property name="service" ref="thriftFavoriteService"/>
+        <property name="serviceInterface" value="com.le07.api.favorite.FavoriteService$Iface"/>
+    </bean>
 
 
 

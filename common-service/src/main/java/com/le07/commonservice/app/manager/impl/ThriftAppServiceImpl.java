@@ -22,7 +22,12 @@ public class ThriftAppServiceImpl implements AppService.Iface {
 
     @Override
     public App saveApp(App app) throws AnyException, TException {
-        return Converter.toApiApp(manager.saveApp(Converter.toApp(app)));
+        com.le07.commonservice.app.model.App origin = null;
+        if(app.isSetId())
+        {
+            origin = manager.getApp(app.getId());
+        }
+        return Converter.toApiApp(manager.saveApp(Converter.toApp(origin,app)));
     }
 
     @Override
@@ -47,22 +52,22 @@ public class ThriftAppServiceImpl implements AppService.Iface {
 
     @Override
     public void removeBizs(List<Long> ids) throws AnyException, TException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        manager.removeBizs(ids.toArray(new Long[ids.size()]));
     }
 
     @Override
     public Biz getBiz(long id) throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiBiz(manager.getBiz(id));
     }
 
     @Override
     public List<Biz> getBizs() throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiBizs(manager.getBizs());
     }
 
     @Override
     public List<Biz> getAppBizs(long appId) throws AnyException, TException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return Converter.toApiBizs(manager.getAppBizs(appId));
     }
 
 

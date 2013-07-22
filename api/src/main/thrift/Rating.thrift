@@ -23,7 +23,7 @@ namespace js Rating
 struct Rating {
     2: optional string bizKey,
     3: optional string owner,
-    4: optional i32 type,
+    4: optional Type.RatingType type,
     5: optional i64 userId,
     6: optional i32 score,
     7: optional Type.Timestamp updateAt
@@ -96,7 +96,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, i32> getUserScoreMap(1: string bizKey, 2: i32 type, 3: i64 userId, 4: list<string> owners) throws (1: Type.AnyException ex),
+    map<string, i32> getUserScoreMap(1: string bizKey, 2: Type.RatingType type, 3: i64 userId, 4: list<string> owners) throws (1: Type.AnyException ex),
 
     /**
      * 批量获取业务对象的各个分数的评分次数map
@@ -111,7 +111,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, map<i32,i32>> getScoreDetailMap(1: string bizKey, 2: i32 type, 3: list<string> owners) throws (1: Type.AnyException ex),
+    map<string, map<i32,i32>> getScoreDetailMap(1: string bizKey, 2: Type.RatingType type, 3: list<string> owners) throws (1: Type.AnyException ex),
 
     /**
      * 批量获取业务对象的评分次数
@@ -126,7 +126,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, i32> getScoreCountMap(1: string bizKey, 2: i32 type, 3: list<string> owners) throws (1: Type.AnyException ex),
+    map<string, i32> getScoreCountMap(1: string bizKey, 2: Type.RatingType type, 3: list<string> owners) throws (1: Type.AnyException ex),
 
     /**
      * 批量获取业务对象的平均评分
@@ -141,7 +141,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, double> getScoreAverageMap(1: string bizKey, 2: i32 type, 3: list<string> owners) throws (1: Type.AnyException ex),
+    map<string, double> getScoreAverageMap(1: string bizKey, 2: Type.RatingType type, 3: list<string> owners) throws (1: Type.AnyException ex),
 
 	/**
      * 批量获取业务对象的每个用户的评分
@@ -156,7 +156,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, double> getScoreMapByUidAndOwner(1: string bizKey, 2: i32 type, 3: set<string> owners, 4: set<i64> userIds) throws (1: Type.AnyException ex),
+    map<string, double> getScoreMapByUidAndOwner(1: string bizKey, 2: Type.RatingType type, 3: set<string> owners, 4: set<i64> userIds) throws (1: Type.AnyException ex),
 
     /**
      * 获取热门评分map,key为owner,value为平均分
@@ -171,7 +171,7 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, double> getHotOwnerMap(1: string bizKey, 2: i32 type, 3: i32 size) throws (1: Type.AnyException ex),
+    map<string, double> getHotOwnerMap(1: string bizKey, 2: Type.RatingType type, 3: i32 size) throws (1: Type.AnyException ex),
 
     /**
      * 批量获取大于指定分数评分的百分比
@@ -188,5 +188,5 @@ service RatingService {
      *
      * @tables cs_rating
      */
-    map<string, double> getGreaterPercentMap(1: string bizKey, 2: i32 type, 3: i32 score, 4: list<string> owners) throws (1: Type.AnyException ex)
+    map<string, double> getGreaterPercentMap(1: string bizKey, 2: Type.RatingType type, 3: i32 score, 4: list<string> owners) throws (1: Type.AnyException ex)
 }

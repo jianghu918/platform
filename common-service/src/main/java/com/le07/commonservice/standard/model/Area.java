@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * 简述
+ * 区域信息（通用）
  * <p/>
  * Created with IDEA
  * User: jh

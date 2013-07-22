@@ -21,8 +21,8 @@ import java.util.Map;
 public class Converter {
 
 
-    public static Comment toComment(com.le07.api.comment.Comment comment) {
-        Comment entity = new Comment();
+    public static Comment toComment(Comment origin, com.le07.api.comment.Comment comment) {
+        Comment entity = null != origin ? origin : new Comment();
         entity.setUserId(comment.getUserId());
         entity.setBody(comment.getBody());
         entity.setBizKey(comment.getBizKey());

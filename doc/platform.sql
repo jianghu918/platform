@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
-Source Server Version : 50524
-Source Host           : localhost:3306
+Source Server         : 127.0.0.1_le07
+Source Server Version : 50508
+Source Host           : 127.0.0.1:3306
 Source Database       : platform
 
 Target Server Type    : MYSQL
-Target Server Version : 50524
+Target Server Version : 50508
 File Encoding         : 65001
 
-Date: 2013-07-05 10:29:32
+Date: 2013-07-22 16:01:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,8 +25,8 @@ CREATE TABLE `api_case` (
   `update_at` datetime NOT NULL,
   `suite_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_b85b0ad3090b4115857136a06ab` (`suite_id`),
-  CONSTRAINT `FK_b85b0ad3090b4115857136a06ab` FOREIGN KEY (`suite_id`) REFERENCES `api_suite` (`id`)
+  KEY `FK_54d346ba8a9b431c9f6cc41c51a` (`suite_id`),
+  CONSTRAINT `FK_54d346ba8a9b431c9f6cc41c51a` FOREIGN KEY (`suite_id`) REFERENCES `api_suite` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -60,8 +60,8 @@ CREATE TABLE `api_step` (
   `update_at` datetime NOT NULL,
   `case_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_043b5052987d48f99e9ac11e415` (`case_id`),
-  CONSTRAINT `FK_043b5052987d48f99e9ac11e415` FOREIGN KEY (`case_id`) REFERENCES `api_case` (`id`)
+  KEY `FK_2907553b582f46af830b3ac99ce` (`case_id`),
+  CONSTRAINT `FK_2907553b582f46af830b3ac99ce` FOREIGN KEY (`case_id`) REFERENCES `api_case` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -100,128 +100,40 @@ CREATE TABLE `api_value_history` (
 -- ----------------------------
 -- Records of api_value_history
 -- ----------------------------
-INSERT INTO `api_value_history` VALUES ('1', '2', 'Standard.AreaService.getAreaByPid.pid', '2013-07-04 17:46:55', '1');
-INSERT INTO `api_value_history` VALUES ('2', '1', 'Standard.AreaService.getAreaByPid.pid', '2013-07-04 17:46:58', '22');
-INSERT INTO `api_value_history` VALUES ('3', '1', 'Identity.IdentityService.createUserByNameAndPwd.name', '2013-07-04 17:47:06', 'STR');
-INSERT INTO `api_value_history` VALUES ('4', '1', 'Identity.IdentityService.createUserByNameAndPwd.password', '2013-07-04 17:47:06', 'STR');
-
--- ----------------------------
--- Table structure for `board_info`
--- ----------------------------
-DROP TABLE IF EXISTS `board_info`;
-CREATE TABLE `board_info` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `company_id` bigint(20) NOT NULL,
-  `no` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `status` bigint(20) NOT NULL DEFAULT '0',
-  `seating` bigint(20) NOT NULL DEFAULT '1' COMMENT '座位数',
-  `remark` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `company_id` (`company_id`),
-  CONSTRAINT `board_info_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of board_info
--- ----------------------------
-
--- ----------------------------
--- Table structure for `board_seating`
--- ----------------------------
-DROP TABLE IF EXISTS `board_seating`;
-CREATE TABLE `board_seating` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `board_id` bigint(20) NOT NULL,
-  `user_id` bigint(20) NOT NULL,
-  `begin_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
-  `pre_seating` bigint(20) NOT NULL DEFAULT '1',
-  `remark` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `board_id` (`board_id`),
-  CONSTRAINT `board_seating_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board_info` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of board_seating
--- ----------------------------
-
--- ----------------------------
--- Table structure for `classification`
--- ----------------------------
-DROP TABLE IF EXISTS `classification`;
-CREATE TABLE `classification` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `no` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `pid` bigint(20) NOT NULL DEFAULT '0',
-  `status` bigint(20) NOT NULL DEFAULT '0',
-  `remark` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of classification
--- ----------------------------
-
--- ----------------------------
--- Table structure for `company`
--- ----------------------------
-DROP TABLE IF EXISTS `company`;
-CREATE TABLE `company` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `no` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(4000) DEFAULT NULL,
-  `status` bigint(20) NOT NULL DEFAULT '0',
-  `tel` varchar(255) NOT NULL,
-  `contact_person` varchar(255) NOT NULL,
-  `weibo` varchar(500) DEFAULT NULL,
-  `weixin` varchar(500) DEFAULT NULL,
-  `qq` varchar(500) DEFAULT NULL,
-  `msn` varchar(500) DEFAULT NULL,
-  `remark` varchar(2000) DEFAULT NULL,
-  `food_score` double DEFAULT NULL,
-  `environment_score` double DEFAULT NULL,
-  `service_score` double DEFAULT NULL,
-  `create_at` datetime NOT NULL,
-  `update_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of company
--- ----------------------------
+INSERT INTO `api_value_history` VALUES ('1', '1', 'App.AppService.saveApp.app', '2013-07-18 15:34:46', 'new App.App({\r\n\r\n    key: \"TEST\",\r\n    name: \"??APPlication\",\r\n    status: Type.Status.ENABLED\r\n})');
+INSERT INTO `api_value_history` VALUES ('2', '1', 'App.AppService.saveBiz.biz', '2013-07-18 15:35:25', 'new App.Biz({\r\n   \r\n    appId: 1,\r\n    key: \"CHY\",\r\n    name: \"CHY????\",\r\n    status: Type.Status.ENABLED\r\n})');
+INSERT INTO `api_value_history` VALUES ('3', '1', 'Standard.ClassificationService.saveOrUpdate.classification', '2013-07-18 15:58:02', 'new Standard.Classification({\r\n\r\n    name: \"STR\",\r\n    pid: 1,\r\n    bizKey: \"CHY\",\r\n    status: 0,\r\n    remark: \"STR\"\r\n})');
+INSERT INTO `api_value_history` VALUES ('4', '1', 'Standard.ClassificationService.saveOrUpdate.classification', '2013-07-18 16:04:31', 'new Standard.Classification({\r\n    id: 1,\r\n    name: \"STR\",\r\n    pid: 1,\r\n    bizKey: \"CHY\",\r\n    status: 0,\r\n    remark: \"STR\"\r\n})');
 
 -- ----------------------------
 -- Table structure for `cs_app`
 -- ----------------------------
 DROP TABLE IF EXISTS `cs_app`;
 CREATE TABLE `cs_app` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `app_key` varchar(32) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_73b14cd8a6254ea9a7dbd8da3d8` (`app_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `UK_0b28d8be34944c6c81dde3df879` (`app_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_app
 -- ----------------------------
+INSERT INTO `cs_app` VALUES ('1', 'TEST', '??APPlication', '0');
 
 -- ----------------------------
 -- Table structure for `cs_app_attr`
 -- ----------------------------
 DROP TABLE IF EXISTS `cs_app_attr`;
 CREATE TABLE `cs_app_attr` (
-  `app_id` int(11) NOT NULL,
+  `app_id` bigint(20) NOT NULL,
   `value` longtext,
   `attr_key` varchar(64) NOT NULL,
   PRIMARY KEY (`app_id`,`attr_key`),
-  KEY `FK_a7269ef53b1040f499163fd58af` (`app_id`),
-  CONSTRAINT `FK_a7269ef53b1040f499163fd58af` FOREIGN KEY (`app_id`) REFERENCES `cs_app` (`id`)
+  KEY `FK_6519a5df197543ba934ca50d678` (`app_id`),
+  CONSTRAINT `FK_6519a5df197543ba934ca50d678` FOREIGN KEY (`app_id`) REFERENCES `cs_app` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -45303,36 +45215,117 @@ INSERT INTO `cs_area` VALUES ('45051', '蔡家湖镇', '4', '0', '5024', '0');
 -- ----------------------------
 DROP TABLE IF EXISTS `cs_biz`;
 CREATE TABLE `cs_biz` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `biz_key` varchar(32) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
   `status` int(11) NOT NULL,
-  `app_id` int(11) DEFAULT NULL,
+  `app_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_01a700b8e3a9431b9794eeaed92` (`biz_key`),
-  KEY `FK_79bc1dc7ce7e413ebb4c6c2cbc8` (`app_id`),
-  CONSTRAINT `FK_79bc1dc7ce7e413ebb4c6c2cbc8` FOREIGN KEY (`app_id`) REFERENCES `cs_app` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `UK_383c2b8fd0fb4f8d92009ad3b41` (`biz_key`),
+  KEY `FK_6131e37edf9a465badd70789c3e` (`app_id`),
+  CONSTRAINT `FK_6131e37edf9a465badd70789c3e` FOREIGN KEY (`app_id`) REFERENCES `cs_app` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_biz
 -- ----------------------------
+INSERT INTO `cs_biz` VALUES ('1', 'CHY', 'CHY????', '0', '1');
 
 -- ----------------------------
 -- Table structure for `cs_biz_attr`
 -- ----------------------------
 DROP TABLE IF EXISTS `cs_biz_attr`;
 CREATE TABLE `cs_biz_attr` (
-  `biz_id` int(11) NOT NULL,
+  `biz_id` bigint(20) NOT NULL,
   `value` longtext,
   `attr_key` varchar(64) NOT NULL,
   PRIMARY KEY (`biz_id`,`attr_key`),
-  KEY `FK_2c426d86b4d243c088255c289be` (`biz_id`),
-  CONSTRAINT `FK_2c426d86b4d243c088255c289be` FOREIGN KEY (`biz_id`) REFERENCES `cs_biz` (`id`)
+  KEY `FK_728a53c6807e40eeb8e6428ac3b` (`biz_id`),
+  CONSTRAINT `FK_728a53c6807e40eeb8e6428ac3b` FOREIGN KEY (`biz_id`) REFERENCES `cs_biz` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_biz_attr
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `cs_classification`
+-- ----------------------------
+DROP TABLE IF EXISTS `cs_classification`;
+CREATE TABLE `cs_classification` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `biz_id` bigint(20) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `pid` bigint(20) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cs_classification
+-- ----------------------------
+INSERT INTO `cs_classification` VALUES ('1', '1', 'STR', '1', 'STR', '0');
+
+-- ----------------------------
+-- Table structure for `cs_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `cs_comment`;
+CREATE TABLE `cs_comment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `biz_id` int(11) NOT NULL,
+  `body` varchar(4000) DEFAULT NULL,
+  `create_at` datetime NOT NULL,
+  `json` varchar(4000) DEFAULT NULL,
+  `owner` varchar(64) NOT NULL,
+  `parent_id` bigint(20) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `title` varchar(256) DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cs_comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `cs_count`
+-- ----------------------------
+DROP TABLE IF EXISTS `cs_count`;
+CREATE TABLE `cs_count` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `biz_id` int(11) NOT NULL,
+  `clock` bigint(20) NOT NULL,
+  `num` int(11) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cs_count
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `cs_favorite`
+-- ----------------------------
+DROP TABLE IF EXISTS `cs_favorite`;
+CREATE TABLE `cs_favorite` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `biz_id` int(11) NOT NULL,
+  `create_at` datetime NOT NULL,
+  `owner` varchar(64) NOT NULL,
+  `remark` varchar(512) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `title` varchar(128) DEFAULT NULL,
+  `url` varchar(256) DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cs_favorite
 -- ----------------------------
 
 -- ----------------------------
@@ -45341,7 +45334,7 @@ CREATE TABLE `cs_biz_attr` (
 DROP TABLE IF EXISTS `cs_identity_user`;
 CREATE TABLE `cs_identity_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `age` int(11) DEFAULT NULL,
+  `age` bigint(20) DEFAULT NULL,
   `blog` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
@@ -45351,7 +45344,7 @@ CREATE TABLE `cs_identity_user` (
   `phone` varchar(255) DEFAULT NULL,
   `qq` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
-  `sex` int(11) DEFAULT NULL,
+  `sex` bigint(20) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
@@ -45361,53 +45354,269 @@ CREATE TABLE `cs_identity_user` (
   `y3` varchar(255) DEFAULT NULL,
   `y4` varchar(255) DEFAULT NULL,
   `y5` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_c3735849309a49daa8292117754` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_identity_user
 -- ----------------------------
-INSERT INTO `cs_identity_user` VALUES ('1', null, null, null, '2013-07-04 17:47:06', null, 'STR', '3fe0dfff438296bb525e0e8642586c2d', null, null, null, null, '0', '3', '2013-07-04 17:47:06', null, null, null, null, null, null);
 
 -- ----------------------------
--- Table structure for `foods_info`
+-- Table structure for `cs_rating`
 -- ----------------------------
-DROP TABLE IF EXISTS `foods_info`;
-CREATE TABLE `foods_info` (
+DROP TABLE IF EXISTS `cs_rating`;
+CREATE TABLE `cs_rating` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `no` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `status` bigint(20) NOT NULL DEFAULT '0',
-  `classification_id` bigint(20) NOT NULL,
-  `unit_id` bigint(20) NOT NULL,
-  `price` double NOT NULL,
-  `thumbnail` bigint(20) DEFAULT NULL COMMENT '缩略图，这个应该是存文件的id',
-  `remark` varchar(4000) DEFAULT NULL,
-  `create_at` datetime NOT NULL,
+  `biz_id` int(11) NOT NULL,
+  `owner` varchar(64) NOT NULL,
+  `score` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
   `update_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `classification_id` (`classification_id`),
-  KEY `unit_id` (`unit_id`),
-  CONSTRAINT `foods_info_ibfk_1` FOREIGN KEY (`classification_id`) REFERENCES `classification` (`id`),
-  CONSTRAINT `foods_info_ibfk_2` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of foods_info
--- ----------------------------
-
--- ----------------------------
--- Table structure for `unit`
--- ----------------------------
-DROP TABLE IF EXISTS `unit`;
-CREATE TABLE `unit` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `unit` varchar(10) NOT NULL COMMENT '计量单位',
-  `status` bigint(20) NOT NULL DEFAULT '0',
-  `remark` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of unit
+-- Records of cs_rating
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `cs_unit`
+-- ----------------------------
+DROP TABLE IF EXISTS `cs_unit`;
+CREATE TABLE `cs_unit` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `biz_id` bigint(20) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cs_unit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_board`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_board`;
+CREATE TABLE `ctr_board` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `galleryful` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `company_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_c776c9ade7964dd896f343fc303` (`company_id`),
+  CONSTRAINT `FK_c776c9ade7964dd896f343fc303` FOREIGN KEY (`company_id`) REFERENCES `ctr_company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_board
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_board_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_board_detail`;
+CREATE TABLE `ctr_board_detail` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `begin_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `number` int(11) NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `board_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_3777809954be49139190d2d2d15` (`board_id`),
+  CONSTRAINT `FK_3777809954be49139190d2d2d15` FOREIGN KEY (`board_id`) REFERENCES `ctr_board` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_board_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_company`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_company`;
+CREATE TABLE `ctr_company` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  `biz_id` int(11) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `environment_score` bigint(20) DEFAULT NULL,
+  `mapurl` varchar(255) DEFAULT NULL,
+  `msn` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `qq` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `service_score` bigint(20) DEFAULT NULL,
+  `taste_score` bigint(20) DEFAULT NULL,
+  `weibo` varchar(255) DEFAULT NULL,
+  `weixin` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_company
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_discount`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_discount`;
+CREATE TABLE `ctr_discount` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `price` double NOT NULL,
+  `rate` double NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `dishes_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_cdbc9c862eaa45b090dee17982d` (`dishes_id`),
+  CONSTRAINT `FK_cdbc9c862eaa45b090dee17982d` FOREIGN KEY (`dishes_id`) REFERENCES `ctr_dishes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_discount
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_dishes`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_dishes`;
+CREATE TABLE `ctr_dishes` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `classification_id` bigint(20) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` double NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `score` bigint(20) NOT NULL,
+  `status` int(11) NOT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `unit_id` bigint(20) DEFAULT NULL,
+  `company_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_f46aa264a5994608b7beb3a9f2a` (`company_id`),
+  CONSTRAINT `FK_f46aa264a5994608b7beb3a9f2a` FOREIGN KEY (`company_id`) REFERENCES `ctr_company` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_dishes
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_order`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_order`;
+CREATE TABLE `ctr_order` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `company_id` bigint(20) DEFAULT NULL,
+  `create_at` datetime DEFAULT NULL,
+  `discount_price` double DEFAULT NULL,
+  `is_outside` int(11) DEFAULT NULL,
+  `order_no` varchar(255) DEFAULT NULL,
+  `pay_status` int(11) DEFAULT NULL,
+  `pay_time` datetime DEFAULT NULL,
+  `pay_type` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `preset_time` datetime DEFAULT NULL,
+  `price` double NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `total_price` double DEFAULT NULL,
+  `update_at` datetime DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `pay_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_a2abf27053bb491cb2f928d064b` (`pay_id`),
+  KEY `Inx_order_no` (`order_no`),
+  CONSTRAINT `FK_a2abf27053bb491cb2f928d064b` FOREIGN KEY (`pay_id`) REFERENCES `ctr_payment_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_order_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_order_detail`;
+CREATE TABLE `ctr_order_detail` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `discount_price` double DEFAULT NULL,
+  `order_id` bigint(20) DEFAULT NULL,
+  `price` double NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `total_price` double DEFAULT NULL,
+  `deshes_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_c447c82b4bce4d499e817e88a67` (`deshes_id`),
+  CONSTRAINT `FK_c447c82b4bce4d499e817e88a67` FOREIGN KEY (`deshes_id`) REFERENCES `ctr_dishes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_order_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_payment_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_payment_type`;
+CREATE TABLE `ctr_payment_type` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `is_cod` tinyint(1) DEFAULT NULL,
+  `pay_code` varchar(255) NOT NULL,
+  `pay_name` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_b3af64f0c1ed4c43a2d3d95e2db` (`pay_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_payment_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_promotion`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_promotion`;
+CREATE TABLE `ctr_promotion` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `begin_time` datetime DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `no` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `summary` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_promotion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `ctr_promotion_rule`
+-- ----------------------------
+DROP TABLE IF EXISTS `ctr_promotion_rule`;
+CREATE TABLE `ctr_promotion_rule` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `json` varchar(255) DEFAULT NULL,
+  `promotion_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_2b3308c904d941cabdbf2c8ce8f` (`promotion_id`),
+  CONSTRAINT `FK_2b3308c904d941cabdbf2c8ce8f` FOREIGN KEY (`promotion_id`) REFERENCES `ctr_promotion` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ctr_promotion_rule
 -- ----------------------------

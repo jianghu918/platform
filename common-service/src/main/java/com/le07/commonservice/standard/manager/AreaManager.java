@@ -1,6 +1,6 @@
 package com.le07.commonservice.standard.manager;
 
-import com.le07.commonservice.standard.model.Area;
+import com.le07.commonservice.standard.model.model.Area;
 
 import java.util.List;
 

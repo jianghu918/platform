@@ -3,7 +3,7 @@ package com.le07.commonservice.app.manager.impl;
 import com.le07.api.app.BizConfig;
 import com.le07.api.app.BizConfigService;
 import com.le07.api.type.AnyException;
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import org.apache.thrift.TException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ThriftBizServiceImpl implements BizConfigService.Iface {
 
     @Autowired
-    private BizConfigManager manager;
+    private BizManager manager;
 
     @Override
     public BizConfig getBizConfig(String bizKey, String configKey) throws AnyException, TException {

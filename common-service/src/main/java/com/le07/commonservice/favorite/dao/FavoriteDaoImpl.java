@@ -1,7 +1,7 @@
 package com.le07.commonservice.favorite.dao;
 
 import com.google.common.collect.Maps;
-import com.le07.commonservice.app.manager.BizConfigManager;
+import com.le07.commonservice.app.manager.BizManager;
 import com.le07.framework.entity.EntityNotFoundException;
 import com.le07.framework.global.type.Status;
 import com.le07.framework.support.hibernate.HibernateEntityDAO;
@@ -32,7 +32,7 @@ import java.util.*;
 public class FavoriteDaoImpl extends HibernateEntityDAO<Favorite, Long> implements FavoriteDao{
 
     @Autowired
-    private BizConfigManager bizManager;
+    private BizManager bizManager;
 
     @Override
     public Favorite saveFavorite(Favorite favorite) {

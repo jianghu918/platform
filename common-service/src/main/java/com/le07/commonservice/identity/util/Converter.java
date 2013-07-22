@@ -20,8 +20,8 @@ import java.util.List;
 public class Converter {
 
 
-    public static User toUser(com.le07.api.identity.User user) {
-        User entity = new User();
+    public static User toUser(User origin, com.le07.api.identity.User user) {
+        User entity = null != origin ? origin : new User();
         entity.setId(user.getId());
         entity.setName(user.getName());
         entity.setPassword(entity.getPassword());

@@ -32,7 +32,6 @@ public class CommentManagerImpl implements CommentManager{
     private CommentDao commentDao;
 
 
-
     @Override
     public Comment saveComment(Comment comment) {
         comment.setId(null);

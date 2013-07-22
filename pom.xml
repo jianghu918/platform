@@ -11,6 +11,9 @@
 
 
 	<properties>
+
+        <tiles-version>2.2.2</tiles-version>
+
 		<spring.security.version>3.1.2.RELEASE</spring.security.version>
         <slf4j.version>1.7.1</slf4j.version>
 		<logback.version>1.0.7</logback.version>
@@ -81,16 +84,23 @@
                 <artifactId>api-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.le07</groupId>
+                <artifactId>common-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.le07</groupId>
+                <artifactId>catering-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
 
 
 
 
 			<!-- spring -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-redis</artifactId>
-				<version>1.0.4.RELEASE</version>
-			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -169,11 +179,6 @@
                 <version>${hibernate.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-ehcache</artifactId>
-                <version>${hibernate.version}</version>
-            </dependency>
-			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-core</artifactId>
 				<version>${spring.security.version}</version>
@@ -664,6 +669,28 @@
 			</dependency>
 			<!-- <dependency> <groupId>commons-codec</groupId> <artifactId>commons-codec</artifactId> 
 				<version>1.7</version> </dependency> -->
+
+            <!-- tiles -->
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-api</artifactId>
+                <version>${tiles-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-jsp</artifactId>
+                <version>${tiles-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-core</artifactId>
+                <version>${tiles-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-el</artifactId>
+                <version>${tiles-version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -682,12 +709,67 @@
         <module>framework</module>
         <module>api-test</module>
         <module>common-service</module>
+        <module>catering-service</module>
     </modules>
 
 
 	<build>
 		<pluginManagement>
 			<plugins>
+                <!-- jetty插件,web工程运行
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>maven-jetty-plugin</artifactId>
+                    <version>6.1.26</version>
+                    <configuration>
+                        <connectors>
+                            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                                <port>8000</port>
+                                <maxIdleTime>3600000</maxIdleTime>
+                            </connector>
+                        </connectors>
+                        <scanIntervalSeconds>0</scanIntervalSeconds>
+                        <webAppSourceDirectory>webapp</webAppSourceDirectory>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.mortbay.jetty</groupId>
+                            <artifactId>jetty</artifactId>
+                            <version>6.1.26-nolock</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>       -->
+
+                <!-- dependency插件,分析依赖 -->
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <outputDirectory>${basedir}/webapp/WEB-INF/lib</outputDirectory>
+                    </configuration>
+                </plugin>
+                <!-- eclipse插件,生成eclipse工程 -->
+                <plugin>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>2.9</version>
+                    <configuration>
+                        <downloadSources>false</downloadSources>
+                        <downloadJavadocs>false</downloadJavadocs>
+                        <wtpversion>2.0</wtpversion>
+                    </configuration>
+                </plugin>
+                <!-- archetype插件,创建应用 -->
+                <plugin>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+                <!-- cargo插件,部署war包 -->
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>1.2.3</version>
+                </plugin>
+
 				<!-- compiler插件,设定JDK版本与编码 -->
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>

@@ -1,8 +1,9 @@
 package com.le07.commonservice.app.util;
 
+import com.google.common.collect.Lists;
 import com.le07.commonservice.app.dao.AppDao;
-import com.le07.commonservice.app.model.Biz;
 import com.le07.commonservice.app.model.App;
+import com.le07.commonservice.app.model.Biz;
 import com.le07.framework.util.ThriftUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,13 +28,12 @@ public class Converter {
 
     @Autowired
     public Converter(AppDao appdao) {
-        appdao = appdao;
+        Converter.appdao = appdao;
     }
 
 
-    public static App toApp(com.le07.api.app.App app) {
-        App entity = new App();
-        entity.setId(app.getId());
+    public static App toApp(App origin, com.le07.api.app.App app) {
+        App entity = null != origin ? origin : new App();
         entity.setName(app.getName());
         entity.setKey(app.getKey());
         entity.setStatus(ThriftUtils.toStatus(app.getStatus()));
@@ -50,7 +50,7 @@ public class Converter {
     }
 
     public static List<com.le07.api.app.App> toApiApp(List<App> apps) {
-        if(CollectionUtils.isEmpty(apps))
+        if (CollectionUtils.isEmpty(apps))
             return Collections.EMPTY_LIST;
         List<com.le07.api.app.App> list = new ArrayList<com.le07.api.app.App>(apps.size());
         for (App app : apps) {
@@ -62,11 +62,12 @@ public class Converter {
 
     public static Biz toBiz(com.le07.api.app.Biz biz) {
         Biz entity = new Biz();
-        entity.setId(biz.getId());
+        if (biz.getId() > 0)
+            entity.setId(biz.getId());
         entity.setName(biz.getName());
         entity.setStatus(ThriftUtils.toStatus(biz.getStatus()));
         entity.setKey(biz.getKey());
-        entity.setApp(appdao.findOne(biz.getAppId()));
+        entity.setApp(appdao.get(biz.getAppId()));
         return entity;
     }
 
@@ -78,5 +79,15 @@ public class Converter {
         entity.setKey(biz.getKey());
         entity.setAppId(biz.getApp().getId());
         return entity;
+    }
+
+    public static List<com.le07.api.app.Biz> toApiBizs(List<Biz> bizs) {
+        if (CollectionUtils.isEmpty(bizs))
+            return Collections.EMPTY_LIST;
+        List<com.le07.api.app.Biz> list = Lists.newArrayListWithCapacity(bizs.size());
+        for (Biz biz : bizs) {
+            list.add(toApiBiz(biz));
+        }
+        return list;
     }
 }
