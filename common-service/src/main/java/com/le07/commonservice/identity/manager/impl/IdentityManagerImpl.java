@@ -1,8 +1,10 @@
 package com.le07.commonservice.identity.manager.impl;
 
 import com.google.common.collect.Maps;
+import com.le07.commonservice.identity.dao.RoleDao;
 import com.le07.commonservice.identity.dao.UserDao;
 import com.le07.commonservice.identity.manager.IdentityManager;
+import com.le07.commonservice.identity.model.Role;
 import com.le07.commonservice.identity.model.User;
 import com.le07.commonservice.identity.util.Query;
 import com.le07.framework.global.type.Status;
@@ -32,6 +34,9 @@ public class IdentityManagerImpl implements IdentityManager {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
 
 
     @Override
@@ -143,5 +148,23 @@ public class IdentityManagerImpl implements IdentityManager {
         page.setTotal((int) userDao.count());
         page.setItems(userDao.listUsers(query, offset, size));
         return page;
+    }
+
+    @Override
+    public Role createUserRole(long userId, String authority) {
+        Role role = new Role();
+        role.setUser(getUserById(userId));
+        role.setAuthority(authority);
+        return roleDao.save(role);
+    }
+
+    @Override
+    public void updateUserRole(long roleId, String authority) {
+        roleDao.updateRoleAuthority(roleId, authority);
+    }
+
+    @Override
+    public List<Role> getUserRoles(long userId) {
+        return roleDao.getUserRoles(userId);
     }
 }

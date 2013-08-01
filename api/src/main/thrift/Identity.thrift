@@ -129,6 +129,27 @@ struct Query{
 
 }
 
+/**
+ * 角色权限
+ */
+struct Role{
+    /**
+     * ID
+     *
+     * @readonly
+     */
+    1: optional i64 id,
+
+    /**
+     * 权限
+     */
+    2: optional i64 userId,
+
+    /**
+     * 权限
+     */
+    3: optional string authority
+}
 
 
 
@@ -168,6 +189,7 @@ service IdentityService{
     )throws (
          1: Type.AnyException ex
     ),
+
 
 
 
@@ -338,4 +360,55 @@ service IdentityService{
     )throws (
         1: Type.AnyException ex
     ),
+
+
+
+    ###########################   ROLE ##########################################
+
+    /**
+     * 给用户添加权限, 不重复添加
+     */
+    Role createUserRole(
+         /**
+          * 用户Id
+          */
+         1: i64 userId,
+
+         /**
+          * 权限
+          */
+         2: string authority
+    )throws (
+         1: Type.AnyException ex
+    ),
+
+
+
+    /**
+     * 修改用户角色
+     */
+    void updateUserRole(
+         /**
+          * 角色ID
+          */
+         1: i64 roleId,
+
+         /**
+          * 权限
+          */
+         2: string authority
+    )throws (
+         1: Type.AnyException ex
+    ),
+
+
+    list<Role> getUserRoles(
+        /**
+         * 用户Id
+         */
+        1: i64 userId
+    )throws (
+         1: Type.AnyException ex
+    ),
+
 }

@@ -9,6 +9,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * USER
@@ -30,6 +31,9 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private Long id;
+
+    @Column(name = "login_name", nullable = false, unique = true)
+    private String loginName;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -65,6 +69,8 @@ public class User implements Serializable {
     private String y4;
     private String y5;
 
+    @OneToMany(mappedBy = "user")
+    private List<Role> roleList;
 
     public Long getId() {
         return id;
@@ -235,6 +241,36 @@ public class User implements Serializable {
         this.status = status;
     }
 
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
+
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
+    }
+
+
+    public Role addRole(Role role)
+    {
+        getRoleList().add(role);
+        role.setUser(this);
+        return role;
+    }
+
+    public Role removeRole(Role role)
+    {
+        getRoleList().remove(role);
+        role.setUser(null);
+        return role;
+    }
 
     @Override
     public String toString() {

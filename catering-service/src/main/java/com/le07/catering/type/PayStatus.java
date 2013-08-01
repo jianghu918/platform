@@ -11,6 +11,9 @@ import com.le07.framework.global.type.LabeledEnum;
  */
 public enum PayStatus implements LabeledEnum{
 
+    NONPAYMENT(0, "未付款"),
+
+    PAYMENT(1, "已付款")
 
     ;
 
@@ -33,4 +36,17 @@ public enum PayStatus implements LabeledEnum{
     public int getValue() {
         return 0;
     }
+
+    public static PayStatus findByValue(int value){
+        switch (value)
+        {
+            case 0:
+                return NONPAYMENT;
+            case 1:
+                return PAYMENT;
+            default:
+                return NONPAYMENT;
+        }
+    }
+
 }

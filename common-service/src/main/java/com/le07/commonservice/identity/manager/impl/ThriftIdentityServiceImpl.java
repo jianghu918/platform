@@ -1,13 +1,14 @@
 package com.le07.commonservice.identity.manager.impl;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.le07.api.identity.IdentityService;
-import com.le07.api.identity.PageUser;
-import com.le07.api.identity.Query;
+import com.le07.api.identity.*;
+import com.le07.api.identity.Role;
 import com.le07.api.identity.User;
 import com.le07.api.type.AnyException;
 import com.le07.api.type.Status;
 import com.le07.commonservice.identity.manager.IdentityManager;
+import com.le07.commonservice.identity.model.*;
 import com.le07.commonservice.identity.util.Converter;
 import com.le07.framework.util.Page;
 import com.le07.framework.util.ThriftUtils;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -116,5 +118,27 @@ public class ThriftIdentityServiceImpl implements IdentityService.Iface{
         rs_pageUser.setTotal(pageEntity.getTotal());
         rs_pageUser.setItems(Converter.toApiUser(pageEntity.getItems()));
         return rs_pageUser;
+    }
+
+    @Override
+    public Role createUserRole(long userId, String authority) throws AnyException, TException {
+        return Converter.toApiRole(manager.createUserRole(userId, authority));
+    }
+
+    @Override
+    public void updateUserRole(long roleId, String authority) throws AnyException, TException {
+        manager.updateUserRole(roleId, authority);
+    }
+
+    @Override
+    public List<Role> getUserRoles(long userId) throws AnyException, TException {
+        List<com.le07.commonservice.identity.model.Role> userRoles = manager.getUserRoles(userId);
+        if(CollectionUtils.isEmpty(userRoles))
+            return Collections.EMPTY_LIST;
+        List<Role> list = Lists.newArrayListWithCapacity(userRoles.size());
+        for (com.le07.commonservice.identity.model.Role role : userRoles) {
+            list.add(Converter.toApiRole(role));
+        }
+        return list;
     }
 }

@@ -2,6 +2,7 @@ package com.le07.commonservice.identity.util;
 
 
 import com.google.common.collect.Lists;
+import com.le07.commonservice.identity.model.Role;
 import com.le07.commonservice.identity.model.User;
 import com.le07.framework.util.ThriftUtils;
 import org.springframework.util.CollectionUtils;
@@ -78,5 +79,13 @@ public class Converter {
             list.add(toApiUser(user));
         }
         return list;
+    }
+
+    public static com.le07.api.identity.Role toApiRole(Role userRole) {
+        com.le07.api.identity.Role entity = new com.le07.api.identity.Role();
+        entity.setAuthority(userRole.getAuthority());
+        entity.setId(userRole.getId());
+        entity.setUserId(userRole.getUser().getId());
+        return entity;
     }
 }

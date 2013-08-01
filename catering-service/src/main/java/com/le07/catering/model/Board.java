@@ -34,13 +34,15 @@ public class Board implements Serializable {
 
 	private String name;
 
+    private String summary;
+
 	private String remark;
 
 	private BoardStatus status;
 
-	//bi-directional many-to-one association to BoardDetail
+	//bi-directional many-to-one association to BoardItem
 	@OneToMany(mappedBy="board")
-	private List<BoardDetail> boardDetails;
+	private List<BoardItem> boardItems;
 
     @ManyToOne
     @JoinColumn(name="company_id")
@@ -63,6 +65,14 @@ public class Board implements Serializable {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public int getGalleryful() {
@@ -97,24 +107,24 @@ public class Board implements Serializable {
 		this.status = status;
 	}
 
-	public List<BoardDetail> getBoardDetails() {
-		return this.boardDetails;
+	public List<BoardItem> getBoardItems() {
+		return this.boardItems;
 	}
 
-	public void setBoardDetails(List<BoardDetail> boardDetails) {
-		this.boardDetails = boardDetails;
+	public void setBoardItems(List<BoardItem> boardItems) {
+		this.boardItems = boardItems;
 	}
 
-    public BoardDetail addBoardDetail(BoardDetail boardDetail) {
-        getBoardDetails().add(boardDetail);
-        boardDetail.setBoard(this);
-        return boardDetail;
+    public BoardItem addBoardDetail(BoardItem boardItem) {
+        getBoardItems().add(boardItem);
+        boardItem.setBoard(this);
+        return boardItem;
     }
 
-    public BoardDetail removeBoardDetail(BoardDetail boardDetail) {
-        getBoardDetails().remove(boardDetail);
-        boardDetail.setBoard(null);
-        return boardDetail;
+    public BoardItem removeBoardDetail(BoardItem boardItem) {
+        getBoardItems().remove(boardItem);
+        boardItem.setBoard(null);
+        return boardItem;
     }
 
 }

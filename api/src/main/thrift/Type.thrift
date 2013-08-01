@@ -123,6 +123,27 @@ enum Sort {
 	DESC = 1
 }
 
+/**
+ * FetchType
+ */
+enum FetchType {
+
+	/**
+	 * 正序
+	 */
+	ALL = 0,
+
+	/**
+	 * LAZY
+	 */
+	LAZY = 1,
+
+	/**
+	 * EAGER
+	 */
+	EAGER = 2
+}
+
 
 /**
  * 评分类型
@@ -150,8 +171,118 @@ enum RatingType{
 }
 
 
+/**
+ * 支付状态
+ */
+enum PayStatus{
+    /**
+     * 未付款
+     */
+    NONPAYMENT = 0,
+
+    /**
+     * 已付款
+     */
+    PAYMENT = 1
+}
 
 
+/**
+ * 支付类型
+ */
+enum PayType{
+    /**
+     * 到店结算
+     */
+    DEFAULT = 0,
+
+    /**
+     * 货到付款
+     */
+    COD = 1,
+
+    /**
+     * 余额付款
+     */
+     BALANCE = 2,
+
+    /**
+     * 支付宝
+     */
+     ALIPAY = 3,
+
+    /**
+     * 财付通
+     */
+    TENPAY = 4,
+
+    /**
+     * 银行汇款/转帐
+     */
+    BANK = 5,
+
+    /**
+     * 银联
+     */
+     PAYPAL = 6
+}
+
+
+/**
+ * 餐桌状态
+ */
+enum BoardStatus{
+    /**
+     * 空闲
+     */
+    DEFAULT = 0,
+
+    /**
+     * 正在用餐中
+     */
+    DINNER = 1,
+
+    /**
+     * 预定
+     */
+     PREDETERMINE = 2,
+
+    /**
+     * 禁用
+     */
+     DISABLE = 3,
+
+    /**
+     * 删除
+     */
+    DELETE = 4
+}
+
+
+/**
+ * 餐桌状态
+ */
+enum OrderStatus{
+    /**
+     * 未确认
+     */
+    UNCONFIRMED = 0,
+
+    /**
+     * 已确认
+     */
+    CONFIRMED = 1,
+
+    /**
+     * 取消
+     */
+     CANCEL = 2,
+
+    /**
+     * 完成
+     */
+     COMPLETED = 3
+}
 
 
 

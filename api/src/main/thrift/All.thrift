@@ -27,6 +27,8 @@ include "Spam.thrift"
 
 
 
+#### 餐饮服务
+include "Catering.thrift"
 
 
 
@@ -36,5 +38,3 @@ include "Spam.thrift"
 
 
 
-
-include "Test.thrift"

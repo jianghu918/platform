@@ -56,7 +56,7 @@ public class Dishes implements Serializable {
     private Company company;
 
     @OneToMany(mappedBy = "deshes")
-    private List<OrderDetail> orderDetails;
+    private List<OrderItem> orderItems;
 
 
     public Dishes() {
@@ -150,12 +150,12 @@ public class Dishes implements Serializable {
         this.company = company;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
     public Discount addDiscount(Discount discount) {
@@ -170,17 +170,17 @@ public class Dishes implements Serializable {
         return discount;
     }
 
-    public OrderDetail addOrderDetail(OrderDetail orderDetail) {
-        getOrderDetails().add(orderDetail);
-        orderDetail.setDeshes(this);
-        return orderDetail;
+    public OrderItem addOrderDetail(OrderItem orderItem) {
+        getOrderItems().add(orderItem);
+        orderItem.setDeshes(this);
+        return orderItem;
     }
 
-    public OrderDetail removeOrderDetail(OrderDetail orderDetail)
+    public OrderItem removeOrderDetail(OrderItem orderItem)
     {
-        getOrderDetails().remove(orderDetail);
-        orderDetail.setDeshes(null);
-        return orderDetail;
+        getOrderItems().remove(orderItem);
+        orderItem.setDeshes(null);
+        return orderItem;
     }
 
 

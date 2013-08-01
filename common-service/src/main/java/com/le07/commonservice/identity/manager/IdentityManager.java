@@ -1,10 +1,12 @@
 package com.le07.commonservice.identity.manager;
 
+import com.le07.commonservice.identity.model.Role;
 import com.le07.commonservice.identity.model.User;
 import com.le07.commonservice.identity.util.Query;
 import com.le07.framework.global.type.Status;
 import com.le07.framework.util.Page;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -123,4 +125,28 @@ public interface IdentityManager {
     public Page<User> listUsers(Query query, long offset, long size) ;
 
 
+
+    /**      User Role        **/
+    /**
+     * 给用户添加权限
+     * @param userId
+     * @param authority
+     * @return
+     */
+    public Role createUserRole(long userId, String authority);
+
+    /**
+     * 修改权限
+     * @param roleId
+     * @param authority
+     */
+    public void updateUserRole(long roleId, String authority);
+
+
+    /**
+     * 获取用户权限
+     * @param userId
+     * @return
+     */
+    public List<Role> getUserRoles(long userId);
 }

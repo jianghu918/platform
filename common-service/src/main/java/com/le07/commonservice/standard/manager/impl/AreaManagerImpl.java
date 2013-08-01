@@ -2,7 +2,7 @@ package com.le07.commonservice.standard.manager.impl;
 
 import com.le07.commonservice.standard.dao.AreaDao;
 import com.le07.commonservice.standard.manager.AreaManager;
-import com.le07.commonservice.standard.model.model.Area;
+import com.le07.commonservice.standard.model.Area;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

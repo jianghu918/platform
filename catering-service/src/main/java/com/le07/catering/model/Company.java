@@ -1,5 +1,6 @@
 package com.le07.catering.model;
 
+import com.le07.framework.global.type.Status;
 import org.hibernate.annotations.*;
 
 import java.io.Serializable;
@@ -26,19 +27,24 @@ public class Company implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
-	private String address;
-
 	@Column(name="biz_id")
 	private int bizId;
+
+    private String name;
 
     @Transient
     private String bizKey;
 
+    private String summary;
+
+    private String address;
+
+    private Status status;
+
     /**
-     * 联系人
+     * 联系
      */
     private String contact;
-
 
 	@Column(name="environment_score")
 	private long environmentScore;
@@ -58,8 +64,6 @@ public class Company implements Serializable {
     private long areaId;
 
 	private String msn;
-
-	private String name;
 
 	private String phone;
 
@@ -127,7 +131,15 @@ public class Company implements Serializable {
 		return this.mapurl;
 	}
 
-	public void setMapurl(String mapurl) {
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public void setMapurl(String mapurl) {
 		this.mapurl = mapurl;
 	}
 
@@ -235,6 +247,13 @@ public class Company implements Serializable {
         this.boards = boards;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Board addBoard(Board board) {
         getBoards().add(board);

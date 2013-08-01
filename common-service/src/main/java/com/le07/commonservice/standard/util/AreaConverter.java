@@ -1,6 +1,6 @@
 package com.le07.commonservice.standard.util;
 
-import com.le07.commonservice.standard.model.model.Area;
+import com.le07.commonservice.standard.model.Area;
 
 /**
  * 简述

@@ -1,5 +1,6 @@
 package com.le07.catering.model;
 
+import com.le07.catering.type.OrderStatus;
 import com.le07.catering.type.PayStatus;
 import com.le07.catering.type.PayType;
 import org.hibernate.annotations.*;
@@ -8,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -66,22 +68,26 @@ public class Order implements Serializable {
 	private String phone;
 
     /**
-     * 下单时间
+     * 预约时间
      */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="preset_time")
 	private Date presetTime;
 
+    /**
+     * 最后实付款
+     */
 	private double price;
 
 	private String remark;
 
-	private int status;
+	private OrderStatus status;
 
 	@Column(name="total_price")
 	private double totalPrice;
 
 	@Column(name="user_id")
+    @Index(name = "Idx_order_user_id")
 	private long userId;
 
 
@@ -90,6 +96,9 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "pay_id")
     private PaymentType paymentType;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems;
 
 
 	public Order() {
@@ -203,15 +212,15 @@ public class Order implements Serializable {
 		this.remark = remark;
 	}
 
-	public int getStatus() {
-		return this.status;
-	}
+    public OrderStatus getStatus() {
+        return status;
+    }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
 
-	public double getTotalPrice() {
+    public double getTotalPrice() {
 		return this.totalPrice;
 	}
 
@@ -243,9 +252,27 @@ public class Order implements Serializable {
         this.paymentType = paymentType;
     }
 
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
 
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
 
+    public OrderItem addOrderItem(OrderItem orderItem)
+    {
+        getOrderItems().add(orderItem);
+        orderItem.setOrder(this);
+        return orderItem;
+    }
 
+    public OrderItem removeOrderItem(OrderItem orderItem)
+    {
+        getOrderItems().remove(orderItem);
+        orderItem.setOrder(null);
+        return orderItem;
+    }
 
     @Override
     public String toString() {

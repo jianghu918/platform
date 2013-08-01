@@ -30,13 +30,13 @@ public class ThriftStandardServiceImpl implements AreaService.Iface {
 
     @Override
     public List<Area> getAreaByPid(long pid) throws AnyException, TException {
-        List<com.le07.commonservice.standard.model.model.Area> areas = manager.findByPid(pid);
+        List<com.le07.commonservice.standard.model.Area> areas = manager.findByPid(pid);
         if (CollectionUtils.isEmpty(areas)) {
             return Collections.EMPTY_LIST;
         }
         List<Area> areaList = new ArrayList<Area>(areas.size());
 
-        for (com.le07.commonservice.standard.model.model.Area entity : areas) {
+        for (com.le07.commonservice.standard.model.Area entity : areas) {
             areaList.add(AreaConverter.toThriftArea(entity));
         }
         return areaList;
