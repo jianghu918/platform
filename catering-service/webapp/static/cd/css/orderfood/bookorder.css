@@ -1,0 +1,435 @@
+/* CSS Document */
+
+@import "../common/leftmenu.css";
+
+body {
+color:#333333;
+font-size:12px;
+margin:0 auto;
+width:960px;
+}
+*{
+margin:0;
+padding:0;
+}
+html, div, map, dt, isindex, form {
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+*html,*html body /* 修正IE6振动bug */
+{background-image:url(about:blank);
+background-attachment:fixed;
+}
+.fixed-top{
+position:fixed;
+bottom:auto;
+top:388px;
+right:auto;
+left:auto;
+}
+*html .fixed-top {
+position:absolute;
+bottom:auto;
+top:10px;
+right:auto;
+left:auto;
+}
+
+.clear{
+clear:both;
+}
+a{
+color:#006FC5;
+text-decoration:none;
+outline:none;
+}
+a:hover{
+color:#FF7A21;
+}
+#c_content_menu{
+width:960px;
+min-height:23px;
+height:auto;
+float:left;
+border-bottom:1px solid #B7CBE2;
+margin-top:10px;
+}
+
+#restaurant_title{
+width:115px;
+height:25px;
+line-height:25px;
+font-family:"宋体";
+font-size:20px;
+font-weight:bold;
+margin-right:8px;
+float:left;
+padding-left:2px;
+}
+
+#main_content{
+clear:both;
+/*background:transparent url(../../images/orderfood/content_bg_white.png) repeat-y scroll -4px 0;*/
+background:transparent url(../../images/orderfood/content_bg_gray2.png) repeat-y scroll 0 0;
+float:left;
+min-height:600px;
+padding:0;
+width:695px;
+*width:705px;
+height:auto;
+float:left;
+margin-bottom:50px;
+}
+
+#right_content{
+float:right;
+width:255px;
+position:relative;
+left:15px;
+}
+
+#left_menu{
+float:left;
+width:183px;
+padding-left:10px;
+position:relative;
+z-index:100;
+}
+
+#middle_content{
+float:left;
+width:497px;
+min-height:600px;
+height:auto;
+position:relative;
+z-index:20;
+}
+
+#title_c{
+float:left;
+width:500px !important;
+width:498px;
+heigh:20px;
+/*padding-left:3px;*/
+margin-bottom:15px;
+/*background-color:#79A4BB;*/
+background:transparent url(../../images/common/title_bg2.gif) repeat-x scroll 0 0;
+border-bottom:1px solid #FFFFFF;
+}
+
+#paixu {
+float:left;
+font-size:12px;
+line-height:25px;
+width:150px;
+padding-top:5px;
+}
+#paixu a {
+color:#006FC5;
+text-decoration:none;
+outline:none;
+}
+#paixu a:hover {
+color:#FF7A21;
+}
+#orderby {
+float:right;
+height:22px;
+margin-right:0;
+overflow:hidden;
+width:200px;
+padding-top:5px;
+}
+
+#orderby span.displaynumber {
+float:right;
+width:210px;
+}
+#orderby label, #orderby select, #orderby a {
+float:left;
+}
+#orderby label {
+float:left;
+height:20px;
+line-height:20px;
+margin-top:2px;
+overflow:hidden;
+text-align:center;
+width:100px;
+}
+#orderby a:hover, div#orderby a.current {
+background:transparent url(../../images/common/number_green.png) repeat scroll 0 0;
+display:inline;
+height:20px;
+line-height:20px;
+margin-left:2px;
+overflow:hidden;
+text-align:center;
+text-decoration:none;
+width:30px;
+color:#FFFFFF;
+}
+#orderby span a {
+background:transparent url(../../images/common/number_gray.png) repeat scroll 0 0;
+display:inline;
+height:20px;
+line-height:20px;
+margin-left:2px;
+overflow:hidden;
+text-align:center;
+text-decoration:none;
+width:30px;
+}
+
+#orderitems{
+float:left;
+width:497px;
+min-height:300px;
+height:auto;
+}
+#orderitems .item{
+float:left;
+margin-bottom:10px;
+position:relative;
+}
+
+#orderitems .item .item_title{
+width:468px;
+height:20px;
+float:left;
+background:#DEECF5 url(../../images/orderfood/item_head_bg.gif) no-repeat scroll left bottom;
+font-size:16px;
+font-weight:bold;
+margin:0 0 5px 7px !important;
+margin:0 0 0 4px;
+padding:7px 0 18px 5px !important;
+padding:5px 0 0 3px;
+}
+#orderitems .item .item_title b{
+color:#43561E;
+font-size:12px;
+}
+
+#orderitems .item .item_title span{
+color:#597D39;
+font-size:13px;
+}
+
+#orderitems .item .item_title span.addin_menu, #orderitems .item .item_title span.addin_favor{
+background:transparent url(../../images/common/add_in_mymenu.png) no-repeat scroll left -2px;
+float:right;
+height:18px;
+font-size:12px;
+color:#04142E;
+margin-right:5px;
+padding-left:20px;
+position:relative;
+top:4px;
+*top:-15px;
+}
+
+ .item_title .addin_menu a, .item_title .addin_favor a{
+font-weight:500;
+}
+
+ #orderitems .item .item_title span.addin_favor{
+background:transparent url(../../images/common/addInFavor.png) no-repeat scroll left -2px;
+width:30px;
+}
+
+#orderitems .item .item_title span.curprice{
+position:relative;
+top:3px;
+*top:-17px;
+float:right;
+margin-right:10px;
+}
+
+#orderitems .item .item_content{
+background:transparent url(../../images/orderfood/item_border_bg1.gif) repeat-y scroll 0 0;
+width:497px;
+min-height:210px;
+height:auto;
+}
+
+#orderitems .item .item_content .item_left_content{
+background:transparent url(../../images/orderfood/letter_for_item.png) repeat-y scroll left  bottom;
+float:left;
+width:196px;
+margin-left:15px !important;
+margin-left:5px;
+margin-right:5px;
+margin-top:5px;
+min-height:198px;
+height:auto;
+position:relative;
+z-index:210;
+}
+.item_left_content .clip{
+background:transparent url(../../images/orderfood/clip.png) repeat-y scroll left  bottom;
+width:27px;
+height:50px;
+position:relative;
+top:-8px;
+left:5px;
+z-index:500;
+}
+.item_content .special{
+clear:both;
+background:transparent url(../../images/common/special.gif) no-repeat scroll right bottom;
+color:#FFFFFF;
+display:block;
+margin:0;
+height:31px;
+width:31px;
+float:right;
+position:absolute;
+bottom:20px;
+right:10px;
+}
+
+.item_content .right_box{
+float:left;
+position:relative;
+margin-bottom:20px;
+width:250px;
+}
+.item_content .right_box .item_pic{
+float:left;
+background: url(../../images/common/shadowAlpha.png) no-repeat bottom right;
+margin: 10px 0 0 10px !important;
+margin: 10px 0 0 5px;
+}
+.right_box .item_pic img{
+background-color:#FFFFFF;
+border:1px solid #A9A9A9;
+display:block;
+margin:-6px 6px 6px -6px;
+padding:4px;
+position:relative;
+z-index:202;
+}
+
+
+#orderitems .item .item_content_bottom{
+background:transparent url(../../images/orderfood/item_bottom_bg1.gif) no-repeat scroll 0 100%;
+float:left;
+display:block;
+width:497px;
+height:8px;
+position:relative;
+top:0px !important;
+*top:-10px; /*解决ie6中bottom与顶部分割的问题*/
+}
+
+.item_left_content .description {
+float:left;
+line-height:20px;
+height:auto;
+margin-left:30px !important;
+margin-left:15px;
+margin-bottom:10px;
+margin-top:10px;
+margin-right:5px;
+min-height:178px;
+*height:178px;
+text-align:left;
+font-size:12px;
+
+position:relative;
+top:-40px;
+}
+.right_box .comment{
+clear:both;
+float:left;
+width:210px;
+position:relative;
+top:5px;
+left:30px;
+text-align:center;
+}
+
+.right_box .comment span{
+height:18px;
+width:50px;
+/*position:absolute;
+top:5px;
+right:-5px;*/
+margin:0;
+}
+.right_box .comment span a{
+font-style:normal;
+font-weight:normal;
+}
+.item_left_content .description span {
+font-style:normal;
+font-weight:bold;
+font-size:12px;
+color:#40492D;
+margin-right:5px;
+}
+.item_left_content .description span.text_content{
+font-family:"宋体";
+font-style:normal;
+font-weight:normal;
+vertical-align:bottom;
+color:#172226;
+/*border-bottom:1px dotted #D9006C;*/
+}
+.item_left_content .description div{
+margin-bottom:5px;
+width:161px;
+}
+#orderitems .item .stat_info{
+position:relative;
+float:right;
+top:-23px !important;
+top:-33px;
+right:25px;
+}
+
+#orderitems .item .stat_info .consum_stat,#orderitems .item .stat_info .favor_stat{
+float:left;
+display:block;
+min-width:65px;
+width:auto;
+height:22px;
+margin-right:20px;
+/*position:relative;
+top:-20px !important;*/
+font-size:9px;
+color:#FFFFFF;
+}
+
+#orderitems .item .stat_info .favor_stat{
+margin-right:0px;
+}
+
+#orderitems .item .stat_info .consum_stat{
+background:transparent url(../../images/orderfood/consumption_bg_bottom.png) no-repeat scroll right bottom;
+}
+#orderitems .item .stat_info .favor_stat{
+background:transparent url(../../images/orderfood/favor_bg_bottom.png) no-repeat scroll right bottom;
+}
+#orderitems .item .stat_info  span{
+position:relative;
+top:7px;
+padding-left:5px;
+}
+
+/*分页靠右*/
+#pager{
+	float:right;	
+}
+
+.pricerange{
+float:left;
+line-height:25px;
+text-align:center;
+width:140px;
+padding-top:5px;
+}

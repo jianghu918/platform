@@ -1,0 +1,190 @@
+body {
+color:#333333;
+font-size:12px;
+margin:0 auto;
+width:960px;
+position:relative
+}
+*{ padding:0px; margin:0px;}
+ol, ul {
+list-style:none outside none;
+}
+.moreOrange{ color:#A00000;}
+.fontGray{ color:#999;}
+.blueFont{ color:#0077D3;}
+.greenFont{ color:#597D39;}
+.orangeFont{ color:#FF3300;}
+/*.clearfix{ *zoom:1;}*/
+/*.clearfix:after{ content:""; height:0px; clear:both; display:block; visibility:hidden;}*/
+.right {float:right;}
+.left {float:left;}
+
+h4{
+ font-size:24px; color:#333; 
+}
+h3
+{
+	 font-size:18px; 
+	
+	}
+a{ text-decoration:none;}
+#restauranthead{width: 960px;margin: 0 auto;overflow: hidden;}
+#navigation .inner1,#navigation .inner2,#navigation .inner3{width: 960px;}
+/*-----------------���ȵ����ϸҳ��ʽ------------------------------*/
+.nomalFont{ font-size:18px;}
+.mostBigFont{ font-size:35px; padding:0px 5px;}
+.moreBigFont{ font-size:28px; padding:0px 5px;}
+.BigFont{font-size:22px;}
+.nomalFont2{ font-size:22px;}
+.BigFont2{font-size:28px;}
+.mainContent{ width:940px; padding:20px 10px; background-color:#F8F7F1; clear:both;}
+.borderBottom{ border-bottom:solid 2px #B9B075;line-height:20px; padding:5px 0px;}
+.borderBottom h3{ margin-left:15px; margin-right:30px;}
+.fontTittle{ font-size:14px;}
+.foodDtial {width: 940px;}
+.foodDtial .foodDtailLeft{ width:420px;}
+.foodDtial .foodDtailLeft img{ width:398px; height:336px; padding:10px; background-color:White;}
+.foodDtial .foodDtailRight{ width:500px;background:#FFFFFF url(../../images/fooddetailinfo/bg_top2Longer.gif) no-repeat scroll 0 0;
+position:relative;
+margin-top:15px;
+margin-left:5px;
+float:left;}
+.foodDtailRight .otherfoods{float:right;width:200px;background: url(../../images/fooddetail2/fork2.png) no-repeat scroll 0 0 transparent;height: 40px;line-height: 40px;margin-top: 36px;}
+.foodDtailRight .myorder{float:right;width:200px;background: url(../../images/fooddetail2/order.png) no-repeat scroll 6px 0 transparent;height: 32px;line-height: 32px;}
+.foodDtailRight a:link,.foodDtailRight a:visited{font-size: 12px;font-weight: bold;color: #006FC5;}.foodDtailRight a:hover{color:#FF6600;}
+.foodDtial .foodDtailLeft img{ width:390px;}
+.picShadow{ width:412px;height:18px;background:url(../../images/fooddetail2/foodPicShadow.png) no-repeat;}
+.starGreen{ width:80px; height:16px; background:url(../../images/fooddetail2/star-matrix.gif) no-repeat 0px -80px; position:relative; top:2px;}
+.starGreen1,.starGreen2,.starGreen3,.starGreen4,.starGreen5{width:80px; height:16px; background:url(../../images/fooddetail2/star-matrix.gif) no-repeat;position:relative; top:2px;}
+.starGreen0{background-position:0px 0px;}
+.starGreen1{background-position:0px -16px;}
+.starGreen2{background-position:0px -32px;}
+.starGreen3{background-position:0px -48px;}
+.starGreen4{background-position:0px -64px;}
+.starGreen5{background-position:0px -80px;}
+.starOrange1,.starOrange2,.starOrange3,.starOrange4,.starOrange5{ width:80px; height:16px; background:url(../../images/fooddetail2/star-matrix.gif) no-repeat; position:relative; top:-2px;}
+.starOrange1{ background-position:0px -96px;}
+.starOrange2{background-position:0px -112px;}
+.starOrange3{background-position:0px -128px;}
+.starOrange4{background-position:0px -144px;}
+.starOrange5{background-position:0px -160px;}
+.moreDtail{ width:240px; padding-left:20px;}
+.moreDtail *{ margin:10px 0px;}
+.moreDtail del{ margin-right:15px;}
+.sortsBg{background:url("../../images/common/shadowAlpha.png") no-repeat scroll right bottom transparent !important; margin-right:10px;}
+.sortsBg ul{border:1px solid #A9A9A9; padding:5px; margin:0px 5px 5px 0px;background-color:#fff;}
+.sortsBg ul li{ margin-bottom:5px; width:170px;}
+.sortsBg ul li span{ display:block;  text-align:right;}
+
+.btnAddManuGreen,.btnSave,.btnAddManuBlue,.btnSave2,.btnJoin,.tittle1,.tittle2,.tittle3{background:url(../../images/fooddetail2/RankingBtnsWords.png) no-repeat;}
+.btnAddManuGreen,.btnSave,.btnAddManuBlue,.btnSave2,.btnJoin{ cursor:pointer;}
+.btnAddManuGreen{ width:125px; height:36px; background-position:0px -150px; margin-left:10px;}
+.btnSave{ width:62px; height:35px; background-position:-150px -150px; margin-right:10px;}
+.btnAddManuBlue{ width:127px; height:40px; background-position:-150px -100px; margin-left:95px;*margin-left:0px;}
+.btnSave2{ width:107px; height:31px; background-position:-150px -50px; margin-left:88px;*margin-left:8px;}
+.btnJoin{ width:107px; height:31px; background-position:-150px 0px; margin-left:80px;*margin-left:0px;}
+.tittle1{ width:89px; height:33px; background-position:0px 0px;margin-left:88px;*margin-left:0px;}
+.tittle2{ width:89px; height:33px; background-position:0px -50px; margin-left:95px;*margin-left:0px;}
+.tittle3{ width:143px; height:40px; background-position:0px -100px; margin-left:95px;*margin-left:0px;}
+
+.ranking{ width:872px; margin:0 auto;}
+.rankingTop{ width:872px; height:29px; background:url(../../images/fooddetail2/RankingTop.png) no-repeat;}
+.rankingMiddle{width:872px;background:url(../../images/fooddetail2/RankingMiddle.png) repeat-y;}
+.rankingDown{ height:28px;width:872px;background:url(../../images/fooddetail2/Rankingdown.png) no-repeat;}
+.rankingMiddle2{ width:872px;height:21px; background:url(../../images/fooddetail2/RankingMiddle2.png) no-repeat;}
+.rankingMiddle3{width:872px;background:url(../../images/fooddetail2/RankingMiddle3.png) repeat-y;}
+
+.bottomDashLine{ border-bottom:dashed 1px #ccc; position:absolute; left:275px; width:300px;}
+.rankingMiddle ul li{ float:left;}
+.col1{ width:265px; text-align:center; padding-top:25px;}
+.col2{ width:320px;text-align:center;}
+.col3{ width:284px;text-align:center; padding-top:25px;}
+.blankrow{ height:30px; width:100%; position:relative;}
+.face{ background:url(../../images/fooddetail2/iconAndBottons.gif) no-repeat;}
+.face{height:16px; width:16px; background-position: -80px -30px;position:relative;top:3px;}
+.spoken{ width:94%; margin-left:20px; }
+.spokenT{ background-color:#DFDFDF; height:22px; line-height:22px; position:relative;}
+.spokenT span{margin-left:20px;}
+.spokenT span img{ margin-right:3px;}
+.spokenTittle{font-weight:bold; font-size:14px;}
+.spokenB{background-color:White; border:solid 1px #cccccc;padding:10px;}
+.spokenB p{ float:left;}
+.spokenBL,.spokenBM{ background:url(../../images/fooddetail2/X.png); border-bottom:solid 1px #ccc; border-top:solid 1px #ccc;}
+.spokenBL{ background-repeat:no-repeat; background-position:0px -95px; width:10px; border-left:solid 1px #ccc; height:80px;}
+.spokenBM{ background-position:0px -185px; background-repeat:repeat-x; width:750px; padding:3px 0px 0px 0px; height:77px; }
+.spokenBM .texarea{ border:0; background:none; font-size:11px; color:#666; font-weight:normal; width:100%; height:100%; overflow:auto;}
+.submitBtn{ width:66px; background:url(../../images/fooddetail2/iconAndBottons.gif) no-repeat 0px -240px; height:82px;}
+
+.twenty_faces{width:272px; border:solid 1px #cee1ee; position:absolute; top:-85px; left:115px; *top:-105px; *left:120px; padding:2px; background-color:White; }
+.twenty_faces li,.twenty_facesSmall li{ list-style:none; width:20px; height:16px !important; padding:2px; border:#ddd 1px solid; float:left; margin:2px 2px 0px 2px !important; display:inline-block;}
+.twenty_faces li a,.twenty_facesSmall li a{ cursor:pointer;text-align:center;width:20px;}
+
+.twenty_facesSmall{width:272px; border:solid 1px #cee1ee; position:absolute; top:-99px; left:290px; *top:-110px; *left:240px; padding:2px; background-color:White; }
+.spokenWords{ background-color:#EBEBEB; width:760px; padding:5px 8px; }
+
+.spokenWords ul{ float:left; width:100%;}
+.spokenWords ul li{ float:left; width:100%; list-style:none; display:block; margin-bottom:15px; padding-bottom:5px; border-bottom:dotted 1px #D7D7D7;}
+
+.spokenSmallPhoto{ width:40px; height:40px; border:solid 1px #cccccc; padding:2px; background-color:White;}
+.spokenSmallPhoto img{ width:40px; height:40px;}
+.spokenWordRight{ width:700px;overflow:hidden;}
+.spokenWordRight h1{ font-size:9px; color:#999999; padding-bottom:3px;}
+.spokenWordRight h1 span{ color:#005EAC; font-size:12px; padding:0px 5px; }
+.spokenWordRight p{ text-indent:2em; color:#666666;}
+
+
+.spokenSmall{  width:760px; padding:5px 8px; background-color:#EBEBEB; position:relative;  margin:5px 0px 10px 0px;}
+.spoken_angle{ background:url(../../images/fooddetail2/spoken/spokenBg_top_angle.gif) no-repeat; position:absolute; top:-7px; left:15px; width:15px; height:7px;}
+.spokenInner{ margin:5px;}
+.spokenInnerRight{ width:635px;}
+.spokenInnerRight textarea{ color:#666666; font-size:12px;width:620px; height:42px; border:solid 1px #cccccc;  margin-top:1px; margin-bottom:5px; overflow:auto;}
+.spokenBtn{ width:62px; height:23px; background:url(../../images/fooddetail2/spokenSubmit_btn.gif) no-repeat; text-align:center; line-height:24px; color:White; display:block;} 
+.spokenFace{ color:#005EAC; line-height:16px;background:url(../../images/fooddetail2/1.gif) no-repeat;  padding-left:20px; display:block; margin-top:3px; cursor:pointer;}
+.spokenDown{ margin:2px 20px; position:relative;}
+.post{ width:93%; margin:0 auto; padding:10px 0px;}
+.postLi{ height:125px; background-color:White; border:solid 1px #cccccc; margin-bottom:10px;}
+.postL{ width:87px;  text-align:center; padding-left:5px; *padding-left:0px; border-right:solid 1px #cccccc; position:relative;}
+.postL h5{ font-size:12px; font-weight:normal;}
+.postL .blueFont a{ margin:3px 2px;cursor:pointer;}
+.postL .arrow{ position:absolute; width:5px; height:12px; left:92px;*left:87px; top:20px; background:url(../../images/fooddetail2/iconAndBottons.gif) no-repeat -20px -180px;}
+.postR{ width:753px; height:112px; overflow:hidden;} 
+.postTime{ width:98%; color:#999; padding-top:10px;}
+.postTime .blueFont{ margin-left:10px; cursor:pointer;}
+.postContent{ height:70px; overflow:hidden;width:99%; text-indent:2em; padding:5px 0px;}
+.postIcon{width:98%;}
+.postIcon a{ cursor:pointer; margin-right:10px; display:block; float:right; color:#999;}
+.postIcon a img{ margin-right:3px;}
+.successaddmenu{position:absolute;top:-40px;background-color:#F2F661;font-size:14px;width:100px;left:20px;text-align:center;line-height:30px;display:none;}
+.successaddmenu2{position:absolute;top:-40px;background-color:#F2F661;font-size:14px;width:100px;left:100px;text-align:center;line-height:30px;display:none;}	
+#spacialTittle{border-bottom:2px solid #DEDEDE;
+background-color:#DEECF5; 
+padding-top:10px;
+padding-bottom:5px;
+margin-bottom:10px;
+width:494px;}
+
+.food2Dital_bottom{
+background:transparent url(../../images/fooddetailinfo/bg_bottom1Longer.gif) no-repeat scroll 0 100%;
+clear:both;
+height:20px;
+overflow:hidden;
+width:500px;
+}
+.btnAddManuGreen2{
+background:url(../../images/fooddetail2/RankingBtnsWords2.png) no-repeat;
+cursor:pointer;
+width:125px; height:36px;margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+	
+	

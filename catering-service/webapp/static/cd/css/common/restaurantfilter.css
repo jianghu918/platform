@@ -1,0 +1,143 @@
+
+.left_menu_inner{
+position:relative;
+float:left;
+}
+
+.left_menu_title{
+background:transparent url(../../images/orderfood/left_menu_title.png) no-repeat scroll 0 0;
+color:#FFFFFF;
+float:left;
+width:187px;
+height:52px;
+text-decoration:none;
+font-family:"微软雅黑";
+font-size:18px;
+position:relative;
+top:5px;
+left:-20px;
+}
+
+.left_menu_title span {
+float:left;
+margin-left:13px;
+margin-top:5px;
+}
+
+.left_menu_inner ul {
+display:inline;
+float:left;
+width:183px;
+}
+
+.left_menu_inner ul li{
+border-bottom:1px solid #D9D7CB;
+float:left;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+position:relative;
+}
+
+.left_menu_inner ul li a {
+color:#1D1D1B;
+float:left;
+font-family:"微软雅黑";
+font-size:15px;
+font-size-adjust:none;
+font-stretch:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:38px;
+padding:0 0 0 15px;
+text-decoration:none;
+width:165px;
+outline:none;
+}
+
+.left_menu_inner ul li a:hover{
+	background:transparent url(../../images/orderfood/left_menu_focus.png) no-repeat scroll 0 0;
+	color:#FFFFFF;
+	margin-top:10px 0 0;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:17px;
+	position:relative;
+	left:-20px;
+	outline:none;
+}
+
+
+.filtercurrent{
+	background:transparent url(../../images/orderfood/left_menu_focus.png) no-repeat scroll 0 0;
+	color:#FFFFFF;
+	margin-top:10px 0 0;
+	padding-top:5px;
+	padding-bottom:8px;
+	position:relative;
+	left:-20px;
+	outline:none;
+	border-width:0px!important;
+}
+.filtercurrent a:link{color:#FFF !important;font-weight: bold;}
+.left_menu_inner ul li.filtercurrent a:hover{	
+	left:0px;	
+	margin-top:-5px;
+	padding-bottom:0px;
+	}
+
+.left_menu_inner ul li a:hover div.navChild,.left_menu_inner ul li:hover div.navChild{
+display:block;
+}
+
+.left_menu_inner ul li .navChild{
+background:transparent url(../../images/common/shadowAlpha.png) no-repeat scroll right bottom !important;
+background: url(../../images/test/shadow.gif) no-repeat bottom right;
+float:left;
+height:auto;
+margin:10px 0 0 10px !important;
+margin: 10px 0 0 5px;
+min-height:30px;
+position:absolute;
+width:150px;
+z-index:310;
+left:175px;
+display:none;
+}
+
+.left_menu_inner ul li .child_list {
+background:transparent none repeat scroll 0 0 !important;
+float:left;
+padding:0 !important;
+padding: 0px 6px 6px 0px;
+min-height:30px;
+height:auto;
+}
+
+.left_menu_inner ul li .child_list .child_list_bg{
+background-color:#FFFFFF;
+border:1px solid #A9A9A9;
+margin:-6px 6px 6px -6px !important;
+margin:0;
+min-height:30px;
+height:auto;
+padding:4px;
+float:left;
+}
+
+.left_menu_inner ul li .child_list a{
+background:url(../../images/orderfood/left_menu_arrow.png) no-repeat left center;
+padding-left:15px;
+line-height:33px;
+width:135px;
+}
+
+.left_menu_inner ul li  .child_list a:hover, .left_menu_inner ul li .child_list a:focus {
+background:transparent url(../../images/orderfood/left_menu_arrow.png) no-repeat left center;
+color:#48AD47;
+margin:0;
+padding-left:17px;
+position:static;
+outline:none;
+}
+

@@ -93,11 +93,11 @@ public interface IdentityManager {
     /**
      * 根据用户名，密码查找用户对象，成功返回用户对象, 失败返回为空
      *
-     * @param name name
+     * @param loginName loginName
      *
      * @param password 密码
      */
-    public User getUserByNameAndPwd(String name, String password) ;
+    public User getUserByNameAndPwd(String loginName, String password) ;
 
     /**
      * 根据id获取用户
@@ -130,17 +130,17 @@ public interface IdentityManager {
     /**
      * 给用户添加权限
      * @param userId
-     * @param authority
+     * @param permissions
      * @return
      */
-    public Role createUserRole(long userId, String authority);
+    public Role createUserRole(long userId, String permissions);
 
     /**
      * 修改权限
      * @param roleId
-     * @param authority
+     * @param permissions
      */
-    public void updateUserRole(long roleId, String authority);
+    public void updateUserRole(long roleId, String permissions);
 
 
     /**

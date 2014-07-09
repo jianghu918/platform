@@ -1,0 +1,100 @@
+/*---------------------页面基础定义----------------------------------*/
+img, div, a{ behavior: url(css/iepngfix.htc); }
+*{ padding:0px; margin:0px;}
+body,td,th {
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	color: #333333;
+
+}
+a {
+	color: #FFF;
+	text-decoration: none;
+        cursor: pointer;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: none;
+}
+a:active{
+	color: #FF0000;
+	text-decoration: none;
+}
+.clear{ clear:both;}
+.item{
+    height: 100%;
+    margin: 0 0 30px;
+    overflow: auto;
+    padding: 0 0 10px;
+    color:#262626;
+    font-family: Arial,sans-serif;
+}
+.item h3{
+     background-color: #626260;
+    color: #FFF;
+    margin: 0 0 0 0;
+    padding: 8px 0 8px 12px;
+}
+.aboutbox{ background-color: #F5F5F5;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 30px;
+    padding: 60px;
+    color: #404040;
+}
+.aboutbox h1{font-size: 60px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 10px;}
+.aboutbox p{  font-size: 18px;
+    font-weight: 200;
+    line-height: 27px;}
+.topbar{background-color: #222222;height: 70px;}.innerpage{width:960px;margin:0 auto;} .topbar span{color:#FF8A00;}.topbar tr{width: 100%;}
+.topbar td.padding{padding-bottom: 10px;padding-right: 10px;}
+#Header{width: 100%;}
+.page-title{border-bottom: 1px solid #DDDDDD;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);margin-bottom: 17px;}
+.page-title h1{font-size: 32px;  line-height: 36px;color: #404040; font-weight: bold; margin-bottom: 8px;}
+.shoppic{float: left;display: block;}
+.shopinfo{float: left;width: 570px;margin-top: 15px;}
+.shopinfo p{ color: #524C50;margin-top: 15px;font-weight: bold;  font-size: 14px;}
+.shopinfo span.st{  background-color: #86C547;color: #FFF;  margin: 5px 5px 0 0; padding: 4px 15px;font-weight: normal;}
+.shopinfo span.txt,.shopinfo span.ph{  color: #262626;  margin: 5px 5px 0 0; padding: 4px 15px;font-weight: normal;}
+.shopinfo span.ph{font-family: Impact,Helvetica,sans-serif;color: #524C50;}
+.shopinfo span.seo{color: #E5F6FA;font-size: 0px;}
+.operate{clear: both;float: left;width: 100%;background-color: #898989;border-top: 1px solid #6F6F6F;padding: 5px 0;}
+.shoppic img{
+    background-color: #FFFFFF;
+    border: 1px solid #94BBDA;
+    float: left;
+    margin: 10px 190px 0px 15px;
+    padding: 4px;
+}
+.item .se1{ background-color:#E5F6FA;padding-bottom: 40px;/* #EEEEEE;*/}
+.btn{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 11px 11px 11px 11px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: bold 13px/180% Tahoma,sans-serif;
+    overflow: hidden;
+    padding: 4px 10px;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+ }
+ a.btn.orange, a.btn.orange:visited{
+    background-color: #FF5C00;
+    color: #FFF;
+    letter-spacing: 2px;
+}
+a.btn.orange:hover{
+    background-color: #D45500;
+    color: #FFF;
+    letter-spacing: 2px;
+}
+a.btn.orange span{color: #FFF;}
+.operate ul {padding-left: 10px;}
+.operate ul li{ display: inline-block;  list-style: none outside none; margin: 0 4px;float: left;}
+.operate ul li a{display: inline-block; vertical-align: middle; color: #FFF;}
+.operate ul li a.oth{text-decoration:underline;margin-top: 8px;}
+

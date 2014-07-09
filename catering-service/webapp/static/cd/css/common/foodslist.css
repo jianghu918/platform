@@ -1,0 +1,530 @@
+/* CSS Document */
+@import "startcomment.css";
+
+img, div, a{
+}
+a{
+    outline-style:none;
+}
+
+a:hover{
+    color:#79A4BB;
+}
+.clear{
+    clear:both;
+}
+#lists_head {
+    /*background-color:#79A4BB;*/
+    background:transparent url(../../images/common/title_bg3.gif) repeat-x scroll 0 0;
+    height:31px;
+    margin-top:15px;
+    margin-bottom:15px !important;
+    border:1px solid #C0DBF8;
+    color:#000000;
+    text-align:center;
+}
+#paixu {
+    float:left;
+    font-size:12px;
+    line-height:25px;
+    text-align:center;
+    padding-top:5px;
+}
+#paixu a:link {
+    text-decoration:none;
+    outline:none;
+}
+#orderby {
+    float:right;
+    height:22px;
+    margin-right:0;
+    overflow:hidden;
+    width:200px;
+    padding-top:5px;
+}
+
+#orderby span.displaynumber {
+    float:right;
+    width:200px;
+    height:20px;
+    padding-top:2px;
+}
+#orderby label, #orderby select, #orderby a {
+    float:left;
+}
+#orderby label {
+    float:left;
+    height:20px;
+    line-height:20px;
+    overflow:hidden;
+    text-align:center;
+    width:100px;
+}
+#orderby a:hover, div#orderby a.current {
+    background:transparent url(../../images/common/number_green.png) no-repeat scroll 0 0;
+    display:inline;
+    height:20px;
+    line-height:20px;
+    margin-left:2px;
+    overflow:hidden;
+    text-align:center;
+    text-decoration:none;
+    width:30px;
+    color:#FFFFFF;
+}
+#orderby span a {
+    background:transparent url(../../images/common/number_gray.png) no-repeat scroll 0 0;
+    display:inline;
+    height:20px;
+    line-height:20px;
+    margin-left:2px;
+    overflow:hidden;
+    text-align:center;
+    text-decoration:none;
+    width:30px;
+}
+
+#item_lists{
+    float:left;
+    height:auto;
+    width:100%;
+}
+
+#item_lists .item{
+    background-color:#F6F6F6;
+    height:auto;
+    width:100%;
+    *width:650px;
+    border-left:0px solid #E6E3DC;
+    border-right:0px solid #E6E3DC;
+    margin-bottom:20px;
+}
+
+#item_lists .item .item_title{
+    background-color:#D0EBF5;
+    /*color:#337DB9;*/
+    padding:0px 0 0px 12px;
+    height:33px;
+    line-height:33px;
+    vertical-align: middle;
+}
+
+#item_lists .item .item_title ul{
+    float:right;
+    display:block;
+    list-style-image:none;
+    list-style-type:none;
+    padding:0 15px 0 0;
+    position:relative;
+    top:-3px;
+    overflow:hidden;
+}
+
+#item_lists .item .item_title li{
+    display:inline;
+    float:right;
+    height:27px;
+    margin:0;
+    min-width:15px;
+    padding-left:15px;
+    padding-right:5px;
+    text-align:right;
+    width:auto;
+    z-index:100;
+    position:relative;
+    line-height:normal;
+    padding-top:3px;
+    /*overflow:hidden;*/
+}
+#item_lists .item .item_title li.favor{
+    background:transparent url(../../images/common/favor_bg.gif) repeat-x scroll 0 1px;
+}
+
+#item_lists .item .item_title ul li  span {
+    color:#FFFFFF;
+    font-size:11px;
+    margin:0;
+    padding-top:5px;
+    text-align:left;
+
+}
+
+#item_lists .item .item_title li.consumption {
+    background:transparent url(../../images/common/consumption_bg.gif) repeat-x scroll 0 1px;
+    margin:0 15px 0 0;
+}
+#item_lists .item .item_con {
+    float:left;
+    min-height:110px;
+    height:auto;
+    text-align:center;
+    padding-top:10px;
+    padding-left:10px;
+    width:630px;
+    position:relative;
+}
+
+.item_con :hover{
+
+}
+
+#item_lists .item .item_pic {
+    float:left;
+    background: url(../../images/common/shadowAlpha.png) no-repeat bottom right;
+    margin: 10px 0 0 10px !important;
+    margin: 10px 0 0 5px;
+}
+
+#item_lists .item .item_pic img{
+    display: block;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #a9a9a9;
+    margin: -6px 6px 6px -6px;
+    padding: 4px;
+}
+
+#item_lists .item .item_title .food_name, .setmeats_item_name{
+    /*597D39;*/
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+}
+#item_lists .item .item_title a{
+    color:#006FC5;
+}
+
+#item_lists .item .item_title a:hover{
+    color:#FF7A21;
+}
+
+.setmeats_item_name{
+    float:left;
+    margin-left:120px;
+    padding-top:15px;
+    font-size:13px;
+    width:300px;
+}
+
+.setmeats_item_name a:hover{
+    color:#FF7A21;
+}
+.setmeats_item_price{
+    float:left;
+    color:#999999;
+    margin-left:20px;
+    padding-top:15px;
+    font-size:13px;
+}
+#item_lists .item .item_title .rest_name {
+    margin-left:10px;
+    font-size:13px;
+    font-weight:500;
+    color:#006FC5;/*179FC0;7E3A4E*/
+}
+
+
+#item_lists .item .item_con .description{
+    float:left;
+    width:250px;
+    padding-top:5px;
+    min-height:100px;
+    height:auto;
+    margin-left:20px;
+    margin-right:5px;
+    text-align:left;
+    font-size:13px;
+    line-height:19px;
+}
+#item_lists .item .item_con .description span{
+    color:#43561E;
+    font-size:13px;
+    margin-right:5px;
+}
+
+.price_area {
+    background:transparent url(../../images/common/price_info_icon1.png) no-repeat scroll 0 0;
+    width:173px;
+    height:73px;
+    float:right;
+    padding:27px 0px 0 10px;
+    text-align:left;
+    font-size:12px;
+    font-family:"微软雅黑";
+    color:#43561E;
+    text-align:left;
+
+}
+.price_area span{
+    color:#597D39;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.item_bottom {
+    clear:both;
+    height:18px;
+    padding-bottom:10px;
+    padding-top:10px;
+    position:relative;
+    z-index:922;
+}
+
+.item_bottom .special{
+    background:transparent url(../../images/common/special.gif) no-repeat scroll right bottom;
+    color:#FFFFFF;
+    display:block;
+    height:31px;
+    width:31px;
+    position:absolute;
+    right:27px;
+    top:-111px;
+}
+
+.item_bottom .auto_dining{
+    background:transparent url(../../images/common/auto_dining_icon3.png) no-repeat scroll right bottom;
+    cursor:pointer;
+    display:block;
+    height:24px;
+    width:107px;
+    position:absolute;
+    right:5px;
+    top:5px;
+}
+
+.item_bottom .dining{
+    background:transparent url(../../images/common/dining_icon1.png) no-repeat scroll right bottom;
+    cursor:pointer;
+    display:block;
+    height:24px;
+    width:107px;
+    position:absolute;
+    right:120px;
+    top:5px;
+}
+
+.wjx {
+    float:left;
+    text-align:center;
+    width:130px;
+    padding-left:12px;
+    position:relative;
+}
+
+.drawFootContent ul{
+    padding-left:10px;
+    padding-top:3px;
+}
+.drawFootContent ul li.left_button div{
+    float:left;
+    height:18px;
+    line-height:18px;
+    margin-right:10px;
+    padding:2px 0 0 22px;
+    text-align:center;
+}
+.details {
+    background:transparent url(../../images/common/detail_info.png) no-repeat scroll left 0;
+}
+.comments {
+    background:transparent url(../../images/common/comment.gif) no-repeat scroll left 0;
+}
+.favor {
+    background:transparent url(../../images/common/addInFavor.png) no-repeat scroll left 0;
+}
+
+.delivery{
+    background:transparent url(../../images/common/16c.png) no-repeat scroll left 0;
+}
+
+.open_setmeals{
+    background:transparent url(../../images/common/open_setmeals_icon.png) no-repeat scroll left 0;
+}
+.close_setmeals{
+    background:transparent url(../../images/common/close_setmeals_icon.png) no-repeat scroll left 0;
+}
+
+.see_map{
+    background:transparent url(../../images/common/iconb7.png) no-repeat scroll 0 0;
+    padding-left:22px;
+    height:34px;
+    width:70px;
+    margin-right:10px;
+    position:absolute;
+    padding-top:10px;
+    left:180px;
+    z-index:199;
+    *bottom:-40px;
+
+}
+
+.see_map a{
+    font-size:14px;
+    font-weight:bold;
+    color:#999999;
+}
+
+.see_map a:hover{
+    color:#FF7A21;
+}
+.right_button {
+    width:190px;
+    position:absolute;
+    /*bottom:-30px;*/
+    right:0px;
+    z-index:300;
+}
+.right_button .shuju {
+    float:left;
+    height:20px;
+    line-height:15px;
+    text-align:left;
+    width:85px;
+}
+.right_button .shuju img {
+    cursor:pointer;
+}
+
+.right_button .kuan1 {
+    color:#333333;
+    float:left;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    height:auto;
+    margin:0px 3px;
+    *margin-left:3px;
+    overflow:hidden;
+    padding:0;
+    text-align:center;
+    width:18px;
+}
+
+.right_button .add_to_cart {
+    background:transparent url(../../images/common/add_in_menu.gif) no-repeat scroll left 0;
+    float:left;
+    width:107px;
+    cursor:pointer;
+    font-size:12px;
+    height:24px;
+    line-height:18px;
+    text-align:center;
+    z-index:382;
+}
+
+.right_button .pause_serve {
+    background:transparent url(../../images/common/pause_serve.gif) no-repeat scroll left 0;
+    float:left;
+    width:107px;
+    font-size:12px;
+    height:24px;
+    line-height:18px;
+    text-align:center;
+    z-index:382;
+}
+.right_button .number{
+    float:left;
+}
+.setmealschilds{
+    clear:both;
+    background-color:#F7F7F5;
+    float:left;
+    border-top:1px dotted #9D9C97;
+    padding:8px 0 0 19px;
+    width:631px;
+}
+
+.setmealschilds ul{
+    display:block;
+    list-style-image:none;
+    list-style-type:none;
+}
+
+.setmealschilds ul li{
+    float:left;
+    width:630px;
+    margin-bottom:5px;
+    border-bottom:1px dotted #9D9C97
+}
+.setmealschilds .serial{
+    font-size:14px;
+    color:#000000;
+    font-weight:bold;
+}
+
+.setmealschilds .setmeals_item_pic{
+    float:left;
+    background: url(../../images/common/shadowAlpha.png) no-repeat bottom right;
+    margin: 10px 0 0 10px !important;
+    margin: 10px 0 0 5px;
+    cursor:pointer;
+    display:block;
+}
+
+.setmealschilds .setmeals_item_pic img{
+    display: block;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #a9a9a9;
+    margin: -6px 6px 6px -6px;
+    padding: 4px;
+}
+
+.itemFoot {
+    background:#FFFFFF url(../../images/foodrestsearch/foothead_shdw.png) repeat-x scroll right bottom;
+    min-height:30px;
+    height:auto;
+    padding-bottom:3px;/*6px*/
+    width:650px;
+    display:block;
+    overflow:hidden;
+    z-index:112;
+}
+
+.itemFoot .footShdw{
+    background-color:#F7F7F5;
+}
+
+.footShdw :hover{
+    background-color: #ffeeee;
+}
+
+
+.itemFoot .drawFootHead{
+    background:#FFFFFF url(../../images/foodrestsearch/foothead_shdw1.png) repeat-x scroll right bottom;
+    height:6px;
+}
+
+.itemFoot .drawFootHead p{
+    width:190px;
+    height:auto;
+    text-align:center;
+    margin:0;
+    font-size:12px;
+    color:#838383;
+    float:left;
+}
+
+.drawFootContent{
+    height:30px;
+    margin-left:9px;
+    /*border-left:2px solid #E6E3DC;
+    border-right:2px solid #E6E3DC;*/
+}
+
+
+
+.drawFootContent li{
+    font-size:97%;
+    height:18px;
+    display:inline;
+    margin:0px;
+}
+
+.drawFootContent li a{
+    color:#006FC5;
+    text-decoration:none;
+}
+
+.drawFootContent li a:hover{
+    color:#FF7A21;
+}

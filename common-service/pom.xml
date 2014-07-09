@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>common-service</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>Common Service</description>
 

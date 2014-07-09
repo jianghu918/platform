@@ -1,0 +1,43 @@
+﻿/*body {
+  font-size:12px;background-color:#FFFFFF;
+}*/
+
+*{ padding:0px; margin:0px;}
+.left{ float:left;}
+.right{ float:right;}
+a{ text-decoration:none;}
+
+.spokenWidth{height:auto; margin:0 auto;}
+
+
+.spokenWords{ background-color:#F0F0F0; padding:5px 8px;  margin-bottom:5px;}
+
+.spokenWords ul{ float:left; width:100%;}
+.spokenWords ul li{ float:left; width:100%; list-style:none; display:block; margin-bottom:15px; padding-bottom:5px; border-bottom:dotted 1px #D7D7D7;}
+
+.spokenSmallPhoto{ width:40px; height:40px; border:solid 1px #cccccc; padding:2px; background-color:White;}
+.spokenSmallPhoto img{ width:40px; height:40px;}
+.spokenWordRight{ width:550px;overflow:hidden;}
+.spokenWordRight h1{ font-size:9px; color:#999999; padding-bottom:3px;}
+.spokenWordRight h1 span{ color:#005EAC; font-size:12px; padding:0px 5px; }
+.spokenWordRight p{ text-indent:2em; color:#666666;}
+
+.spoken{ width:100%; background-color:#E1E1E1; position:relative;  margin-top:3px; padding-bottom:5px;margin-bottom:10px;}
+.spoken_angle{ background:url(../../images/spoken/spokenBg_top_angle.gif) no-repeat; position:absolute; top:-7px; left:15px; width:15px; height:7px;}
+.spokenInner{ margin:5px;}
+.spokenInnerRight{ width:550px;}
+.spokenBtn{ width:62px; height:23px; background:url(../../images/spoken/spokenSubmit_btn.gif) no-repeat; text-align:center; line-height:24px; display:block;} 
+.spokenFace{ color:#005EAC; line-height:16px;background:url(../../images/spoken/face.gif) no-repeat;  padding-left:20px; display:block; margin-top:3px;}
+.spokenDown{ margin:2px 40px; position:relative;}
+.twenty_faces{width:286px; border:solid 1px #cee1ee; position:absolute;  left:200px; padding:2px; background-color:White; display:none;　top:-43px;}
+.twenty_faces li{ list-style:none; width:16px; height:16px; padding:2px; border:#ddd 1px solid; float:left; margin:2px;cursor:pointer;}
+.textareacontent{
+color:#666666;
+font-size:12px;
+width:529px;
+height:42px;
+border:solid 1px #cccccc;
+margin-top:1px;
+margin-bottom:5px;
+float:left;
+}

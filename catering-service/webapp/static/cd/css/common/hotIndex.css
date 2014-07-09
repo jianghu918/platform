@@ -1,0 +1,211 @@
+
+#hotIndexInner{
+width:100%;
+height:350px;
+text-align:center;
+}
+.clear {
+clear:both;
+font-size:0;
+height:0;
+line-height:0;
+}
+
+#voteIndex {
+padding:0 12px 0 0;
+width:30%;
+float:left;
+margin-left:30px;
+*margin-left:10px;
+position:relative;
+}
+
+#favorIndex{
+padding:0 12px 0 0;
+width:30%;
+float:left;
+position:relative;
+}
+
+#consumIndex{
+padding:0 12px 0 0;
+width:30%;
+float:left;
+position:relative;
+}
+
+#hotIndexInner .hotIcon{
+height:70px;
+right:45px;
+*right:35px;
+position:absolute;
+top:-10px;
+width:70px;
+z-index:20;
+}
+
+#hotIndexInner .yellowTop {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/hotIndex_yellow_top.gif) no-repeat scroll 0 0;
+font-size:0;
+height:18px;
+line-height:0;
+width:235px;
+}
+
+#hotIndexInner .personIcon{
+background:transparent url(../../images/common/person.gif) no-repeat scroll 0 0;
+}
+
+
+#hotIndexInner .yellowMiddle {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/hotIndex_yellow_center.gif) repeat-y scroll 0 0;
+padding:0 17px 0 18px;
+width:200px;
+}
+
+
+#hotIndexInner .pre {
+border-bottom:1px solid #179FC0;
+padding:10px 0 0;
+text-align:center;
+}
+
+#hotIndexInner .number {
+font-size:32px;
+font-weight:bold;
+line-height:40px;
+padding:10px 0 0;
+color:#F85300;
+
+}
+
+#hotIndexInner .numberTitle {
+color:#179FC0;
+font-size:18px;
+font-weight:bold;
+line-height:20px;
+padding:0 0 10px;
+text-transform:uppercase;
+}
+
+#hotIndexInner .board em{
+color:#000000;
+font-size:18px;
+font-weight:bold;
+line-height:20px;
+padding:0 0 10px;
+font-style:normal;
+}
+
+#hotIndexInner .board {
+clear:both;
+float:none;
+height:100px;
+padding:0;
+text-align:center;
+width:200px;
+}
+
+#hotIndexInner .sub_button {
+margin:0 auto;
+width:130px;
+}
+
+#hotIndexInner .sub_button .left {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/button_yellow_left.gif) no-repeat scroll 0 0;
+float:left;
+height:30px;
+width:15px;
+}
+
+#hotIndexInner .sub_button .putInCartText {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/button_putincart_center.gif) repeat-x scroll 0 0;
+float:left;
+height:25px;
+padding:5px 0 0;
+text-align:center;
+width:100px;
+}
+
+#hotIndexInner .sub_button .text {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/button_yellow_center.gif) repeat-x scroll 0 0;
+float:left;
+height:25px;
+padding:5px 0 0;
+text-align:center;
+width:100px;
+}
+
+#hotIndexInner .sub_button .right {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/button_yellow_right.gif) no-repeat scroll 0 0;
+float:left;
+height:30px;
+width:15px;
+}
+
+#hotIndexInner .yellowBottom {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/common/hotIndex_yellow_bottom.gif) no-repeat scroll 0 0;
+font-size:0;
+height:18px;
+line-height:0;
+width:235px;
+}
+
+#hotIndexInner .compositeIndex{
+clear:both;
+height:70px;
+padding-left:25%;
+padding-top:20px;
+}
+
+#hotIndexInner .ratingstar{
+float:left;
+width:300px;
+height:30px;
+position:relative;
+}
+
+#hotIndexInner .indexStars{
+background:transparent url(../../images/common/stars30.gif) repeat-x scroll 0 0;
+height:30px;
+}
+
+#hotIndexInner .redStar{
+background:transparent url(../../images/common/stars30.gif) repeat-x scroll 0 -60px;
+position:absolute;
+height:30px;
+top:0px;
+left:0px;
+}
+
+#hotIndexInner .compositeIndex em{
+float:left;
+color:#F85300;
+font-size:18px;
+font-weight:bold;
+line-height:20px;
+font-style:normal;
+padding-top:6px;
+margin-right:3px;
+}

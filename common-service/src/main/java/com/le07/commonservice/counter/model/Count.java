@@ -15,6 +15,7 @@ import java.io.Serializable;
  * Date: 13-7-9
  * Time: 下午5:11
  */
+@Table(name = "cs_count")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Count implements Serializable {

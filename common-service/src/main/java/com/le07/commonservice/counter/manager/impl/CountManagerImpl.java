@@ -1,8 +1,8 @@
 package com.le07.commonservice.counter.manager.impl;
 
-import com.le07.commonservice.app.manager.BizManager;
-import com.le07.commonservice.counter.dao.CountDao;
+import com.le07.commonservice.counter.dao.SpecificDao;
 import com.le07.commonservice.counter.manager.CountManager;
+import com.le07.commonservice.base.BaseManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,43 +21,40 @@ import java.util.Map;
  */
 @Service
 @Transactional
-public class CountManagerImpl implements CountManager{
+public class CountManagerImpl extends BaseManagerImpl implements CountManager{
 
     @Autowired
-    private CountDao countDao;
-
-    @Autowired
-    private BizManager bizManager;
+    private SpecificDao specificDao;
     
     
     @Override
     @Transactional(readOnly = true)
     public int getCount(String bizKey, int type, String owner) {
-        return countDao.getCount(getBizId(bizKey), type, owner);
+        return countDao.getCount((int)getBizId(bizKey), type, owner);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Map<String, Integer> getCountMap(String bizKey, int type, List<String> owners) {
-        return countDao.getCountMap(getBizId(bizKey), type, owners);
+        return specificDao.getCountMap((int)getBizId(bizKey), type, owners);
     }
 
     @Override
     @Transactional
     public void resetCount(String bizKey, int type, String owner) {
-        countDao.resetCount(getBizId(bizKey), type, owner);
+        countDao.resetCount((int) getBizId(bizKey), type, owner);
     }
 
     @Override
     @Transactional
     public void increaseCount(String bizKey, int type, String owner, int count) {
-        countDao.increaseCount(getBizId(bizKey), type, owner, count);
+        countDao.increaseCount((int)getBizId(bizKey), type, owner, count);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<String> getHotOwner(String bizKey, int type, int size, int algorithm) {
-        return countDao.getHotOwner(getBizId(bizKey), type, size, algorithm);
+        return specificDao.getHotOwner((int)getBizId(bizKey), type, size, algorithm);
     }
 
     @Override
@@ -68,11 +65,8 @@ public class CountManagerImpl implements CountManager{
     @Override
     @Transactional
     public void upgrade(int fromVersion) {
-        countDao.upgrade0();
+        specificDao.upgrade0();
     }
 
 
-    private int getBizId(String bizKey) {
-        return (int) bizManager.getBizId(bizKey);
-    }
 }

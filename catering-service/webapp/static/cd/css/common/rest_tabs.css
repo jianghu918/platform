@@ -1,0 +1,62 @@
+#tabs {
+float:left;
+font-size:14px;
+font-family:"微软雅黑";
+line-height:normal;
+width:414px;
+font-weight:600;
+position: relative;
+/*padding-left:190px;*/
+}
+
+#tabs ul {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+width:450px;
+}
+#tabs li {
+display:inline;
+margin:0;
+padding:0;
+}
+#tabs a {
+background:transparent url(../../images/orderfood/tableftJ.gif) no-repeat scroll left top;
+float:left;
+margin:0;
+padding:0 0 0 5px;
+text-decoration:none;
+}
+#tabs a span {
+float:none;
+margin:0 1px 0 0;
+}
+#tabs a span {
+background:transparent url(../../images/orderfood/tabrightJ.gif) no-repeat scroll right top;
+color:#4B3939;
+display:block;
+float:left;
+padding:5px 15px 4px 6px;
+}
+#tabs a:hover span,#tabs ul li.current a span{
+background-position:100% -42px;
+color:#FFFFFF;
+}
+
+#tabs a:hover,  #tabs ul li.current a {
+background-position:0% -42px;
+}
+      
+current1{
+background:transparent url(../../images/orderfood/tabrightJ.gif) no-repeat scroll right top;
+color:#333;
+display:block;
+float:left;
+padding:5px 15px 4px 6px;
+}
+#noticeTabs{float: left;width:546px !important;width: 510px;height: 28px !important;height: 31px;line-height: 26px;background: none repeat scroll 0 0 #E9EEF2;/*border-radius:0 0 5px 5px;box-shadow:0 5px 5px #565656;opacity:0.7;*/}
+body:nth-of-type(1) #noticeTabs{float: left;width:546px !important;height: 28px !important;line-height: 26px;background: none repeat scroll 0 0 #E9EEF2;}
+#noticeTabs ul#noticeUl{background: url("../../images/common/sound.gif") no-repeat scroll 0px 2px transparent;padding-left: 35px;font-family: "Microsoft YaHei";}
+#noticeUl li{background-color:#E9EEF2;list-style: none outside none;font-size: 13px;font-weight: bold;color: #ED1C24;}

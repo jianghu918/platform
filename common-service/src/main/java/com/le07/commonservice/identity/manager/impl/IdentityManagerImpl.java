@@ -1,15 +1,18 @@
 package com.le07.commonservice.identity.manager.impl;
 
 import com.google.common.collect.Maps;
-import com.le07.commonservice.identity.dao.RoleDao;
-import com.le07.commonservice.identity.dao.UserDao;
+import com.le07.commonservice.base.BaseManagerImpl;
+import com.le07.commonservice.identity.dao.SpecificDao;
 import com.le07.commonservice.identity.manager.IdentityManager;
 import com.le07.commonservice.identity.model.Role;
 import com.le07.commonservice.identity.model.User;
 import com.le07.commonservice.identity.util.Query;
 import com.le07.framework.global.type.Status;
 import com.le07.framework.global.type.UserType;
+import com.le07.framework.security.util.Digests;
+import com.le07.framework.util.EncodeUtils;
 import com.le07.framework.util.Page;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,19 +33,31 @@ import java.util.*;
  */
 @Service
 @Transactional
-public class IdentityManagerImpl implements IdentityManager {
-
+public class IdentityManagerImpl extends BaseManagerImpl implements IdentityManager {
+	public static final String HASH_ALGORITHM = "SHA-1";
+	public static final int HASH_INTERATIONS = 1024;
+	private static final int SALT_SIZE = 8;
+	
     @Autowired
-    private UserDao userDao;
+    private SpecificDao specificDao;
 
-    @Autowired
-    private RoleDao roleDao;
+    /**
+	 * 设定安全的密码，生成随机的salt并经过1024次 sha-1 hash
+	 */
+	private void entryptPassword(User user) {
+		byte[] salt = Digests.generateSalt(SALT_SIZE);
+		user.setSalt(EncodeUtils.encodeHex(salt));
 
+		byte[] hashPassword = Digests.sha1(user.getPassword().getBytes(), salt, HASH_INTERATIONS);
+		user.setPassword(EncodeUtils.encodeHex(hashPassword));
+	}
+	
 
     @Override
     public User createUser(User user) {
+        user.setCreateAt(new Date());
+        entryptPassword(user);
         User u = userDao.save(user);
-        u.setCreateAt(new Date());
         return u;
     }
 
@@ -50,21 +65,21 @@ public class IdentityManagerImpl implements IdentityManager {
     public User createUserByNameAndPwd(String name, String password)  {
         User user = new User();
         user.setName(name);
-        user.setPassword(password);
         user.setCreateAt(new Date());
         user.setStatus(Status.ENABLED);
         user.setType(UserType.CONSUMER);
+        entryptPassword(user);
         return userDao.save(user);
     }
 
-
+    
 
 
     public static String[] userAttrFileds = {"type", "phone", "age", "sex", "city", "qq", "msn", "weixin", "blog", "remark", "y1", "y2", "y3", "y4", "y5"};
 
     @Override
     public void updateUserAttr(User user) {
-        User original = userDao.get(user.getId());
+        User original = userDao.findOne(user.getId());
         /*if(null == original)
         {
             throw new IdentityException(ECode.IdentityCode.ENTITY_NOT_FOUND);
@@ -74,18 +89,21 @@ public class IdentityManagerImpl implements IdentityManager {
         userDao.save(original);
     }
 
+    //此方法待修改为reset密码吧
+    //TODO
     @Override
     public void updateUserPassword(String name, String oldPassword, String newPassword) {
-        User original = userDao.findByNameAndPassword(name, DigestUtils.md5Hex(oldPassword));
+        User original = userDao.findByLoginName(name);
         Assert.notNull(original, "user not found: name:" + name);
         original.setPassword(newPassword);
+        entryptPassword(original);
         userDao.save(original);
     }
 
 
     @Override
     public void updateUserStatus(long userId, Status status)  {
-        User user = userDao.get(userId);
+        User user = userDao.findOne(userId);
         Assert.notNull(user, "user not found: id:" + userId);
         user.setStatus(status);
         userDao.save(user);
@@ -116,14 +134,14 @@ public class IdentityManagerImpl implements IdentityManager {
 
     @Override
     @Transactional(readOnly = true)
-    public User getUserByNameAndPwd(String name, String password) {
-        return userDao.findByNameAndPassword(name, DigestUtils.md5Hex(password));
+    public User getUserByNameAndPwd(String loginName, String password) {
+        return userDao.findByLoginName(loginName);
     }
 
     @Override
     @Transactional(readOnly = true)
     public User getUserById(long userId) {
-        return userDao.get(userId);
+        return userDao.findOne(userId);
     }
 
     @Override
@@ -146,25 +164,30 @@ public class IdentityManagerImpl implements IdentityManager {
     public Page<User> listUsers(Query query, long offset, long size) {
         Page<User> page = new Page<User>();
         page.setTotal((int) userDao.count());
-        page.setItems(userDao.listUsers(query, offset, size));
+        page.setItems(specificDao.listUsers(query, offset, size));
         return page;
     }
 
     @Override
-    public Role createUserRole(long userId, String authority) {
+    public Role createUserRole(long userId, String permissions) {
         Role role = new Role();
         role.setUser(getUserById(userId));
-        role.setAuthority(authority);
+        role.setPermissions(permissions);
         return roleDao.save(role);
     }
 
     @Override
-    public void updateUserRole(long roleId, String authority) {
-        roleDao.updateRoleAuthority(roleId, authority);
+    public void updateUserRole(long roleId, String permissions) {
+        roleDao.updateRolePermissions(roleId, permissions);
     }
 
     @Override
     public List<Role> getUserRoles(long userId) {
         return roleDao.getUserRoles(userId);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(DigestUtils.md5Hex("admin"));
     }
 }

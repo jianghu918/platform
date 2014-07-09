@@ -19,7 +19,7 @@ import java.util.List;
  * Date: 13-7-1
  * Time: 上午11:36
  */
-@Table(name = "identity_user")
+@Table(name = "cs_identity_user")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @SuppressWarnings({"unused"})
@@ -40,6 +40,8 @@ public class User implements Serializable {
 
     @Column(nullable = false)
     private String password;
+    
+    private String salt;
 
     @Column
     private UserType type = UserType.CONSUMER;
@@ -257,14 +259,21 @@ public class User implements Serializable {
         this.loginName = loginName;
     }
 
+    public String getSalt() {
+		return salt;
+	}
 
-    public Role addRole(Role role)
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	public Role addRole(Role role)
     {
         getRoleList().add(role);
         role.setUser(this);
         return role;
     }
-
+    
     public Role removeRole(Role role)
     {
         getRoleList().remove(role);
@@ -275,10 +284,9 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", type=" + type +
-                ", phone='" + phone + '\'' +
-                ", status=" + status +
+                "id=" + id +
+                ", loginName='" + loginName + '\'' +
+                ", roleList=" + roleList +
                 '}';
     }
 }

@@ -1,0 +1,118 @@
+/****************************************************************评论框的样式***********************************/
+.commentbox{
+width:660px;
+height:auto;
+position:relative;
+left:-1px;
+}
+.commentbox .title{
+line-height:38px;
+color:#006FC5;
+font-weight:700;
+font-size:18px;
+}
+.commentbox .title p{
+margin-left:10px;
+}
+.commentbox .content_bg{
+height:auto;
+-moz-border-radius-bottomleft:8px;
+-moz-border-radius-bottomright:8px;
+-moz-border-radius-topleft:8px;
+-moz-border-radius-topright:8px;
+background:#DCD8D7 url(../../images/comments/comment_dlg_bg.png) repeat-x scroll 0 0;
+border-color:#FFFFFF #9EA3A9 #9EA3A9 #FFFFFF;
+border-style:solid;
+border-width:2px;
+padding:5px 20px 10px;
+width:660px;
+*width:690px;
+}
+
+.commentbox .close{
+background:transparent url(../../images/comments/comment_dlg_close.png) no-repeat scroll 0 0;
+position:absolute;
+top:-31px;
+right:-18px;
+height:42px;
+widht:42px;
+cursor:pointer;
+z-index:1111;
+padding-left:42px;
+}
+
+.commentbox .text_input_box,#givepoints div{
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
+-moz-border-radius-topleft:5px;
+-moz-border-radius-topright:5px;
+background-color:#FFFFFF;
+border-color:#777777 #CCCCCC #CCCCCC #777777;
+border-style:solid;
+border-width:1px;
+
+}
+
+#foodgivepoints div{
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
+-moz-border-radius-topleft:5px;
+-moz-border-radius-topright:5px;
+background-color:#FFFFFF;
+border-color:#777777 #CCCCCC #CCCCCC #777777;
+border-style:solid;
+border-width:1px;
+
+}
+
+.commentbox .text_input_box{
+width:345px;
+float:left;
+margin-right:10px;
+padding:5px;
+}
+
+#givepoints div{
+margin-bottom:10px;
+height:23px;
+line-height:23px;
+*height:20px;
+*line-height:20px;
+padding-left:5px;
+*width:320px;
+}
+#givepoints{
+width:290px;
+*width:320px;
+float:left;
+}
+
+#givepoints{
+width:290px;
+*width:320px;
+float:left;
+}
+
+#foodgivepoints div{
+margin-bottom:10px;
+height:23px;
+line-height:23px;
+*height:20px;
+*line-height:20px;
+padding-left:5px;
+*width:320px;
+}
+#foodgivepoints{
+width:290px;
+*width:320px;
+float:left;
+}
+
+#foodgivepoints{
+width:290px;
+*width:320px;
+float:left;
+}
+
+
+

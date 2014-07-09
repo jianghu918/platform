@@ -44,13 +44,13 @@ public class AppManagerImpl implements AppManager {
     @Override
     @Transactional(readOnly = true)
     public App getApp(Long id)  {
-        return appDao.get(id);
+        return appDao.findOne(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<App> getApps() {
-        return appDao.getAll();
+        return appDao.findAll();
     }
 
     @Override
@@ -66,13 +66,13 @@ public class AppManagerImpl implements AppManager {
     @Override
     @Transactional(readOnly = true)
     public Biz getBiz(Long id) {
-        return bizDao.get(id);
+        return bizDao.findOne(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Biz> getBizs() {
-        return bizDao.getAll();
+        return bizDao.findAll();
     }
 
     @Override

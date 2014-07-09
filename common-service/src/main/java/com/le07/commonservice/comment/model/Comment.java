@@ -21,6 +21,7 @@ import java.util.Map;
  * Date: 13-7-5
  * Time: 上午10:41
  */
+@Table(name = "cs_comment")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @SuppressWarnings({"unused"})

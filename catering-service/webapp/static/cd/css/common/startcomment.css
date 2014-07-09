@@ -1,0 +1,52 @@
+
+.evaluate{
+    position:absolute;
+    z-index:9999;
+    top:-60px;
+    right:-250px;
+    width:270px;
+    float:left;
+    background: transparent url(../../images/common/shadowAlpha.png) no-repeat bottom right !important ;
+    background: url(../../images/test/shadow.gif) no-repeat bottom right;
+    margin: 10px 0 0 10px !important;
+    margin: 10px 0 0 5px;
+    min-height:146px;
+    height:auto;
+    display:block;
+}
+
+
+.evaluate_llist{
+    background: none !important;
+    padding: 0 !important;
+    padding: 0 6px 6px 0;
+    min-height:146px;
+    height:auto;
+}
+.evaluate_llist a:link{
+    color:#0000ff;
+}
+.evaluate_llist a:hover{
+    color:#FF0000;
+}
+.evaluate_llist div{
+    background-color: #fff;
+    border: 1px solid #a9a9a9;
+    padding: 4px;
+    margin: -6px 6px 6px -6px !important;
+    margin:0;
+    min-height:146px;
+    height:auto;
+}
+
+.evaluate_llist ul{
+    list-style-type:none;
+    text-align:left;
+}
+.evaluate_llist ul li{
+    margin-top:5px;
+    float:left;
+    width:230px;
+    margin-left:15px;
+    *margin-left:5px;
+}

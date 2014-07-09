@@ -6,6 +6,8 @@ import org.hibernate.annotations.*;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.annotations.Cache;
 
@@ -32,13 +34,16 @@ public class Board implements Serializable {
      */
 	private int galleryful;
 
+    /**
+     * 编号
+     */
 	private String name;
 
     private String summary;
 
 	private String remark;
 
-	private BoardStatus status;
+	private BoardStatus boardStatus = BoardStatus.DEFAULT;
 
 	//bi-directional many-to-one association to BoardItem
 	@OneToMany(mappedBy="board")
@@ -47,6 +52,20 @@ public class Board implements Serializable {
     @ManyToOne
     @JoinColumn(name="company_id")
     private Company company;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_at")
+    private Date createAt = new Date();
+
+
+    /** 起始编号 */
+    @Transient
+    private Integer sn;
+
+    /** 结束编号 */
+    @Transient
+    private Integer en;
+
 
 	public Board() {
 	}
@@ -99,21 +118,45 @@ public class Board implements Serializable {
 		this.remark = remark;
 	}
 
-	public BoardStatus getStatus() {
-		return this.status;
-	}
+    public BoardStatus getBoardStatus() {
+        return boardStatus;
+    }
 
-	public void setStatus(BoardStatus status) {
-		this.status = status;
-	}
+    public void setBoardStatus(BoardStatus boardStatus) {
+        this.boardStatus = boardStatus;
+    }
 
-	public List<BoardItem> getBoardItems() {
+    public List<BoardItem> getBoardItems() {
 		return this.boardItems;
 	}
 
 	public void setBoardItems(List<BoardItem> boardItems) {
 		this.boardItems = boardItems;
 	}
+
+    public Integer getEn() {
+        return en;
+    }
+
+    public void setEn(Integer en) {
+        this.en = en;
+    }
+
+    public Integer getSn() {
+        return sn;
+    }
+
+    public void setSn(Integer sn) {
+        this.sn = sn;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
 
     public BoardItem addBoardDetail(BoardItem boardItem) {
         getBoardItems().add(boardItem);

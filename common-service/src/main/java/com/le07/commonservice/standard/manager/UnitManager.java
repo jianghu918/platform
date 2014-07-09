@@ -1,6 +1,7 @@
 package com.le07.commonservice.standard.manager;
 
 import com.le07.commonservice.standard.model.Unit;
+import com.le07.framework.base.BaseManager;
 import com.le07.framework.global.type.Status;
 import com.le07.framework.util.Page;
 
@@ -14,7 +15,7 @@ import java.util.Set;
  * Date: 13-7-16
  * Time: 下午2:42
  */
-public interface UnitManager {
+public interface UnitManager extends BaseManager<Unit, Long>{
     /**
      * 保存或更新一个计量单位
      * 如果有携带id, 则认为是更新

@@ -35,6 +35,8 @@ public class Dishes implements Serializable {
 
     private double price;
 
+    private String summary;
+
     private String remark;
 
     private long score;
@@ -50,10 +52,12 @@ public class Dishes implements Serializable {
     @OneToMany(mappedBy = "dishes")
     private List<Discount> discounts;
 
-    //bi-directional many-to-one association to Company
+    /*//bi-directional many-to-one association to Company
     @ManyToOne
     @JoinColumn(name = "company_id")
-    private Company company;
+    private Company company;*/
+
+    private Long companyId;
 
     @OneToMany(mappedBy = "deshes")
     private List<OrderItem> orderItems;
@@ -72,6 +76,14 @@ public class Dishes implements Serializable {
 
     public long getClassificationId() {
         return this.classificationId;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public void setClassificationId(long classificationId) {
@@ -142,12 +154,20 @@ public class Dishes implements Serializable {
         this.discounts = discounts;
     }
 
-    public Company getCompany() {
+   /* public Company getCompany() {
         return this.company;
     }
 
     public void setCompany(Company company) {
         this.company = company;
+    }*/
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
     public List<OrderItem> getOrderItems() {

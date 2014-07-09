@@ -1,0 +1,242 @@
+.stars {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px;
+    height: 15px;
+    background-image: url(../../images/star.png)
+}
+
+.star0 {
+    background-position: 0 0
+}
+
+.star1 {
+    background-position: 0 -15px
+}
+
+.star2 {
+    background-position: 0 -30px
+}
+
+.star3 {
+    background-position: 0 -45px
+}
+
+.star4 {
+    background-position: 0 -60px
+}
+
+.star5 {
+    background-position: 0 -75px
+}
+
+.star6 {
+    background-position: 0 -90px
+}
+
+.star7 {
+    background-position: 0 -105px
+}
+
+.star8 {
+    background-position: 0 -120px
+}
+
+.star9 {
+    background-position: 0 -135px
+}
+
+.star10 {
+    background-position: 0 -150px
+}
+
+
+em{
+    color: #fa7c00;
+}
+.vam {
+    margin: 2px;
+    vertical-align: middle;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f15 {
+    font-size: 15px;
+}
+
+.f16 {
+    font-size: 16px;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+
+.f20 {
+    font-size: 20px;
+}
+
+
+.f26 {
+    font-size: 26px;
+}
+
+
+
+
+.pagination li { float:left; margin-left:5px;}
+.pagination li a { display:inline-block; padding:0 8px; line-height:20px; border:solid 1px #ddd; color:#999;}
+.pagination li a:hover, .pagination li.active a { background: #d7790e; color:#fff; }
+
+
+
+
+
+
+
+
+
+/*//商家详情页---------------------------------------------------------------------------------------*/
+.per_consumption {
+    background: transparent url(../../images/restaurantmain/rjxf_03.jpg) no-repeat scroll 0 50%;
+    float: left;
+    height: 45px;
+    margin: 0px 0 10px 10px;
+    padding: 25px 0 0 25px;
+    color: #C80000;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+
+.div_shadow{
+
+    border:#909090 0px solid;
+    background:#fff;
+    color:#333;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";  /* For IE 8 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');  /* For IE 5.5 - 7 */
+    -moz-box-shadow: 2px 2px 7px #909090;/* for firefox */
+    -webkit-box-shadow: 2px 2px 7px #909090;/* for safari or chrome */
+    box-shadow:2px 2px 7px #909090;/* for opera or ie9 */
+}
+
+
+
+#navigation {
+    margin: 5px 0;
+    padding-top: 14px;
+    min-height: 40px;
+    background-color: #B0E176;
+    width: 960px;
+}
+
+
+
+
+.col {
+    width:960px;
+}
+
+
+.fieldWrap {
+    background:#A9DD6B none repeat scroll 0 0;
+    float:left;
+    margin:0 5px 0 0;
+    padding:2px;
+}
+
+
+#navigation ul {
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    width:760px;
+    float:left;
+}
+
+#navigation li {
+    display:inline;
+    font-family:"微软雅黑";
+    font-size:16px;
+    font-weight:bold;
+}
+
+#navigation a {
+    color:#CFEDAC;
+    float:left;
+    position:relative;
+    text-decoration:none;
+}
+
+#navigation a em {
+    color:#597D39;
+    font-style:normal;
+    left:11px;
+    position:absolute;
+    top:3px;
+    white-space:nowrap;
+}
+
+#navigation a span {
+    float:left;
+    padding:4px 9px 5px 11px;
+}
+
+#navigation a:hover, #navigation a:hover em, #navigation a em:hover,#navigation li.current a em {
+    color:#7D7D7D;/*39708E*/
+    cursor:pointer;
+}
+#navigation li.current a em {
+    color:#39708E;
+    cursor:pointer;
+}
+
+#search .fieldWrap label{
+    color:#999999;
+    font-size:105%;
+    height:22px;
+    left:10px;
+    line-height:22px;
+    position:absolute;
+    text-align:left;
+    top:3px;
+    width:120px;
+}
+
+.red{
+    color: red;
+}
+
+p{
+    margin-left: 15px;
+}
+
+.cDetail{
+    float: left;
+}
+
+.head{
+    min-height: 30px;
+    background-color: #D0EBF5;
+    padding-left: 5px;
+    font-size: 20px;
+    line-height:24px;
+    padding-top: 10px;
+}
+
+.detail_content{
+    width: 472px;
+    float:left;
+    margin: 4px 4px;
+    background-color: #fff;
+}

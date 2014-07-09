@@ -17,6 +17,7 @@ import java.io.Serializable;
  * Time: 下午10:17
  */
 @Entity
+@Table(name = "cs_identity_role")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Role implements Serializable{
     private static final long serialVersionUID = 518280644327678048L;
@@ -26,7 +27,7 @@ public class Role implements Serializable{
     private long id;
 
     @NotBlank
-    private String authority;
+    private String permissions;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -35,12 +36,12 @@ public class Role implements Serializable{
     public Role() {
     }
 
-    public String getAuthority() {
-        return authority;
+    public String getPermissions() {
+        return permissions;
     }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
     }
 
     public long getId() {
@@ -57,5 +58,10 @@ public class Role implements Serializable{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return permissions;
     }
 }

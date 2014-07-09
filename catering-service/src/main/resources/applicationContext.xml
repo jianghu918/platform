@@ -23,12 +23,17 @@
     </context:component-scan>
 
 
-    <jpa:repositories base-package="com.le07.catering" transaction-manager-ref="transactionManager" />
+    <jpa:repositories base-package="com.le07.catering, com.le07.commonservice" transaction-manager-ref="transactionManager" />
 
     <!-- entityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="internalDataSource"/>
-        <property name="packagesToScan" value="com.le07.catering.model"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.le07.commonservice</value>
+                <value>com.le07.catering</value>
+            </list>
+        </property>
         <property name="persistenceProviderClass" value="org.hibernate.ejb.HibernatePersistence"/>
         <property name="jpaProperties">
             <props>
@@ -44,9 +49,10 @@
                 <prop key="hibernate.cache.use_query_cache">true</prop>
                 <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
                 <!--<prop key="hibernate.cache.region.factory_class">com.le07.framework.cache.hibernate.CacheRegionFactory</prop> -->
+                <prop key="net.sf.ehcache.configurationResourceName">ehcache.xml</prop>
                 <prop key="hibernate.archive.autodetection">class</prop>
                 <prop key="hibernate.show_sql">${hibernate.debug}</prop>
-                <prop key="hibernate.format_sql">${hibernate.debug}</prop>
+                <prop key="hibernate.format_sql">false</prop>
                 <prop key="hibernate.generate_statistics">${hibernate.debug}</prop>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
                 <prop key="javax.persistence.validation.mode">none</prop>
@@ -239,10 +245,10 @@
 
 
 
-    <!-- 引用服务 -->
+    <!-- 引用服务
     <bean id="identityService" class="com.le07.framework.support.thrift.ThriftHttpProxyFactoryBean">
         <property name="serviceUrl" value="${base.url}/cs/identityService"/>
         <property name="serviceInterface" value="com.le07.api.identity.IdentityService$Iface"/>
-    </bean>
+    </bean>-->
 
 </beans>

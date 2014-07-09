@@ -1,0 +1,113 @@
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+.yui-h-slider,.yui-v-slider,.yui-bh-slider {
+	position: relative;
+	float: left;
+}
+
+.yui-h-slider .yui-slider-thumb,.yui-v-slider .yui-slider-thumb,.yui-bh-slider .yui-slider-thumb {
+	position: absolute;
+	cursor: pointer;
+}
+
+.yui-skin-sam .yui-h-slider {
+	background: url(bg-h.gif) no-repeat 5px 0;
+	height: 28px;
+	width: 120px;
+}
+.yui-skin-sam .yui-bh-slider{
+	background: url(bg-bh.gif) no-repeat 5px 0;
+	height: 28px;
+	width: 140px;
+}
+
+.yui-skin-sam .yui-h-slider .yui-slider-thumb,.yui-skin-sam .yui-bh-slider .yui-slider-thumb {
+	top: 4px;
+}
+
+.yui-skin-sam .yui-v-slider {
+	background: url(bg-v.gif) no-repeat 12px 0;
+	height: 166px;
+	width: 48px;
+}
+.chkbox{
+	margin-top: 5px;
+}
+.overBar{
+	position:absolute;
+	z-index:999;
+	width:150px;
+	height:30px;
+	left:60px;
+	display:none;
+}
+
+
+.sliderTips {
+	background-image: url("../../slider-tips.gif");
+	width: 48px;
+	height: 16px;
+	position: absolute;
+	left: 0px;
+	top: -10px;
+	text-align: center;
+	color: #fff;
+	font-size:10px;
+	font-family: serif;
+	/*display:none;*/
+}
+
+.small{
+	background-image: url("../../mslider-tips.gif");
+	width: 21px;
+	height: 16px;
+}
+
+.leftTips{
+	position: absolute;
+	float:left;
+	left: 3px;
+	top:28px;
+}
+.rightTips{
+	position:absolute;
+	float:right;
+	right:0px;
+	top:28px;
+}
+
+/**20091107 edit***/
+/*
+.sliderDbTips{
+	position:absolute;
+	top:-10px;
+	left:5px;
+	width:100%;
+}
+.sliderDbTips .suLeft{
+	float:left;
+}
+.sliderDbTips .hunRight{
+	float:right;
+	padding-right:5px;
+}*/
+.changeColor{
+	position:absolute;
+	background-image: url(bg-bh-green.gif);
+	background-repeat:no-repeat;
+	height: 28px;
+	top:0px;
+}
+.oneTips{
+	position: absolute;
+	top:-15px;
+	background-color:#FFFFCC;
+	height:20px;
+	line-height:20px;
+	padding:0px 5px 0px 5px;
+	font-size:12px;
+}

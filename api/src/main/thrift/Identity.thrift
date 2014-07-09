@@ -148,7 +148,7 @@ struct Role{
     /**
      * 权限
      */
-    3: optional string authority
+    3: optional string permissions
 }
 
 
@@ -377,7 +377,7 @@ service IdentityService{
          /**
           * 权限
           */
-         2: string authority
+         2: string permissions
     )throws (
          1: Type.AnyException ex
     ),
@@ -396,7 +396,7 @@ service IdentityService{
          /**
           * 权限
           */
-         2: string authority
+         2: string permissions
     )throws (
          1: Type.AnyException ex
     ),

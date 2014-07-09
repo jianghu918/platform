@@ -1,11 +1,18 @@
 package com.le07.catering.model;
 
+import com.google.common.base.Joiner;
+import com.le07.commonservice.standard.model.Area;
+import com.le07.commonservice.standard.model.Classification;
 import com.le07.framework.global.type.Status;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.*;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -35,11 +42,58 @@ public class Company implements Serializable {
     @Transient
     private String bizKey;
 
+    @Column(length = 2000)
     private String summary;
+
+    /**
+     * 简介
+     */
+    @Column(length = 4000)
+    private String introduce;
+
+    /**
+     * 公告
+     */
+    @Column(length = 4000)
+    private String notice;
+
 
     private String address;
 
     private Status status;
+
+    /**
+     * 主菜系
+     */
+    @ManyToOne
+    @JoinColumn(name = "entree_type")
+    private Classification entreeType;
+
+    /**
+     * 标签 比如（新街口）
+     */
+    private String tag;
+
+    /**
+     * 人均消费值
+     */
+    @Column(name = "axf_min")
+    private Double axfMin;
+
+    /**
+     * 人均消费值
+     */
+    @Column(name = "axf_max")
+    private Double axfMax;
+
+    /**
+     * 是否支持外送
+     * 0不支持 1支持
+     */
+    @Column(name = "out_side")
+    private Long outSide;
+
+
 
     /**
      * 联系
@@ -55,13 +109,17 @@ public class Company implements Serializable {
     @Column(name="taste_score")
     private long tasteScore;
 
+    /** 总的评分 */
+    private long evaluate;
+
     /**
      * 地图
      */
 	private String mapurl;
 
-    @Column(name = "area_id")
-    private long areaId;
+    @ManyToOne
+    @JoinColumn(name = "area_id")
+    private Area area;
 
 	private String msn;
 
@@ -75,16 +133,123 @@ public class Company implements Serializable {
 
 	private String weixin;
 
-	//bi-directional many-to-one association to Dishe
-	@OneToMany(mappedBy="company", fetch = FetchType.LAZY)
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_at")
+    private Date createAt = new Date();
+
+
+    /**
+     * 营业开始时间 business hours
+     */
+    @Column(name="business_hours_begin")
+    private Long bhBegin;
+
+    @Column(name="business_hours_end")
+    private Long bhEnd;
+
+    /**
+     * logo
+     */
+    private String logo;
+
+    @Column(name="show_img")
+    private String showImg;
+
+    @Transient
+    private List<String> showImgs;
+
+
+	/*//bi-directional many-to-one association to Dishe
+	@OneToMany(mappedBy="company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Dishes> disheses;
 
     //bi-directional many-to-one association to Board
-    @OneToMany(mappedBy="company", fetch = FetchType.LAZY)
-    private List<Board> boards;
+    @OneToMany(mappedBy="company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Board> boards;*/
 
+    public String getNotice() {
+        return notice;
+    }
 
-	public Company() {
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public String getShowImg() {
+        return showImg;
+    }
+
+    public void setShowImg(String showImg) {
+        this.showImg = showImg;
+    }
+
+    public Long getOutSide() {
+        return outSide;
+    }
+
+    public void setOutSide(Long outSide) {
+        this.outSide = outSide;
+    }
+
+    public List<String> getShowImgs() {
+        return StringUtils.isBlank(showImg) ? null : Arrays.asList(showImg.split(","));
+    }
+
+    public void setShowImgs(List<String> showImgs) {
+        this.showImgs = showImgs;
+        this.showImg = Joiner.on(",").skipNulls().join(showImgs);
+    }
+
+    public long getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(long evaluate) {
+        this.evaluate = evaluate;
+    }
+
+    public Classification getEntreeType() {
+        return entreeType;
+    }
+
+    public void setEntreeType(Classification entreeType) {
+        this.entreeType = entreeType;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public Double getAxfMin() {
+        return axfMin;
+    }
+
+    public void setAxfMin(Double axfMin) {
+        this.axfMin = axfMin;
+    }
+
+    public Double getAxfMax() {
+        return axfMax;
+    }
+
+    public void setAxfMax(Double axfMax) {
+        this.axfMax = axfMax;
+    }
+
+    public Company() {
 	}
 
 	public long getId() {
@@ -99,7 +264,23 @@ public class Company implements Serializable {
 		return this.address;
 	}
 
-	public void setAddress(String address) {
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -143,9 +324,7 @@ public class Company implements Serializable {
 		this.mapurl = mapurl;
 	}
 
-    public void setAreaId(long areaId) {
-        this.areaId = areaId;
-    }
+
 
     public String getMsn() {
 		return this.msn;
@@ -183,9 +362,7 @@ public class Company implements Serializable {
 		return this.remark;
 	}
 
-    public long getAreaId() {
-        return areaId;
-    }
+
 
     public void setRemark(String remark) {
 		this.remark = remark;
@@ -223,29 +400,25 @@ public class Company implements Serializable {
 		this.weixin = weixin;
 	}
 
-	public List<Dishes> getDisheses() {
-		return this.disheses;
-	}
 
-	public void setDishes(List<Dishes> disheses) {
-		this.disheses = disheses;
-	}
 
     public String getBizKey() {
         return bizKey;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public void setBizKey(String bizKey) {
         this.bizKey = bizKey;
     }
 
-    public List<Board> getBoards() {
-        return boards;
-    }
 
-    public void setBoards(List<Board> boards) {
-        this.boards = boards;
-    }
 
     public Status getStatus() {
         return status;
@@ -253,6 +426,30 @@ public class Company implements Serializable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Long getBhBegin() {
+        return bhBegin;
+    }
+
+    public void setBhBegin(Long bhBegin) {
+        this.bhBegin = bhBegin;
+    }
+
+    public Long getBhEnd() {
+        return bhEnd;
+    }
+
+    public void setBhEnd(Long bhEnd) {
+        this.bhEnd = bhEnd;
+    }
+
+    /*public List<Board> getBoards() {
+        return boards;
+    }
+
+    public void setBoards(List<Board> boards) {
+        this.boards = boards;
     }
 
     public Board addBoard(Board board) {
@@ -280,11 +477,19 @@ public class Company implements Serializable {
         return dishes;
     }
 
+    public List<Dishes> getDisheses() {
+        return this.disheses;
+    }
+
+    public void setDishes(List<Dishes> disheses) {
+        this.disheses = disheses;
+    }*/
+
+
     @Override
     public String toString() {
         return "Company{" +
                 "id=" + id +
-                ", areaId=" + areaId +
                 ", name='" + name + '\'' +
                 '}';
     }

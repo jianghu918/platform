@@ -1,0 +1,41 @@
+#carousel_container{width: 960px;overflow: hidden;}#hot-promotion{background: none repeat scroll 0 0 #DD0000;height: 35px;margin-bottom: 10px;width: 960px;clear: both;font-size: 14px;}#hot-promotion dt{background:url("../../images/common/sound.gif") no-repeat 69px 6px transparent;float: left;width: 80px;color:#FFF;padding: 10px;}#hot-promotion dd{float: left;width: 860px;}#hot-promotion dd ul{width: 840px;padding: 10px;overflow: hidden;} #hot-promotion dd ul li{width: 400px;float: left;margin-right: 15px;overflow: hidden;}#hot-promotion dd ul li a:link{color:#FFF;}#hot-promotion dd ul li a:visited{color: #FFF;}#hot-promotion dd ul li a:hover{color: #FDE203;}#hotactivity{float:left;height:220px;overflow:hidden;width:960px;margin-bottom: 10px;}#hotactivity ul{list-style:none}#hotactivity *{margin:0;padding:0}#carousel-nav{background:url("../../images/activity/nav-base.gif") repeat 0 bottom;float:left;height:220px;position:relative;width:140px;z-index:2}#carousel-nav ul{height:220px}#carousel-nav ul li{height:55px;position:relative;}#carousel-nav ul li a{background-color:rgba(255,254,255,0.01);display:block;height:55px;overflow:hidden;outline:none;width:100%;-moz-transition:.3s ease;-o-transition:.3s ease;-webkit-transition:.3s ease}#carousel-nav ul li a img{opacity:.8;position:relative;z-index:1;-moz-transition:.3s ease;-o-transition:.3s ease;-webkit-transition:.3s ease}#carousel-nav ul li a:hover{background-color:rgba(255,254,255,0.1);-moz-transition:.3s ease;-o-transition:.3s ease;-webkit-transition:.3s ease}
+#carousel-nav ul li a:hover img{opacity:1;-moz-transition:.3s ease;-o-transition:.3s ease;-webkit-transition:.3s ease}#carousel-nav ul li a:active img{position:relative;top:1px;-moz-transition:none;-o-transition:none;-webkit-transition:none}#carousel-slides{float:left;height:220px;position:relative;overflow:hidden;width:820px;z-index:1}#carousel-slides .slide{height:220px;float:left;position:relative;width:480px}#carousel-slides .slide img{left:0;position:absolute;top:0}#carousel-slides .slide#slide-focus ul{left:5px;position:absolute;top:137px}#carousel-slides .slide#slide-fashionweek ul{left:5px;position:absolute;top:137px}#carousel-slides .slide#slide-merchants ul{left:10px;position:absolute;top:7px;overflow:hidden;height:204px}#carousel-slides .slide#slide-merchants ul.mini{left:5px;position:absolute;top:171px;width:500px}#carousel-slides .slide ul li{float:left}
+#carousel-slides .slide ul li a.Boden{background-position:0 0}#carousel-slides .slide ul li a.Tesco{background-position:-115px 0}#carousel-slides .slide ul li a.PizzaHut{background-position:-230px 0}#carousel-slides .slide ul li a.BritishAirways{background-position:-345px 0}#carousel-slides .slide ul li a.DorothyPerkins{background-position:-345px 0}#carousel-slides .slide ul li a.sky{background-position:-345px -68px}#carousel-slides .slide ul li a.PizzaExpress{background-position:-115px -68px}#carousel-slides .slide ul li a.LoveFilm{background-position:-230px -68px}#carousel-slides .slide ul li a.MarksSpencer{background-position:-230px -68px}#carousel-slides .slide ul li a.NewLook{background-position:0 -68px}#carousel-slides .slide ul li a.Debenhams{background-position:0 -136px}#carousel-slides .slide ul li a.Hotels{background-position:-115px -136px}#carousel-slides .slide ul li a.Currys{background-position:-230px -136px}#carousel-slides .slide ul li a.Argos{background-position:-345px -136px}
+#carousel-slides .slide ul li a.Boden:hover{background-position:-460px 0}#carousel-slides .slide ul li a.Tesco:hover{background-position:-575px 0}#carousel-slides .slide ul li a.PizzaHut:hover{background-position:-690px 0}#carousel-slides .slide ul li a.BritishAirways:hover{background-position:-805px 0}#carousel-slides .slide ul li a.DorothyPerkins:hover{background-position:-805px 0}#carousel-slides .slide ul li a.sky:hover{background-position:-805px -68px}#carousel-slides .slide ul li a.PizzaExpress:hover{background-position:-575px -68px}#carousel-slides .slide ul li a.LoveFilm:hover{background-position:-690px -68px}#carousel-slides .slide ul li a.MarksSpencer:hover{background-position:-690px -68px}#carousel-slides .slide ul li a.NewLook:hover{background-position:-460px -68px}#carousel-slides .slide ul li a.Debenhams:hover{background-position:-460px -136px}#carousel-slides .slide ul li a.Hotels:hover{background-position:-575px -136px}#carousel-slides .slide ul li a.Currys:hover{background-position:-690px -136px}
+#carousel-slides .slide ul li a.Argos:hover{background-position:-805px -136px}#carousel .transition{left:0;position:absolute;top:0;width:1920px}#carousel-nav em{height:56px;background:url("../../images/activity/nav-marker.png") repeat-x 0 0;display:block;left:-153px;*left:-500px;position:absolute;top:0;width:152px;z-index:1;-moz-transition:.5s ease;-o-transition:.5s ease;-webkit-transition:.5s ease}#carousel-nav li.activeSlide em{left:0;top:0;-moz-transition:.5s ease;-o-transition:.5s ease;-webkit-transition:.5s ease}#carousel-nav li.activeSlide img{opacity:1;-moz-transition:.5s ease;-o-transition:.5s ease;-webkit-transition:.5s ease}#special-goods{clear: both;width: 958px;overflow: hidden;border: 1px solid #D9C5C5;border-top: 2px solid #DA0605;padding-bottom: 15px;margin: 0px 0px 10px;}#special-goods ul{padding: 10px;height: 200px;}#special-goods ul li{width: 230px;border-left: 1px dotted #C7C7C7;float: left;}#special-goods ul .item{text-align: center;margin-left: 15px;} #special-goods ul .item img{padding:5px;border: 1px solid #A9A9A9;backgroud-color:#FFFFFF;}#special-goods ul li .txt{clear: both; text-align: center;padding: 5px 0;} #special-goods ul li .name{text-align: center;color:#666666;font-weight: bold;clear:both;font-family: "Microsoft YaHei",Helvetica,Arial,Verdana,sans-serif;/*padding-top: 5px;*/} #special-goods ul li span{padding: 0 5px;color:#9E9E9E;}  #special-goods ul li .priceR{color:#DD0000;}#special-goods a:link,#special-goods a:visited{color: #006FC5;}#special-goods a:hover{color:#FF6600;}select,input,button,textarea,button{font:99% arial, helvetica, clean, sans-serif;}
+table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;* font-size:108%;line-height:100%;}
+#html-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 500px;
+}
+#popad-lightbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10000;
+	text-align: center;
+	line-height: 0;
+}
+#popad-lightbox a img { border: none; }
+#lightbox-container-image-box {
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+}
+#lightbox-container-image { padding: 10px; }
+#lightbox-loading {
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}

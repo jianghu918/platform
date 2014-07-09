@@ -67,7 +67,7 @@ public class Converter {
         entity.setName(biz.getName());
         entity.setStatus(ThriftUtils.toStatus(biz.getStatus()));
         entity.setKey(biz.getKey());
-        entity.setApp(appdao.get(biz.getAppId()));
+        entity.setApp(appdao.findOne(biz.getAppId()));
         return entity;
     }
 

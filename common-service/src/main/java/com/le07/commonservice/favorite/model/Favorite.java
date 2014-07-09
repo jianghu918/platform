@@ -16,6 +16,7 @@ import java.util.Date;
  * Date: 13-7-10
  * Time: 下午1:44
  */
+@Table(name = "cs_favorite")
 @Entity
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Favorite implements Serializable{

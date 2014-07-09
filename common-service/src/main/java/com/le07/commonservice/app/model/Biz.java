@@ -18,6 +18,7 @@ import java.util.Map;
  * Date: 13-6-28
  * Time: 上午10:29
  */
+@Table(name = "cs_biz")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @SuppressWarnings({"unused"})

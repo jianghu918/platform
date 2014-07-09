@@ -2,6 +2,7 @@ package com.le07.commonservice.standard.util;
 
 
 import com.google.common.collect.Lists;
+import com.le07.api.type.Status;
 import com.le07.commonservice.standard.model.Classification;
 import com.le07.framework.util.ThriftUtils;
 import org.springframework.util.CollectionUtils;
@@ -24,7 +25,7 @@ public class ClassificationConverter {
         entity.setBizKey(classification.getBizKey());
         entity.setName(classification.getName());
         entity.setPid(classification.getPid());
-        entity.setStatus(ThriftUtils.toStatus(classification.getStatus()));
+        entity.setStatus(classification.getStatus().getValue());
         entity.setRemark(classification.getRemark());
         return entity;
     }
@@ -35,7 +36,7 @@ public class ClassificationConverter {
         entity.setBizKey(classification.getBizKey());
         entity.setName(classification.getName());
         entity.setPid(classification.getPid());
-        entity.setStatus(ThriftUtils.toApiStatus(classification.getStatus()));
+        entity.setStatus(Status.findByValue(classification.getStatus()));
         entity.setRemark(classification.getRemark());
         return entity;
     }

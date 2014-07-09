@@ -1,0 +1,68 @@
+img {
+	max-width: none;
+}
+
+/* Action Buttons */
+.action-btn {
+	background:url(../../images/button-bg.png) repeat;
+}
+.action-btn-holder__banner .action-btn {
+	background:url(../../images/button-bg.png) repeat;
+}
+.action-btn-holder__right .action-btn {
+	background:url(../../images/button-bg-right.png) repeat;
+}
+/* Warning Button */
+.action-btn-holder__warning .action-btn {
+	background:url(../../images/button-bg-warning.gif) repeat;
+}
+
+/* Flexslider */
+.flexslide-caption {
+	background: url(../../images/dark-opacity-40.png);
+}
+
+/* Menu Grid */
+.menu__grid h3 {
+	background: url(../../images/dark-opacity-40.png);
+}
+
+/* Portfolio */
+.project-item .mask {
+	visibility: hidden;
+}
+.project-item .icon-zoom {
+	visibility: hidden;
+}
+.project-img:hover .mask {
+	visibility: visible;
+}
+.project-img:hover .icon-zoom {
+	visibility: visible;
+}
+.project-item .mask {
+	border: none;
+	background: url(../../images/overlay.png);
+}
+
+/* Reveal Modals */
+.reveal-modal-bg,
+div.pp_overlay {
+	background: url(../../images/overlay.png);
+}
+div.custom_square .pp_fade {
+	border: none;
+}
+
+/* Banner (disable pizza icon for css3 animation) */
+.action-btn .ico-pizza__alt {
+	display: none;
+}
+.action-btn .ico-cards__alt {
+	display: none;
+}
+
+/* Featured Image animation */
+.accent-box__animated .mask {
+	display: none;
+}

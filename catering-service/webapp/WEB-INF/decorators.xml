@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/layouts/">
+	<excludes>
+    <pattern>/index/*</pattern>
+    <pattern>/login</pattern>
+    <pattern>/static/*</pattern>
+    <pattern>/cxf/*</pattern>
+    <pattern>/api/*</pattern>
+    <pattern>*ajax=1</pattern>
+    <pattern>*ajax=1&amp;op=view*</pattern>
+</excludes>
+
+    <!-- 后台 -->
+	<decorator name="default" page="admin/default.jsp">
+		<pattern>*/admin*</pattern>
+        <pattern>*/common*</pattern>
+	</decorator>
+	
+	<!-- 前台 可配置多个 -->
+	<decorator name="index" page="cd/default.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+
+</decorators>

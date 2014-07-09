@@ -1,12 +1,10 @@
 package com.le07.commonservice.standard.model;
 
-import com.le07.framework.global.type.Status;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -18,6 +16,7 @@ import java.io.Serializable;
  * Date: 13-7-16
  * Time: 下午1:32
  */
+@Table(name = "cs_unit")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Unit implements Serializable {
@@ -30,8 +29,8 @@ public class Unit implements Serializable {
     @NotBlank
     private String name;
     
-    @NotNull
-    private Status status;
+
+    private Integer status;
 
     private String remark;
 
@@ -58,11 +57,11 @@ public class Unit implements Serializable {
         this.name = name;
     }
 
-    public Status getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

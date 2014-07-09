@@ -17,6 +17,7 @@ import java.util.Date;
  * Date: 13-7-10
  * Time: 上午10:00
  */
+@Table(name = "cs_rating")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Rating implements Serializable {

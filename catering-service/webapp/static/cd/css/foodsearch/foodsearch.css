@@ -1,0 +1,235 @@
+/* CSS Document */
+@import "../common/foodslist.css";
+
+body {
+color:#333333;
+font-family:"宋体";
+font-size:12px;
+margin:0 auto;
+padding:0;
+width:960px;
+}
+*{
+margin:0;
+padding:0;
+}
+a{
+color:#006FC5;
+text-decoration:none;
+}
+a:hover{
+color:#0000FF;
+}
+#search {
+float:left;
+height:auto;
+margin-bottom:2px;
+margin-top:20px;
+min-height:130px;
+width:700px;
+/*z-index:101;*/
+}
+
+
+#cartinfo{
+float:right;
+width:252px;
+height:auto;
+margin-top:20px;
+position:relative;
+z-index:105;
+}
+
+#c_content {
+clear:both;
+height:auto;
+margin:0 auto;
+width:960px;
+position:relative;
+/*z-index:90;*/
+}
+
+#main_content {
+height:auto;
+width:960px;
+}
+
+#tipsline {
+background:#F0F7F9 none repeat scroll 0 0;
+border-top:1px solid #A9A9A9;
+height:21px;
+text-align:center;
+width:960px;
+}
+#tipsright {
+float:right;
+width:630px;
+}
+#choose_tips {
+float:left;
+padding-top:2px;
+text-align:left;
+width:350px;
+}
+
+#search_tips {
+float:right;
+padding-top:2px;
+text-align:right;
+width:280px;
+}
+
+#food_right {
+float:left;
+height:auto;
+margin-top:15px;
+text-align:center;
+width:285px;
+}
+
+.food_list {
+height:auto;
+margin:0 0 10px;
+width:285px;
+}
+.food_line {
+-moz-background-origin:padding;
+background:transparent url(../../images/foodrestsearch/line02_03.jpg) no-repeat scroll center bottom;
+height:5px;
+width:285px;
+}
+.food_con {
+background:#FAFAFA none repeat scroll 0 0;
+border-color: #CCCCCC;
+border-style:none solid;
+border-width:medium 1px;
+height:auto;
+width:283px;
+text-align:left;
+}
+.con_title {
+border-bottom:1px dashed #CCCCCC;
+color:#455587;
+font-size:14px;
+height:18px;
+padding:5px 0 0 10px;
+text-align:left;
+width:273px;
+position:relative;
+margin-bottom:5px;
+}
+
+.con_title .selected{
+background:transparent url(../../images/common/selected_icon.png) no-repeat 0 0;
+position:absolute;
+right:8px;
+top:6px;
+width:16px;
+height:16px;
+}
+
+.subcategory {
+line-height:20px;
+margin-left:10px;
+margin-right:10px;
+margin-top:5px;
+text-align:left;
+min-height:20px;
+min-width:250px;
+height:auto;
+width:auto;
+}
+
+.subcategory dl{
+display:inline;
+}
+.subcategory dd{
+display:inline;
+*float:left;
+height:16px;
+padding-left:15px;
+margin-right:10px;
+cursor:pointer;
+}
+.subcategory dd.selected{
+background:transparent url(../../images/common/selected_icon12.png) no-repeat scroll 0 0;
+*background:transparent url(../../images/common/selected_icon12.png) no-repeat scroll 0 3px;
+}
+
+.dishtypes_unselected{
+height:16px;
+width:50px;
+padding-left:15px;
+margin-right:10px;
+cursor:pointer;
+text-align:left;
+color:#2FBD40;
+font-size:13px;
+}
+.dishtypes_selected{
+background:transparent url(../../images/common/selected_icon12.png) no-repeat scroll 1px 0;
+height:16px;
+width:50px;
+padding-left:15px;
+margin-right:10px;
+cursor:pointer;
+text-align:left;
+color:#2FBD40;
+font-size:13px;
+}
+
+#loadmaindishtypes p, #loadalcoholtypes p, #loadresttype p{
+color:#79A4BB;
+font-size:120%;
+padding-left:10px;
+padding-top:10px;
+text-align:left;
+}
+#lists_content {
+float:right;
+height:auto;
+width:650px;
+}
+
+#pager {
+float:right;
+}
+
+.up {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/foodrestsearch/up_13.jpg) no-repeat scroll 0 0;
+height:12px;
+width:15px;
+}
+.under {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../../images/foodrestsearch/under.jpg) no-repeat scroll 0 0;
+height:12px;
+width:15px;
+}
+
+ a.maindishtype:link{
+	color:#2FBD40;
+	font-size:13px;
+	text-decoration:none;	
+}
+
+.foodsearchrange{
+margin-left:30px;
+float:left;
+line-height:34px;
+text-align:center;
+width:200px;		
+}
+
+.restaveragerange{
+margin-left:30px;
+float:left;
+line-height:34px;
+text-align:center;
+width:200px;
+}

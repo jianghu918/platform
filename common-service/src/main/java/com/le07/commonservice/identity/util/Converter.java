@@ -83,7 +83,7 @@ public class Converter {
 
     public static com.le07.api.identity.Role toApiRole(Role userRole) {
         com.le07.api.identity.Role entity = new com.le07.api.identity.Role();
-        entity.setAuthority(userRole.getAuthority());
+        entity.setPermissions(userRole.getPermissions());
         entity.setId(userRole.getId());
         entity.setUserId(userRole.getUser().getId());
         return entity;

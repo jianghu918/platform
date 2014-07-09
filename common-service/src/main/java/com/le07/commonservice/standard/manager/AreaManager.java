@@ -17,4 +17,6 @@ public interface AreaManager {
 
     List<Area> findByPid(Long pid);
 
+    List<Area> findByPid(Long pid, Long level);
+
 }

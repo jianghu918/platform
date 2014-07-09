@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Date: 13-7-1
  * Time: 下午4:50
  */
-@Table
+@Table(name = "cs_area")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings({"unused"})

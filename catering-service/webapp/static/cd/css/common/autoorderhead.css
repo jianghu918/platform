@@ -1,0 +1,126 @@
+
+#navigation {
+background:transparent url(../../images/orderfood/nav_bl.gif) no-repeat scroll left bottom;
+float:left;
+margin-top:15px;
+height:43px;
+width:960px;
+}
+
+
+#navigation .inner1 {
+background:transparent url(../../images/orderfood/nav_br.gif) no-repeat scroll right bottom;
+float:left;
+width:100%;
+}
+
+#navigation .inner2 {
+background:transparent url(../../images/orderfood/nav_tl.gif) no-repeat scroll left top;
+float:left;
+width:100%;
+}
+#navigation .inner3 {
+background:transparent url(../../images/orderfood/nav_tr.gif) no-repeat scroll right top;
+float:left;
+padding:5px 0 9px;
+width:100%;
+}
+
+.col {
+padding:0 15px;
+width:960px;
+}
+#search {
+float:right;
+width:200px;
+}
+#search fieldset {
+border:0 none;
+margin:0;
+position:relative;
+}
+
+.fieldWrap {
+background:#A9DD6B none repeat scroll 0 0;
+float:left;
+margin:0 5px 0 0;
+padding:2px;
+}
+#search .field {
+padding:4px 5px;
+*padding:3px 5px 1px 5px;
+width:120px;
+border:1px solid #6D7E59;
+font-size:12px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:12px;
+}
+
+.search_button {
+float:left;
+width:40px;
+padding-top:5px;
+cursor:pointer;
+}
+
+#navigation ul {
+margin:0;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+float:left;
+}
+
+#navigation li {
+display:inline;
+font-family:"微软雅黑";
+font-size:16px;
+font-weight:bold;
+}
+
+ #navigation a {
+color:#CFEDAC;
+float:left;
+margin-right:3px;
+position:relative;
+text-decoration:none;
+}
+
+#navigation a em {
+color:#597D39;
+font-style:normal;
+left:11px;
+position:absolute;
+top:3px;
+white-space:nowrap;
+}
+
+ #navigation a span {
+float:left;
+padding:4px 9px 5px 11px;
+}
+
+#navigation a:hover, #navigation a:hover em, #navigation a em:hover,#navigation li.current a em {
+color:#7D7D7D;/*39708E*/
+cursor:pointer;
+}
+#navigation li.current a em {
+color:#39708E;
+cursor:pointer;
+}
+
+#search .fieldWrap label{
+	color:#999999;
+	font-size:100%;
+	height:22px;
+	left:20px;
+	line-height:22px;
+	position:absolute;
+	text-align:left;
+	top:3px;
+	width:120px;
+}

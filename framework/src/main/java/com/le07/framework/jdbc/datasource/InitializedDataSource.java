@@ -1,6 +1,7 @@
 package com.le07.framework.jdbc.datasource;
 
 import com.google.common.collect.Sets;
+
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,10 +17,13 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
+
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * 用来更新数据库结构，或是初始化一些数据
@@ -176,6 +180,12 @@ public class InitializedDataSource implements DataSource, InitializingBean, Reso
             throw new DataAccessResourceFailureException("Failed to execute database script", ex);
         }
     }
+
+	
+	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

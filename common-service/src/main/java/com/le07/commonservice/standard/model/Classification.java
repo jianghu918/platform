@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ import java.util.List;
  * Date: 13-7-16
  * Time: 下午1:40
  */
+@Table(name = "cs_classification")
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Classification implements Serializable{
@@ -30,23 +32,43 @@ public class Classification implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     * 节点名称
+     */
     @NotBlank
     private String name;
 
+    /**
+     * 分类：
+     * 0 ：菜的大体分类 （粤菜 川菜 湖南菜 杭帮菜 淮扬菜 东北菜 新疆菜 宁波菜 火锅 日本料理 韩国料理 越南菜 泰国菜 意式西餐 素食 自助）
+     * 1 ：菜的口味分类（每个店自己有自己的分类， 如【经典热菜，素味平生，冰沙果汗，酒水等】）
+     */
+    private int type;
+
+    /**
+     * 父ID
+     */
     private Long pid;
 
-    @NotNull
-    private Status status;
+    /**
+     * 是否有子节点
+     */
+    private boolean isParent;
 
-    @Length(min = 0, max = 255)
-    private String remark;
+    @NotNull
+    private Integer status = 0;
 
     @Column(name = "biz_id")
     private Long bizId;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_at")
+    private Date createAt = new Date();
+
     @Transient
     private String bizKey;
 
+    private String remark;
 
     public Long getBizId() {
         return bizId;
@@ -56,8 +78,24 @@ public class Classification implements Serializable{
         this.bizId = bizId;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public void setId(Long id) {
@@ -65,8 +103,17 @@ public class Classification implements Serializable{
     }
 
 
+
     public String getName() {
         return name;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
     public void setName(String name) {
@@ -81,20 +128,20 @@ public class Classification implements Serializable{
         this.pid = pid;
     }
 
-    public Status getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public String getRemark() {
-        return remark;
+    public boolean isParent() {
+        return isParent;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setParent(boolean parent) {
+        isParent = parent;
     }
 
     public String getBizKey() {
@@ -113,4 +160,6 @@ public class Classification implements Serializable{
                 ", pid=" + pid +
                 ", status=" + status +                '}';
     }
+
+
 }

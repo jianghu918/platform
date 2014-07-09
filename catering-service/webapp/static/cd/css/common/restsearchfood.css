@@ -1,0 +1,50 @@
+fieldset .suggestions {
+background:#EEEEEE none repeat scroll 0 0;
+border:1px solid FAFAFA;
+border-top:1px solid #FAFAFA;
+display:none;
+height:auto;
+left:0px;
+position:absolute;
+top:25px !important;
+top:25px;
+left:3px;
+width:160px;
+z-index:3333;
+}
+
+fieldset .suggestions ul {
+overflow:auto;
+width:100%;
+padding:0;
+list-style-type:none;
+float:left;
+padding:7px 0;
+}
+
+.searchfoodfont{
+color:#333333;
+font-family:"宋体";
+font-size:12px;
+}
+
+fieldset .suggestions ul li{
+cursor:pointer;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+list-style-type:none;
+padding:5px 8px;
+min-height:15px;
+height:15px;
+min-height:15px;
+float:left;
+width:130px;
+}
+
+fieldset .suggestions ul li .result_food_name{
+float:left;
+}

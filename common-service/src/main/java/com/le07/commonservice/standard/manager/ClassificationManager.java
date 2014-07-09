@@ -1,6 +1,7 @@
 package com.le07.commonservice.standard.manager;
 
 import com.le07.commonservice.standard.model.Classification;
+import com.le07.framework.base.BaseManager;
 import com.le07.framework.global.type.Status;
 import com.le07.framework.util.Page;
 
@@ -15,7 +16,10 @@ import java.util.Set;
  * Date: 13-7-16
  * Time: 下午2:54
  */
-public interface ClassificationManager {
+public interface ClassificationManager extends BaseManager<Classification, Long>{
+    int IS_COMM_ROOT = 0;
+    int IS_ROOT = 1;
+
     /**
      * 保存或保存一个分类信息，
      * 最顶层的分类Pid为0
@@ -76,5 +80,48 @@ public interface ClassificationManager {
      */
     public Classification get(long id);
 
+
+    List<Classification> findAll(Long companyId, Long pid);
+
+    void deleteByPid(Long classificationId);
+
+
+
+
+
+
+    /**  JsTree  **/
+
+    /**
+     * 获取id节点信息
+     * @param id
+     * @return
+     */
+    Classification get_node(Long id, String bizKey);
+
+    /**
+     * 获取pid为id的所有节点
+     * @param pid
+     * @return
+     */
+    List<Classification> get_children(Long pid, int typeId, String bizKey);
+
+    /**
+     * 获取商家的分类节点信息
+     * @param pid
+     * @param typeId
+     * @return
+     */
+    List<Classification> get_children(long pid, int typeId);
+
+    /**
+     * 是否有子节点
+     * @param id
+     * @return
+     */
+    boolean isParent(Long id);
+
+
+    void updateClassificationPid(Long id, Long pid);
 
 }

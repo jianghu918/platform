@@ -1,0 +1,675 @@
+/* CSS Document */
+body{
+    padding:0;
+    font-family:"宋体";
+    font-size:12px;
+    color:#333;
+    width:960px;
+    margin:auto;
+}
+div,img,a{
+}
+*{
+    margin:0;
+    padding:0
+}
+ul{
+    list-style-type:none;
+    list-style-image:none;
+}
+
+.clear{
+    clear:both;
+}
+
+
+a{color:#006FC5;text-decoration:none;}
+a:hover {color:#FF7A21; }
+
+#content_body{
+    background:transparent url(../../images/restaurantmain/content_body_bg.gif) repeat-y scroll 0 0;
+    height:auto;
+}
+#main_content {
+    background:#E5ECF9 none repeat-y scroll 0 0;
+    min-height:400px;
+    height:auto;
+}
+#small_pics{
+    background:transparent url(../../images/restaurantmain/small_pic_bg_top.gif) no-repeat scroll 0 0;
+    float:left;
+    width:148px;
+    margin:10px 5px 0px 5px ;
+    padding-top:30px;
+}
+.small_pic_inner{
+    margin-left:20px !important;
+    margin-left:10px;
+    float:left;
+}
+.small_pics_ft{
+    background:transparent url(../../images/restaurantmain/small_pic_bg_bottom.gif) no-repeat scroll left -7px;
+    clear:both;
+    float:left;
+    height:20px;
+    width:148px;
+}
+
+#restauranthead{
+    width:960px;
+    min-height:55px;
+    height:auto;
+}
+
+#big_pic{
+    float:left;
+    margin-top:10px;
+
+}
+.blueFont{
+    margin-top:5px;
+}
+.blueFont a{
+    margin:3px 5px;
+    cursor:pointer;
+}
+
+.big_pic_inner{
+    float:left;
+    padding:10px;
+    background:#ffffff none no-repeat left top;
+}
+.pic_shd{
+    background:transparent url(../../images/restaurantmain/bigpic_shd1.png) no-repeat scroll left bottom;
+    clear:both;
+    float:left;
+    width:460px;
+    height:24px;
+}
+#restinfo {
+    background:transparent url(../../images/restaurantmain/info_bg.png) no-repeat scroll -1px top;
+    float:right;
+    margin-right:5px !important;
+    margin-right:5px;
+    text-align:left;
+    width:327px;
+    margin-top:10px;
+    min-height:300px;
+    height:auto;
+}
+.info_ft{
+    background:transparent url(../../images/restaurantmain/info_bg_ft2.png) no-repeat scroll left bottom;
+    clear:both;
+    float:left;
+    height:27px;
+    overflow:hidden;
+    width:327px;
+}
+
+.restgeneinfo {
+    margin:10px;
+    line-height:22px;
+    font-size:14px;
+}
+.title_list h1,.restgeneinfo h1 {
+    font-size:20px;
+    margin:15px 0 10px;
+    font-family:"黑体";
+    font-weight:normal;
+    height:24px;
+}
+.map {
+    background:transparent url(../../images/common/iconb7.png) no-repeat scroll 0 0;
+    height:34px;
+    margin-right:10px;
+    padding-left:22px;
+    padding-top:20px;
+    width:70px;
+    margin-left:13px;
+    margin-top:15px;
+}
+.map a{
+    font-size:12px;
+    font-weight:bold;
+}
+
+.per_consumption{
+    background:transparent url(../../images/restaurantmain/rjxf_03.jpg) no-repeat scroll 0 50%;
+    float:left;
+    height:45px;
+    margin:0px 0 15px 15px ;
+    padding:25px 0 0 55px;
+    color:#C80000;
+    font-size:20px;
+    font-weight:bold;
+    line-height:45px;
+}
+
+.order_button,.map_order_button {
+    clear:both;
+    background:transparent url(../../images/restaurantmain/dc_03.png) no-repeat scroll 0 0;
+    cursor:pointer;
+    float:left;
+    height:46px;
+    margin-left:25px;
+    *margin-left:10px;
+    width:73px;
+}
+
+.map_order_button {
+    background:transparent url(../../images/restaurantmain/dc_01.png) no-repeat scroll 0 0;
+    margin-left:20px;
+}
+
+.auto_order_button,.map_auto_order_button{
+    background:transparent url(../../images/restaurantmain/zdpc_07.png) no-repeat scroll 0 0;
+    cursor:pointer;
+    float:right;
+    height:46px;
+    line-height:20px;
+    margin-right:20px;
+    *margin-right:10px;
+    width:110px;
+}
+.map_auto_order_button{
+    background:transparent url(../../images/restaurantmain/zdpc_01.png) no-repeat scroll 0 0;
+    margin-right:0px;
+}
+
+span.delivery{
+    background:transparent url(../../images/common/16c.png) no-repeat scroll 0 0;
+    padding-left:22px;
+    height:20px;
+    font-size:12px;
+    color:#16387C;
+    margin-left:3px;
+    float:left;
+    font-family:"宋体";
+}
+
+.restgeneinfo  span.addinfavor {
+    background:transparent url(../../images/common/addInFavor.png) no-repeat scroll 0 0;
+    padding-left:22px;
+    height:20px;
+    font-size:12px;
+    color:#16387C;
+    margin-left:3px;
+    float:left;
+}
+
+.restgeneinfo  span.sinaShare{float:left;margin-left:20px; font-family:"宋体";}
+.restgeneinfo  span.sinaShare a{color:#333333;text-align:center;font-size:12px;}
+
+.restgeneinfo  span.addinfavor a{
+    font-family:"宋体";
+    font-weight:500;
+}
+#pictitle{
+    clear:both;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    width:400px;
+    margin-left:190px;
+    padding-top:2px;
+    color:#838383;
+    position:relative;
+    top:-15px;
+}
+.tabs{
+    /*background:transparent url(../../images/common/title_bg2.gif) repeat-x scroll 0 2px;*/
+    border-bottom:1px solid #FFFFFF;
+    height:33px;
+}
+.tabs ul{
+    margin-left:10px;
+}
+
+.selsheet{
+    background:transparent url(../../images/restaurantmain/tab_shd.png) no-repeat scroll 0 0;
+    color:#FFFFFF;
+    cursor:pointer;
+    float:left;
+    font-size:16px;
+    font-weight:bold;
+    height:32px;
+    line-height:32px;
+    width:127px;
+    padding-left:20px;
+}
+
+.unselsheet{
+    background:transparent url(../../images/restaurantmain/tab_shd2.png) no-repeat scroll 0 0;
+    color:#FFFFFF;
+    cursor:pointer;
+    float:left;
+    font-size:16px;
+    font-weight:bold;
+    height:32px;
+    line-height:32px;
+    width:127px;
+    padding-left:20px;
+}
+/*.tabs ul li{
+background:transparent url(../../images/restaurantmain/tab_shd.png) no-repeat scroll 0 0;
+color:#FFFFFF;
+cursor:pointer;
+float:left;
+font-size:16px;
+font-weight:bold;
+height:32px;
+line-height:32px;
+width:127px;
+padding-left:20px;
+}*/
+
+.content_box{
+    background:#FFFFFF url(../../images/fooddetailinfo/bg_top2.gif) no-repeat scroll 0 0;
+    position:relative;
+    width:470px;
+    margin-top:15px;
+    margin-left:5px;
+    float:left;
+}
+.big_content_box{
+    background:#FFFFFF url(../../images/restaurantmain/big_bg_top.gif) no-repeat scroll 0 0;
+    width:931px;
+    margin:15px 0 30px 10px;
+    float:left;
+}
+.content_box .detail_info h2,.big_content_box .detail_info h2{
+    color:#727272;
+    margin-left:10px;
+    font-size:16px;
+}
+
+.content_box .detail_info,.big_content_box .detail_info {
+    width:465px;
+    border-bottom:2px solid #DEDEDE;
+    background-color:#DEECF5;
+    padding-top:10px;
+    padding-bottom:5px;
+    margin-bottom:10px;
+}
+.big_content_box .detail_info {
+    width:926px;
+}
+
+.content_box .info_text{
+    margin-top:10px;
+    height:277px;
+    overflow: hidden;
+    padding: 5px 15px 0px;
+}
+.content_box .info_text p{
+    text-indent:30px;
+    font-size:13px;
+    line-height:20px;
+}
+.content_box_bottom{
+    background:transparent url(../../images/fooddetailinfo/bg_bottom1.gif) no-repeat scroll 0 100%;
+    clear:both;
+    height:20px;
+    overflow:hidden;
+    width:470px;
+}
+.big_content_box_bottom{
+    background:transparent url(../../images/restaurantmain/big_bg_bottom.gif) no-repeat scroll 0 100%;
+    clear:both;
+    height:20px;
+    overflow:hidden;
+    width:931px;
+}
+.rest_detail{
+    min-height:100px;
+    height:auto;
+}
+#seatinglist{
+    width:465px;
+    min-height:80px;
+    height:auto;
+    margin-left: 0px;
+}
+#seatinglist li,#baoxiangseatinglist li{
+    float:left;
+    font-size:110%;
+    border-bottom:1px dotted #E5ECF9;
+    width:465px;
+    display:block;
+}
+
+#seatinglist li.first,#baoxiangseatinglist li.first{
+    border-bottom:none;
+    margin-top:10px;
+}
+#seatinglist li span,#baoxiangseatinglist li span{
+    margin-left:25px;
+}
+#seatingtype{
+    height:30px;
+    width:465px;
+    border-bottom:1px solid #E5ECF9;
+}
+div#seatingtype .typename{
+    color:#6688CC;
+    margin-left:10px;
+    width:200px;
+    padding-top:8px;
+    font-size:14px;
+    font-weight:bold;
+    position:relative;
+}
+div#seatingtype .typename a:visited{
+    color:#6688CC;
+}
+div#seatingtype .typename em{
+    -x-system-font:none;
+    color:#666666;
+    font-family:verdana;
+    font-size:9px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:normal;
+    padding:0 3px;
+    position:relative;
+    top:-5px;
+}
+
+#seatinglist li .textinfo,#seatinglist li .mini_charge,#baoxiangseatinglist li .mini_charge,#baoxiangseatinglist li .textinfo{
+    float:left;
+    width:100px;
+    color:#2A8BBE;
+    text-align:center;
+    height:30px;
+    line-height:30px;
+    overflow:hidden;
+}
+#seatinglist li .mini_charge,#baoxiangseatinglist li .mini_charge{
+    color:#AAD010;
+}
+
+#more_buttons,#more_dating_buttons,#more_baoxiang_buttons{
+    clear:both;
+    float:right;
+    text-align:right;
+    padding-top:10px;
+    padding-right:10px;
+    margin-right:10px;
+    width:200px;
+    height:30px;
+    line-height:30px;
+}
+
+.morepage{
+    float:right;
+    width:200px;
+    height:auto;
+}
+
+
+
+.map_search{
+    height:auto;
+    clear:both;
+    padding-bottom:15px;
+    overflow:hidden;
+}
+.map_search .left{
+    width:5px;
+    height:44px;
+    background:url(../../images/restaurantmain/map_search_left.gif) no-repeat;
+    float:left;
+}
+.map_search .center{
+    width:950px;
+    height:44px;
+    background:url(../../images/restaurantmain/map_search_center.gif) repeat-x;
+    float:left;
+}
+.map_search .right{
+    width:5px;
+    height:45px;
+    background:url(../../images/restaurantmain/map_search_right.gif) no-repeat;
+    float:left;
+}
+.map_search .srch_search{
+    width:80%;
+    padding:7px 0 0 25px;
+    float:left;
+    font-size:14px;
+    line-height:20px;
+}
+.map_search .text{
+    background:#FFFFFF none repeat scroll 0 0 !important;
+    border:1px solid #a7a7a7;
+    color:#A5A5A5;
+    font-size:12px;
+    width:150px;
+    padding:2px 0 0 5px;
+    height:18px;
+    line-height:20px;
+}
+.map_search input{
+    text-align:start;
+    cursor:text;
+}
+.map_left{
+    width:700px;
+    height:450px;
+    float:left;
+}
+.map_right_list{
+    width:250px;
+    height:auto;
+    float:right;
+}
+
+.map_right_list h2{
+    background-color:#DEECF5;
+    border-bottom:2px solid #DEDEDE;
+    color:#727272;
+    font-size:16px;
+    height:30px;
+    line-height:30px;
+    margin-bottom:20px;
+    padding-left:10px;
+}
+.map_right_list .top_corner{
+    clear:both;
+    height:10px;
+    background:url(../../images/restaurantmain/sech_top.gif) no-repeat;
+    overflow:hidden;
+}
+
+#map_open_info{
+    font-size:14px;
+    line-height:20px;
+}
+#map_open_info h3{
+    color:#597D39;
+    font-size:16px;
+    margin-bottom:10px;
+    margin-top:5px;
+}
+#map_open_info b{
+    color:#006FC5;
+}
+.sech_content{
+    width:248px;
+    background:#efefef;
+    border:1px solid #ccc;
+    border-bottom:none;
+    border-top:none;
+    height:auto;
+}
+.bottom_corner{
+    clear:both;
+    height:10px;
+    background:url(../../images/restaurantmain/sech_bottom.gif) no-repeat;
+}
+.xialakuan{
+    width:80px;
+    margin-left:5px;
+    height:22px;
+}
+
+.xialakuan1{
+    width:120px;
+    margin-left:5px;
+    height:22px;
+}
+
+#customercomments{
+    float:left;
+    height:auto;
+    width:730px;
+    margin-left:100px;
+}
+.infowinarea a img{
+    width:120px;
+    height:130px;
+}
+
+
+
+.hint {
+    background:#C4EEFF url(../../images/common/hint_pointer.gif) no-repeat scroll -10px 5px;
+    border:1px solid #66CCFF;
+    color:#000000;
+    font-size:12px;
+    left:45px;
+    top:-5px;
+    line-height:17px;
+    padding:10px 12px;
+    position:absolute;
+    width:200px;
+    z-index:100;
+    min-height:20px;
+    height:auto !important;
+    height:20px;
+}
+.hint .hint-pointer {
+    background:transparent url(../../images/common/hint_pointer.gif) no-repeat scroll left top;
+    height:19px;
+    left:-35px;
+    position:absolute;
+    top:8px;
+    width:10px;
+}
+
+.lineInfoBox {
+    background: #E8ECF9 none repeat scroll 0 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #006FC5;
+}
+
+.lineDetail{
+    font-size:13px;
+    font-weight:600;
+    border-bottom:2px #CDCDCD solid;
+}
+.lineDetail span{
+    background:transparent url(../../images/common/plus.gif) no-repeat scroll left top;
+    cursor:pointer;
+    height:12px;
+    padding-left:14px;
+    color:#006FC5;
+    font-size:12px;
+    margin-left:30px;
+
+    width:100px;
+}
+.lineDetail span.hideInfo{
+    background:transparent url(../../images/common/minus.gif) no-repeat scroll left top;
+}
+.walk{
+    background:transparent url(../../images/common/walk.gif) no-repeat scroll left top;
+    height:15px;
+    padding-left:20px;
+    margin-top:10px;
+}
+.bus{
+    background:transparent url(../../images/common/bus.gif) no-repeat scroll left top;
+    padding-left:20px;
+    margin-top:10px;
+}
+.rail{
+    background:transparent url(../../images/common/rail.gif) no-repeat scroll left top;
+    padding-left:20px;
+    margin-top:10px;
+}
+.startPoint{
+    background:transparent url(../../images/common/car1.png) no-repeat scroll left -2px;
+    padding-left:20px;
+    line-height:20px;
+    height:20px;
+    margin-left:7px;
+}
+.endPoint{
+    background:transparent url(../../images/common/car2.png) no-repeat scroll left -2px;
+    padding-left:20px;
+    margin-bottom:15px;
+}
+
+/*-----------------------------------------------choose seats online ---------------------------------------------------------*/
+.left{ float:left;}
+.right{ float:right;}
+.onlinePicChange{ width:190px; height:83px; background-color:#cccccc;}
+.onlinePicChange a{ display:block;width:190px; height:83px; background:url(../../images/common/online.gif) no-repeat;}
+.onlinePicChange a:hover{ display:block;width:190px; height:83px; background:url(../../images/common/online_hover.gif) no-repeat;}
+.onlinePicChange a:active{ display:block;width:190px; height:83px; background:url(../../images/common/online_click.gif) no-repeat;}
+#restinfo2 {
+    background:transparent url(../../images/restaurantmain/info_bg.png) no-repeat scroll -1px top;
+    float:right;
+    margin-right:5px !important;
+    margin-right:5px;
+    text-align:left;
+    width:327px;
+    margin-top:10px;
+    min-height:300px;
+    height:auto;
+}
+
+.online_btn{ width:150px; height:28px; background:url(../../images/common/online_btn.png) no-repeat; display:block; }
+.map2 {
+    background:transparent url(../../images/common/iconb7.png) no-repeat scroll left center;
+    height:90px;
+    margin-right:10px;
+    padding-left:22px;
+    padding-top:20px;
+    width:280px;
+    margin-left:13px;
+    margin-top:15px;
+}
+.map2 a{
+    font-size:12px;
+    font-weight:bold;
+    line-height:90px;
+}
+.per_consumption2{
+    background:transparent url(../../images/restaurantmain/rjxf_03.jpg) no-repeat scroll 0 50%;
+    height:45px;
+    margin:0px 0 15px 15px ;
+    padding:25px 0 0 55px;
+    color:#C80000;
+    font-size:20px;
+    font-weight:bold;
+    line-height:45px;
+}
+#restlastestorders{
+    height:200px;
+    overflow:hidden;
+}
+#restlastestorders li{ line-height:25px; border-bottom:dashed 1px #CCCC99; height:25px;width:435px;  }
+
+#restlastestorders li span{ display:inline-block; }
+
